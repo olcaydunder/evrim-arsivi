@@ -805,6 +805,19 @@
    ]
   },
   {
+   "id": "klinik-reel-originals-04",
+   "account": "klinik",
+   "type": "reel",
+   "order": 4,
+   "title": "ZOOTOPIA ORIGINALS · Bölüm 04",
+   "subtitle": "Kediler Neden Az Su İçer?",
+   "caption": "ZOOTOPIA ORIGINALS · Bölüm 04: Kediler Neden Az Su İçer?\n\nKediniz yeterince su içiyor mu? 💧\n\nKediler doğaları gereği az su içer; ataları suyu büyük ölçüde avlarından alıyordu. Ama az su içmek, idrar yolu sağlığı açısından dikkat gerektirir.\n\nTaze su, temiz kap, evin farklı noktalarında su kapları ve su pınarları kedinizi daha çok içmeye teşvik edebilir.\n\nSu içme alışkanlığı aniden değişirse veteriner hekiminize danışın.\n\n📍 Zootopia Veteriner Kliniği · Çekmeköy\nℹ️ Bu video genel bilgilendirme amaçlıdır; tanı ve tedavi yerine geçmez. Görüntüler yapay zekâ ile üretilmiş temsili canlandırmalardır.\n\n#kedi #kedisağlığı #veteriner #çekmeköyveteriner #zootopiaoriginals",
+   "cover": "content/klinik/reel/originals-04/cover.jpg",
+   "media": [
+    "content/klinik/reel/originals-04/video.mp4"
+   ]
+  },
+  {
    "id": "almanya-reel-immuno-potion",
    "account": "almanya",
    "type": "reel",
