@@ -1,6 +1,6 @@
 package com.evrimarsivi.planlayici
 
-import android.Manifest
+
 import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -44,8 +44,8 @@ class MainActivity : Activity() {
         setContentView(ScrollView(this).apply { setBackgroundColor(Ui.BG); addView(root) })
 
         if (Build.VERSION.SDK_INT >= 33 &&
-            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 7)
+            checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 7)
         }
         Scheduler.scheduleAll(this)
         manifest = Repo.cached(this)
