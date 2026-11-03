@@ -1,13 +1,14 @@
 package com.evrimarsivi.planlayici
 
-
 import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -17,9 +18,10 @@ import android.widget.Toast
 import kotlin.concurrent.thread
 
 class MainActivity : Activity() {
-    private lateinit var list: LinearLayout
+    private lateinit var root: LinearLayout
     private lateinit var status: TextView
     private var manifest: Manifest? = null
+    private var showShared = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,35 +29,28 @@ class MainActivity : Activity() {
         window.navigationBarColor = Ui.BG
         Scheduler.ensureChannel(this)
 
-        val root = LinearLayout(this).apply {
+        root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Ui.BG)
             val p = Ui.dp(this@MainActivity, 16)
             setPadding(p, p, p, p)
         }
-        root.addView(Ui.text(this, "Evrim Arşivi", 26f, Ui.FG, true))
-        root.addView(Ui.text(this, "Paylaşım planlayıcı", 14f, Ui.MUTED))
         status = Ui.text(this, "", 13f, Ui.MUTED)
-        root.addView(status, Ui.lp(this, 4))
-
-        list = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        root.addView(list, Ui.lp(this, 6))
-
         setContentView(ScrollView(this).apply { setBackgroundColor(Ui.BG); addView(root) })
 
         if (Build.VERSION.SDK_INT >= 33 &&
             checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 7)
         }
-        Scheduler.scheduleAll(this)
         manifest = Repo.cached(this)
+        Scheduler.scheduleAll(this)
         render()
         refresh()
     }
 
     override fun onResume() {
         super.onResume()
-        if (::list.isInitialized) render()
+        if (::root.isInitialized) render()
     }
 
     private fun refresh() {
@@ -64,60 +59,122 @@ class MainActivity : Activity() {
             val m = Repo.sync(this)
             runOnUiThread {
                 manifest = m
-                status.text = if (m == null) "İnternete bağlanılamadı. Bağlantı gelince yeniden deneyin."
-                else "İçerikler güncel · ${m.items.size} içerik"
+                status.text = if (m == null) "İnternete bağlanılamadı. Bağlantı gelince yeniden deneyin." else "İçerikler güncel"
+                Scheduler.scheduleAll(this)
                 render()
             }
         }
     }
 
-    private fun render() {
-        list.removeAllViews()
-        val m = manifest
+    // ---------- ekranlar ----------
 
-        // Uygulama güncellemesi
+    private fun render() {
+        root.removeAllViews()
+        (status.parent as? LinearLayout)?.removeView(status)
+        val acc = Repo.account(this)
+        if (acc == null) renderPicker(first = true) else renderAccount(acc)
+    }
+
+    private fun renderPicker(first: Boolean) {
+        root.addView(Ui.text(this, "Paylaşım planlayıcı", 26f, Ui.FG, true))
+        root.addView(Ui.text(this, if (first) "Hangi hesap için paylaşım yapacaksınız?" else "Hesap seçin", 16f, Ui.MUTED), Ui.lp(this, 6))
+        val accounts = manifest?.accounts ?: DEFAULT_ACCOUNTS
+        for (a in accounts) {
+            val waiting = manifest?.items?.count { it.account == a.id && !Repo.isShared(this, it.id) } ?: 0
+            val card = Ui.card(this)
+            card.addView(Ui.text(this, a.name, 18f, Ui.FG, true))
+            card.addView(Ui.text(this, if (waiting == 0) "Bekleyen içerik yok" else "$waiting içerik paylaşılmayı bekliyor", 13f, if (waiting == 0) Ui.MUTED else Ui.GOLD), Ui.lp(this, 2))
+            card.setOnClickListener { Repo.setAccount(this, a.id); render() }
+            root.addView(card, Ui.lp(this, 12))
+        }
+        root.addView(status, Ui.lp(this, 14))
+    }
+
+    private fun renderAccount(acc: String) {
+        val m = manifest
+        val head = Ui.row(this)
+        val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        col.addView(Ui.text(this, Repo.accountName(m, acc), 22f, Ui.FG, true))
+        col.addView(Ui.text(this, "Paylaşım planlayıcı", 13f, Ui.MUTED))
+        head.addView(col, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f))
+        head.addView(Ui.button(this, "Hesap değiştir", primary = false) {
+            root.removeAllViews(); (status.parent as? LinearLayout)?.removeView(status); renderPicker(first = false)
+        })
+        root.addView(head)
+        root.addView(status, Ui.lp(this, 6))
+
         if (m != null && m.appVersion > currentVersion() && m.apkUrl.isNotBlank()) {
             val card = Ui.card(this)
             card.addView(Ui.text(this, "Uygulamanın yeni sürümü var", 16f, Ui.GOLD, true))
             card.addView(Ui.button(this, "Yeni sürümü indir") {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(m.apkUrl)))
             }, Ui.lp(this, 8))
-            list.addView(card, Ui.lp(this, 10))
+            root.addView(card, Ui.lp(this, 10))
         }
 
-        for (type in listOf("carousel", "reel")) list.addView(planCard(type, m), Ui.lp(this, 12))
-
-        list.addView(Ui.button(this, "İçerikleri yenile", primary = false) { refresh() }, Ui.lp(this, 12))
-
-        if (m == null) return
-        for (type in listOf("carousel", "reel")) {
-            val items = m.items.filter { it.type == type }
-            if (items.isEmpty()) continue
-            val done = items.count { Repo.isShared(this, it.id) }
-            list.addView(Ui.text(this, (if (type == "reel") "Reels" else "Kaydırmalı gönderiler") + "  ·  $done / ${items.size} paylaşıldı", 17f, Ui.FG, true), Ui.lp(this, 22))
-            for (it in items) list.addView(itemRow(it), Ui.lp(this, 8))
+        // Sekmeler: Reels · Gönderi · Hikâye
+        val tab = Repo.tab(this)
+        val tabs = Ui.row(this)
+        for (t in TYPES) {
+            val n = m?.items?.count { it.account == acc && it.type == t && !Repo.isShared(this, it.id) } ?: 0
+            val b = tabButton("${typeName(t)}${if (n > 0) " ($n)" else ""}", t == tab) { Repo.setTab(this, t); showShared = false; render() }
+            tabs.addView(b, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f).apply {
+                if (t != TYPES.first()) leftMargin = Ui.dp(this@MainActivity, 6)
+            })
         }
+        root.addView(tabs, Ui.lp(this, 14))
+
+        root.addView(planCard(acc, tab, m), Ui.lp(this, 12))
+
+        val all = m?.items?.filter { it.account == acc && it.type == tab } ?: emptyList()
+        val waiting = all.filter { !Repo.isShared(this, it.id) }
+        val shared = all.filter { Repo.isShared(this, it.id) }
+
+        root.addView(Ui.text(this, "Paylaşılmayı bekleyenler", 17f, Ui.FG, true), Ui.lp(this, 20))
+        if (waiting.isEmpty()) {
+            root.addView(Ui.text(this, if (m == null) "İçerikler yüklenemedi. İnternet bağlantınızı kontrol edin."
+            else "Bu bölümde bekleyen ${typeName(tab).lowercase()} yok. Yeni içerik eklendiğinde burada görünecek.", 14f, Ui.MUTED), Ui.lp(this, 6))
+        }
+        for (it in waiting) root.addView(itemRow(it), Ui.lp(this, 8))
+
+        if (shared.isNotEmpty()) {
+            root.addView(Ui.button(this, if (showShared) "Paylaşılanları gizle" else "Paylaşılanları göster (${shared.size})", primary = false) {
+                showShared = !showShared; render()
+            }, Ui.lp(this, 16))
+            if (showShared) for (it in shared) root.addView(itemRow(it), Ui.lp(this, 8))
+        }
+
+        root.addView(Ui.button(this, "İçerikleri yenile", primary = false) { refresh() }, Ui.lp(this, 16))
     }
 
-    private fun planCard(type: String, m: Manifest?): LinearLayout {
+    private fun tabButton(label: String, active: Boolean, onClick: () -> Unit): Button = Button(this).apply {
+        text = label; isAllCaps = false; textSize = 14f
+        setTextColor(if (active) Ui.BG else Ui.FG)
+        background = GradientDrawable().apply {
+            cornerRadius = Ui.dp(this@MainActivity, 20).toFloat()
+            if (active) setColor(Ui.GOLD) else { setColor(Ui.PANEL); setStroke(Ui.dp(this@MainActivity, 1), Ui.LINE) }
+        }
+        setOnClickListener { onClick() }
+    }
+
+    private fun planCard(acc: String, type: String, m: Manifest?): LinearLayout {
         val card = Ui.card(this)
         val head = Ui.row(this)
-        head.addView(Ui.text(this, if (type == "reel") "Reels hatırlatması" else "Gönderi hatırlatması", 16f, Ui.FG, true))
+        head.addView(Ui.text(this, "${typeName(type)} hatırlatması", 16f, Ui.FG, true))
         head.addView(Ui.spacer(this))
-        val sw = Switch(this).apply {
-            isChecked = Repo.enabled(this@MainActivity, type)
+        head.addView(Switch(this).apply {
+            isChecked = Repo.enabled(this@MainActivity, acc, type)
             setOnCheckedChangeListener { _, v ->
-                Repo.setEnabled(this@MainActivity, type, v); Scheduler.schedule(this@MainActivity, type); render()
+                Repo.setEnabled(this@MainActivity, acc, type, v); Scheduler.schedule(this@MainActivity, acc, type); render()
             }
-        }
-        head.addView(sw)
+        })
         card.addView(head)
 
-        val t = Repo.time(this, type)
-        val next = Repo.nextOf(this, m, type)
+        val t = Repo.time(this, acc, type)
+        val next = Repo.nextOf(this, m, acc, type)
         val info = when {
-            !Repo.enabled(this, type) -> "Kapalı"
-            next == null -> "Her gün ${Repo.hhmm(t)} · Sırada paylaşılacak içerik yok"
+            !Repo.enabled(this, acc, type) -> "Kapalı"
+            next == null -> "Her gün ${Repo.hhmm(t)} · Sırada içerik yok, bildirim gelmez"
             else -> "Her gün ${Repo.hhmm(t)} · Sıradaki: ${next.title}"
         }
         card.addView(Ui.text(this, info, 14f, Ui.MUTED), Ui.lp(this, 4))
@@ -125,7 +182,7 @@ class MainActivity : Activity() {
         val r = Ui.row(this)
         r.addView(Ui.button(this, "Saati değiştir", primary = false) {
             TimePickerDialog(this, { _, h, mi ->
-                Repo.setTime(this, type, h * 60 + mi); Scheduler.schedule(this, type); render()
+                Repo.setTime(this, acc, type, h * 60 + mi); Scheduler.schedule(this, acc, type); render()
                 Toast.makeText(this, "Her gün ${Repo.hhmm(h * 60 + mi)} için ayarlandı", Toast.LENGTH_SHORT).show()
             }, t / 60, t % 60, true).show()
         })
@@ -142,16 +199,17 @@ class MainActivity : Activity() {
         val r = Ui.row(this)
         val img = ImageView(this).apply { scaleType = ImageView.ScaleType.CENTER_CROP; setBackgroundColor(Ui.LINE) }
         val w = Ui.dp(this, 56)
-        r.addView(img, LinearLayout.LayoutParams(w, if (it.isReel) w * 16 / 9 / 2 * 2 else w * 5 / 4))
+        val h = if (it.type == "feed") w * 5 / 4 else w * 16 / 9
+        r.addView(img, LinearLayout.LayoutParams(w, h))
         val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(Ui.dp(this@MainActivity, 12), 0, 0, 0) }
         col.addView(Ui.text(this, it.title, 15f, Ui.FG, true))
         if (it.subtitle.isNotBlank()) col.addView(Ui.text(this, it.subtitle, 13f, Ui.MUTED))
         val shared = Repo.isShared(this, it.id)
-        col.addView(Ui.text(this, if (shared) "✓ Paylaşıldı" else "Bekliyor", 12f, if (shared) Ui.GREEN else Ui.GOLD))
+        val extra = if (it.date.isNotEmpty()) " · ${it.date.substring(8, 10)}.${it.date.substring(5, 7)} tarihinde önerilir" else ""
+        col.addView(Ui.text(this, (if (shared) "✓ Paylaşıldı" else "Bekliyor") + extra, 12f, if (shared) Ui.GREEN else Ui.GOLD))
         r.addView(col, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f))
         card.addView(r)
         card.setOnClickListener { _ -> open(it) }
-        // küçük kapak görseli
         thread {
             try {
                 val f = Repo.download(this, it.cover)
@@ -167,7 +225,6 @@ class MainActivity : Activity() {
     }
 
     private fun currentVersion(): Int = try {
-        val pi = packageManager.getPackageInfo(packageName, 0)
-        pi.longVersionCode.toInt()
+        packageManager.getPackageInfo(packageName, 0).longVersionCode.toInt()
     } catch (e: Exception) { 0 }
 }

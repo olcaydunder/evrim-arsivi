@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paylaşım Planlayıcı</title>
+<meta name="theme-color" content="#0e1726">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Paylaşım">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="app.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+<style>
+:root{--bg:#0e1726;--panel:#162236;--line:#2a3a55;--fg:#eef1f6;--muted:#a7b1c4;--gold:#f4ba40;--green:#5cc484;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:640px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 16px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 40px) max(16px,env(safe-area-inset-left,0px))}
+h1{font-size:24px;margin:0}
+h2{font-size:17px;margin:22px 0 8px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stack{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;align-items:center;gap:10px}
+.grow{flex:1;min-width:0}
+button{font:inherit;font-weight:600;border-radius:22px;border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:10px 16px;cursor:pointer}
+button.primary{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+button:disabled{opacity:.5}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px}
+.tabs button{padding:9px 6px;font-size:14px}
+.tabs button.on{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.acc{text-align:left;width:100%;border-radius:12px;padding:14px}
+.acc b{display:block;font-size:17px}
+.item{display:flex;gap:12px;align-items:center;text-align:left;width:100%;border-radius:12px;padding:10px}
+.thumb{width:56px;flex:0 0 56px;border-radius:6px;object-fit:cover;background:var(--line)}
+.wait{color:var(--gold);font-size:12px}.done{color:var(--green);font-size:12px}
+.strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-top:12px}
+.strip img,.strip video{flex:0 0 auto;width:72%;max-width:300px;border-radius:8px;scroll-snap-align:start;background:var(--panel)}
+pre{white-space:pre-wrap;word-break:break-word;font:inherit;margin:0}
+.status{min-height:20px;font-size:14px}
+.back{padding:8px 14px}
+label.sw{display:flex;align-items:center;gap:8px}
+input[type=time]{font:inherit;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:6px 8px}
+</style>
+</head>
+<body>
+<main id="app"><p class="muted">Yükleniyor…</p></main>
+<script>
+const ACCOUNTS_DEFAULT=[{id:'evrim',name:'Evrim Arşivi'},{id:'klinik',name:'Zootopia Veteriner Kliniği'},{id:'global',name:'Zootopia Global'},{id:'almanya',name:'Zootopia Almanya'}];
+const TYPES=['reel','feed','story'];
+const TNAME={reel:'Reels',feed:'Gönderi',story:'Hikâye'};
+const DEF_TIME={reel:'13:00',feed:'20:00',story:'10:00'};
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let M=null, view={name:'home'}, showShared=false;
+
+function ls(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+const isShared=id=>!!ls('shared_'+id,false);
+const setShared=(id,v)=>lsSet('shared_'+id,v);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const accounts=()=> (M&&M.accounts)||ACCOUNTS_DEFAULT;
+const accName=id=>(accounts().find(a=>a.id===id)||{name:id}).name;
+const today=()=>new Date().toISOString().slice(0,10);
+function items(acc,type){return (M?M.items:[]).filter(i=>i.account===acc&&(i.type==='carousel'?'feed':i.type)===type).sort((a,b)=>a.order-b.order)}
+function nextOf(acc,type){const open=items(acc,type).filter(i=>!isShared(i.id));const t=today();return open.find(i=>i.date===t)||open.filter(i=>!i.date||i.date<t)[0]||null}
+
+async function load(){
+  try{const r=await fetch('content/manifest.json?t='+Math.floor(Date.now()/60000),{cache:'no-store'});if(!r.ok)throw 0;M=await r.json();lsSet('m',M)}
+  catch(e){M=ls('m',null)}
+  render();
+}
+
+function render(){
+  window.scrollTo(0,0);
+  if(view.name==='item') return renderItem();
+  const acc=ls('account',null);
+  if(!acc||view.name==='picker') return renderPicker(!acc);
+  renderHome(acc);
+}
+
+function renderPicker(first){
+  app.innerHTML=`<h1>Paylaşım planlayıcı</h1><p class="muted">${first?'Hangi hesap için paylaşım yapacaksınız?':'Hesap seçin'}</p>
+  <div class="stack">${accounts().map(a=>{const n=(M?M.items:[]).filter(i=>i.account===a.id&&!isShared(i.id)).length;
+    return `<button class="acc" data-acc="${a.id}"><b>${esc(a.name)}</b><span class="${n?'wait':'muted small'}">${n?n+' içerik paylaşılmayı bekliyor':'Bekleyen içerik yok'}</span></button>`}).join('')}</div>
+  ${M?'':'<p class="muted small">İçerikler yüklenemedi. İnternet bağlantınızı kontrol edin.</p>'}
+  ${installHint()}`;
+  app.querySelectorAll('[data-acc]').forEach(b=>b.onclick=()=>{lsSet('account',b.dataset.acc);view={name:'home'};render()});
+}
+
+function installHint(){
+  const standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+  if(standalone) return '';
+  return `<div class="card" style="margin-top:16px"><b>Ana ekrana ekleyin</b><p class="muted small" style="margin:4px 0 0">iPhone'da Safari'nin alt çubuğundaki Paylaş düğmesine (kare ve yukarı ok) dokunun, "Ana Ekrana Ekle"yi seçin. Uygulama gibi açılır.</p></div>`;
+}
+
+function renderHome(acc){
+  const tab=ls('tab','reel');
+  const all=items(acc,tab), waiting=all.filter(i=>!isShared(i.id)), shared=all.filter(i=>isShared(i.id));
+  const nx=nextOf(acc,tab);
+  const time=ls(`time_${acc}_${tab}`,DEF_TIME[tab]);
+  app.innerHTML=`<div class="row"><div class="grow"><h1>${esc(accName(acc))}</h1><div class="muted small">Paylaşım planlayıcı</div></div><button id="sw">Hesap değiştir</button></div>
+  <div class="tabs">${TYPES.map(t=>{const n=items(acc,t).filter(i=>!isShared(i.id)).length;return `<button data-tab="${t}" class="${t===tab?'on':''}">${TNAME[t]}${n?' ('+n+')':''}</button>`}).join('')}</div>
+  <div class="card" style="margin-top:12px"><b>${TNAME[tab]} planı</b>
+   <div class="muted small" style="margin:4px 0 10px">${nx?'Sıradaki: '+esc(nx.title):'Sırada içerik yok'}</div>
+   <div class="row" style="flex-wrap:wrap"><label class="sw">Saat <input type="time" id="tm" value="${time}"></label><span class="grow"></span>${nx?'<button class="primary" id="now">Şimdi paylaş</button>':''}</div>
+   ${waiting.length?'<button id="cal" style="margin-top:10px;width:100%">Takvime hatırlatma ekle</button><p class="muted small" style="margin:6px 0 0">Bekleyen her içerik için seçtiğiniz saatte, günde bir hatırlatma takviminize eklenir.</p>':''}
+  </div>
+  <h2>Paylaşılmayı bekleyenler</h2>
+  <div class="stack">${waiting.length?waiting.map(rowHtml).join(''):`<p class="muted">${M?'Bu bölümde bekleyen '+TNAME[tab].toLowerCase()+' yok. Yeni içerik eklendiğinde burada görünecek.':'İçerikler yüklenemedi.'}</p>`}</div>
+  ${shared.length?`<button id="tog" style="margin-top:16px;width:100%">${showShared?'Paylaşılanları gizle':'Paylaşılanları göster ('+shared.length+')'}</button><div class="stack" style="margin-top:10px">${showShared?shared.map(rowHtml).join(''):''}</div>`:''}
+  <button id="rf" style="margin-top:16px;width:100%">İçerikleri yenile</button>
+  ${installHint()}`;
+  $('#sw').onclick=()=>{view={name:'picker'};render()};
+  app.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{lsSet('tab',b.dataset.tab);showShared=false;render()});
+  app.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>openItem(b.dataset.id));
+  $('#tm').onchange=e=>lsSet(`time_${acc}_${tab}`,e.target.value);
+  if($('#now')) $('#now').onclick=()=>openItem(nx.id);
+  if($('#tog')) $('#tog').onclick=()=>{showShared=!showShared;render()};
+  if($('#cal')) $('#cal').onclick=()=>calendar(acc,tab,waiting,$('#tm').value);
+  $('#rf').onclick=load;
+}
+
+function rowHtml(i){
+  const sh=isShared(i.id);const tall=(i.type!=='feed'&&i.type!=='carousel');
+  const d=i.date?` · ${i.date.slice(8,10)}.${i.date.slice(5,7)} tarihinde önerilir`:'';
+  return `<button class="item" data-id="${i.id}"><img class="thumb" loading="lazy" alt="" src="${i.cover}" style="height:${tall?100:70}px">
+  <span class="grow"><b>${esc(i.title)}</b><br><span class="muted small">${esc(i.subtitle||'')}</span><br><span class="${sh?'done':'wait'}">${sh?'✓ Paylaşıldı':'Bekliyor'}${d}</span></span></button>`;
+}
+
+let files=[];
+function openItem(id){view={name:'item',id};files=[];render();prepare()}
+
+function renderItem(){
+  const it=(M?M.items:[]).find(i=>i.id===view.id);
+  if(!it){view={name:'home'};return render()}
+  const video=it.media[0].endsWith('.mp4');
+  const kind=(it.type==='feed'||it.type==='carousel')&&it.media.length>1?`Kaydırmalı gönderi · ${it.media.length} sayfa`:TNAME[it.type==='carousel'?'feed':it.type];
+  const sh=isShared(it.id);
+  app.innerHTML=`<button class="back" id="bk">‹ Geri</button>
+  <p class="wait" style="margin:14px 0 2px;font-weight:600">${esc(accName(it.account).toUpperCase())} · ${esc(kind.toUpperCase())}</p>
+  <h1>${esc(it.title)}</h1><div class="muted">${esc(it.subtitle||'')}</div>
+  <div class="strip">${video?`<video src="${it.media[0]}" poster="${it.cover}" controls playsinline preload="none"></video>`:it.media.map(p=>`<img src="${p}" alt="" loading="lazy">`).join('')}</div>
+  <p class="status" id="st">${sh?'✓ Bu içerik paylaşıldı olarak işaretli.':''}</p>
+  <div class="stack">
+   <button class="primary" id="share" disabled>Hazırlanıyor…</button>
+   <p class="muted small" style="margin:0">Açıklama otomatik kopyalanır. Paylaşım menüsünde Instagram'ı seçin; açıklama alanına basılı tutup Yapıştır deyin. Görselleri kaydetmek için aynı menüde "Görüntüleri Kaydet"i seçebilirsiniz.</p>
+   <button id="cp">Açıklamayı kopyala</button>
+   <button id="mk">${sh?'Paylaşılmadı olarak geri al':'Paylaşıldı olarak işaretle'}</button>
+  </div>
+  <h2>Açıklama</h2><div class="card"><pre id="cap">${esc(it.caption)}</pre></div>`;
+  $('#bk').onclick=()=>{view={name:'home'};render()};
+  $('#cp').onclick=()=>copy(it.caption);
+  $('#mk').onclick=()=>{const v=!isShared(it.id);setShared(it.id,v);if(v){$('#st').textContent='✓ Paylaşıldı olarak işaretlendi. Listeden kaldırıldı.';setTimeout(()=>{view={name:'home'};render()},1100)}else render()};
+  $('#share').onclick=()=>share(it);
+}
+
+async function prepare(){
+  const it=(M?M.items:[]).find(i=>i.id===view.id); if(!it) return;
+  const btn=$('#share'), st=$('#st');
+  try{
+    files=[];
+    for(let k=0;k<it.media.length;k++){
+      if(btn) btn.textContent=`Hazırlanıyor… ${k+1} / ${it.media.length}`;
+      const r=await fetch(it.media[k]); if(!r.ok) throw 0;
+      const b=await r.blob(); const ext=it.media[k].endsWith('.mp4')?'mp4':'jpg';
+      files.push(new File([b],`${it.id}_${k+1}.${ext}`,{type:ext==='mp4'?'video/mp4':'image/jpeg'}));
+    }
+    if(view.name==='item'&&view.id===it.id&&$('#share')){$('#share').disabled=false;$('#share').textContent="Instagram'da paylaş"}
+  }catch(e){ if(st) st.textContent='İndirilemedi. İnternet bağlantınızı kontrol edip sayfayı yeniden açın.'; if(btn) btn.textContent='Hazırlanamadı'}
+}
+
+function copy(t){
+  const done=()=>{const s=$('#st');if(s)s.textContent='Açıklama kopyalandı.'};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t,done))}catch(e){fallbackCopy(t,done)}
+}
+function fallbackCopy(t,done){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}ta.remove()}
+
+function share(it){
+  copy(it.caption);
+  if(navigator.canShare&&navigator.canShare({files})){
+    navigator.share({files}).then(()=>{const s=$('#st');if(s)s.textContent='Paylaştıysanız "Paylaşıldı olarak işaretle"ye basın.'}).catch(()=>{});
+  }else{
+    const s=$('#st'); if(s) s.textContent='Bu tarayıcı dosya paylaşımını desteklemiyor. iPhone\'da Safari, Android\'de Chrome kullanın.';
+  }
+}
+
+function calendar(acc,tab,waiting,time){
+  const [hh,mm]=(time||DEF_TIME[tab]).split(':').map(Number);
+  const pad=n=>String(n).padStart(2,'0');
+  const fmt=d=>`${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+  const base=new Date(); base.setSeconds(0,0); base.setHours(hh,mm);
+  if(base<=new Date()) base.setDate(base.getDate()+1);
+  const url=location.href.split('#')[0];
+  let day=0; const ev=[];
+  const dated=waiting.filter(i=>i.date), plain=waiting.filter(i=>!i.date);
+  const used=new Set();
+  for(const i of dated){const d=new Date(i.date+'T00:00:00');d.setHours(hh,mm);if(d>new Date()){ev.push([d,i]);used.add(i.date)}}
+  for(const i of plain){let d;do{d=new Date(base);d.setDate(base.getDate()+day);day++}while(used.has(d.toISOString().slice(0,10)));ev.push([d,i])}
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Paylasim Planlayici//TR','CALSCALE:GREGORIAN'];
+  for(const [d,i] of ev){const e=new Date(d.getTime()+15*60000);
+    lines.push('BEGIN:VEVENT',`UID:${i.id}@paylasim`,`DTSTAMP:${fmt(new Date())}`,`DTSTART:${fmt(d)}`,`DTEND:${fmt(e)}`,
+      `SUMMARY:${accName(acc)} · ${TNAME[tab]}: ${i.title}`.replace(/[,;]/g,' '),`URL:${url}`,`DESCRIPTION:Paylaşım planlayıcıyı açın: ${url}`,
+      'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Paylaşım zamanı','TRIGGER:PT0M','END:VALARM','END:VEVENT')}
+  lines.push('END:VCALENDAR');
+  const blob=new Blob([lines.join('\r\n')],{type:'text/calendar'});
+  const f=new File([blob],`${acc}-${tab}.ics`,{type:'text/calendar'});
+  if(navigator.canShare&&navigator.canShare({files:[f]})) navigator.share({files:[f]}).catch(()=>{});
+  else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=f.name;document.body.appendChild(a);a.click();a.remove()}
+}
+
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+load();
+</script>
+</body>
+</html>

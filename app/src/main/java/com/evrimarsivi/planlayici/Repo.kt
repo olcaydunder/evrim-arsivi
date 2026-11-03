@@ -13,9 +13,21 @@ import java.net.URL
 const val BASE_URL = "https://raw.githubusercontent.com/olcaydunder/evrim-arsivi/main/"
 const val MANIFEST_URL = BASE_URL + "content/manifest.json"
 
+data class Account(val id: String, val name: String)
+
+val DEFAULT_ACCOUNTS = listOf(
+    Account("evrim", "Evrim Arşivi"),
+    Account("klinik", "Zootopia Veteriner Kliniği"),
+    Account("global", "Zootopia Global"),
+    Account("almanya", "Zootopia Almanya"),
+)
+val TYPES = listOf("reel", "feed", "story")
+fun typeName(t: String) = when (t) { "reel" -> "Reels"; "story" -> "Hikâye"; else -> "Gönderi" }
+
 data class Item(
     val id: String,
-    val type: String, // "carousel" | "reel"
+    val account: String,
+    val type: String, // "feed" | "reel" | "story"
     val order: Int,
     val title: String,
     val subtitle: String,
@@ -24,6 +36,7 @@ data class Item(
     val media: List<String>,
     val date: String = "", // YYYY-MM-DD: yalnızca o gün önerilir
 ) {
+    val isVideo get() = media.firstOrNull()?.endsWith(".mp4") == true
     val isReel get() = type == "reel"
 }
 
@@ -31,6 +44,7 @@ data class Manifest(
     val version: Int,
     val appVersion: Int,
     val apkUrl: String,
+    val accounts: List<Account>,
     val items: List<Item>,
 )
 
@@ -50,7 +64,8 @@ object Repo {
             val m = it.getJSONArray("media")
             Item(
                 id = it.getString("id"),
-                type = it.getString("type"),
+                account = it.optString("account", "evrim"),
+                type = it.getString("type").let { t -> if (t == "carousel") "feed" else t },
                 order = it.optInt("order", i),
                 title = it.getString("title"),
                 subtitle = it.optString("subtitle", ""),
@@ -59,8 +74,12 @@ object Repo {
                 media = (0 until m.length()).map { k -> m.getString(k) },
                 date = it.optString("date", ""),
             )
-        }.sortedWith(compareBy({ it.type }, { it.order }))
-        return Manifest(o.optInt("version", 1), o.optInt("app_version", 0), o.optString("apk_url", ""), items)
+        }.sortedWith(compareBy({ it.account }, { it.type }, { it.order }))
+        val accArr = o.optJSONArray("accounts")
+        val accounts = if (accArr == null) DEFAULT_ACCOUNTS else (0 until accArr.length()).map { i ->
+            val a = accArr.getJSONObject(i); Account(a.getString("id"), a.getString("name"))
+        }
+        return Manifest(o.optInt("version", 1), o.optInt("app_version", 0), o.optString("apk_url", ""), accounts, items)
     }
 
     fun cached(c: Context): Manifest? = try {
@@ -147,21 +166,30 @@ object Repo {
     fun today(): String = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
 
     /** Bugüne tarihlenmiş içerik varsa onu, yoksa tarihsiz (veya tarihi geçmiş) sıradaki içeriği verir. */
-    fun nextOf(c: Context, m: Manifest?, type: String): Item? {
-        val open = m?.items?.filter { it.type == type && !isShared(c, it.id) } ?: return null
+    fun nextOf(c: Context, m: Manifest?, account: String, type: String): Item? {
+        val open = m?.items?.filter { it.account == account && it.type == type && !isShared(c, it.id) } ?: return null
         val t = today()
         open.firstOrNull { it.date == t }?.let { return it }
         return open.filter { it.date.isEmpty() || it.date < t }.minByOrNull { it.order }
     }
 
-    // Saatler: dakika cinsinden (gün başından)
-    fun time(c: Context, type: String): Int =
-        prefs(c).getInt("time_$type", if (type == "reel") 13 * 60 else 20 * 60)
+    // Saatler: dakika cinsinden (gün başından), hesap + tür başına
+    fun time(c: Context, account: String, type: String): Int =
+        prefs(c).getInt("time_${account}_$type", when (type) { "reel" -> 13 * 60; "story" -> 10 * 60; else -> 20 * 60 })
 
-    fun setTime(c: Context, type: String, minutes: Int) = prefs(c).edit().putInt("time_$type", minutes).apply()
+    fun setTime(c: Context, account: String, type: String, minutes: Int) =
+        prefs(c).edit().putInt("time_${account}_$type", minutes).apply()
 
-    fun enabled(c: Context, type: String) = prefs(c).getBoolean("on_$type", true)
-    fun setEnabled(c: Context, type: String, v: Boolean) = prefs(c).edit().putBoolean("on_$type", v).apply()
+    fun enabled(c: Context, account: String, type: String) = prefs(c).getBoolean("on_${account}_$type", true)
+    fun setEnabled(c: Context, account: String, type: String, v: Boolean) =
+        prefs(c).edit().putBoolean("on_${account}_$type", v).apply()
+
+    fun account(c: Context): String? = prefs(c).getString("account", null)
+    fun setAccount(c: Context, id: String) = prefs(c).edit().putString("account", id).apply()
+    fun tab(c: Context): String = prefs(c).getString("tab", "reel") ?: "reel"
+    fun setTab(c: Context, t: String) = prefs(c).edit().putString("tab", t).apply()
+    fun accountName(m: Manifest?, id: String) =
+        (m?.accounts ?: DEFAULT_ACCOUNTS).firstOrNull { it.id == id }?.name ?: id
 
     fun hhmm(min: Int) = String.format("%02d:%02d", min / 60, min % 60)
 }

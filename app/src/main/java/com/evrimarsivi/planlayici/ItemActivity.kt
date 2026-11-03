@@ -42,15 +42,21 @@ class ItemActivity : Activity() {
             setBackgroundColor(Ui.BG)
             val p = Ui.dp(this@ItemActivity, 16); setPadding(p, p, p, p)
         }
-        root.addView(Ui.text(this, if (it.isReel) "REELS" else "KAYDIRMALI GÖNDERİ · ${it.media.size} SAYFA", 12f, Ui.GOLD, true))
+        val acc = Repo.accountName(Repo.cached(this), it.account).uppercase()
+        val kind = when {
+            it.type == "feed" && it.media.size > 1 -> "KAYDIRMALI GÖNDERİ · ${it.media.size} SAYFA"
+            else -> typeName(it.type).uppercase()
+        }
+        root.addView(Ui.text(this, "$acc · $kind", 12f, Ui.GOLD, true))
         root.addView(Ui.text(this, it.title, 24f, Ui.FG, true), Ui.lp(this, 2))
         if (it.subtitle.isNotBlank()) root.addView(Ui.text(this, it.subtitle, 14f, Ui.MUTED))
 
         // görseller
         val strip = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
-        val w = Ui.dp(this, if (it.isReel) 180 else 220)
-        val h = if (it.isReel) w * 16 / 9 else w * 5 / 4
-        val previews = if (it.isReel) listOf(it.cover) else it.media
+        val tall = it.type != "feed"
+        val w = Ui.dp(this, if (tall) 180 else 220)
+        val h = if (tall) w * 16 / 9 else w * 5 / 4
+        val previews = if (it.isVideo) listOf(it.cover) else it.media
         for ((i, p) in previews.withIndex()) {
             val iv = ImageView(this).apply { scaleType = ImageView.ScaleType.CENTER_CROP; setBackgroundColor(Ui.PANEL) }
             val lp = LinearLayout.LayoutParams(w, h).apply { if (i > 0) leftMargin = Ui.dp(this@ItemActivity, 8) }
@@ -75,7 +81,8 @@ class ItemActivity : Activity() {
         doneBtn = Ui.button(this, if (Repo.isShared(this, it.id)) "Paylaşılmadı olarak geri al" else "Paylaşıldı olarak işaretle", primary = false) {
             val v = !Repo.isShared(this, it.id)
             Repo.setShared(this, it.id, v)
-            status.text = if (v) "✓ Paylaşıldı olarak işaretlendi. Sıradaki içerik bir sonraki hatırlatmada gelecek." else ""
+            status.text = if (v) "✓ Paylaşıldı olarak işaretlendi. Listeden kaldırıldı; sıradaki içerik bir sonraki hatırlatmada gelecek." else ""
+            if (v) status.postDelayed({ finish() }, 1200)
             doneBtn.text = if (v) "Paylaşılmadı olarak geri al" else "Paylaşıldı olarak işaretle"
         }
         root.addView(doneBtn, Ui.lp(this, 10))
@@ -124,7 +131,7 @@ class ItemActivity : Activity() {
         copy(it)
         val intent = if (uris.size == 1) {
             Intent(Intent.ACTION_SEND).apply {
-                type = if (it.isReel) "video/mp4" else "image/jpeg"
+                type = if (it.isVideo) "video/mp4" else "image/jpeg"
                 putExtra(Intent.EXTRA_STREAM, uris[0])
             }
         } else {

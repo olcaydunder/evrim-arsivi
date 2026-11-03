@@ -1,710 +1,795 @@
 {
- "version": 1,
+ "version": 2,
  "app_version": 0,
  "apk_url": "https://github.com/olcaydunder/evrim-arsivi/releases/download/app/EvrimArsivi.apk",
+ "accounts": [
+  {
+   "id": "evrim",
+   "name": "Evrim Arşivi"
+  },
+  {
+   "id": "klinik",
+   "name": "Zootopia Veteriner Kliniği"
+  },
+  {
+   "id": "global",
+   "name": "Zootopia Global"
+  },
+  {
+   "id": "almanya",
+   "name": "Zootopia Almanya"
+  }
+ ],
  "items": [
   {
-   "id": "bilgi-01",
-   "type": "carousel",
-   "order": 1,
-   "title": "SOKRATES",
-   "subtitle": "Bildiğim tek şey…",
-   "caption": "Hiç kitap yazmayan bir filozof, felsefe tarihini ikiye böldü. 🏛️\n\n📂 SOKRATES — Bildiğim tek şey…\n👉 Dosyayı kaydırarak inceleyin.\n\n🗣️ Hiç kitap yazmadı, sokakta sorularla düşündü.\n👶 Yöntemini annesinin ebeliğine benzetti.\n❓ \"Bildiğim tek şey, hiçbir şey bilmediğimdir.\"\n⚖️ MÖ 399'da ölüme mahkûm edildi.\n📚 Fikirlerini Platon'dan öğreniyoruz.\n\nSizce en iyi öğretmen soru soran mı, cevap veren mi? 👇\n\n#sokrates #felsefe #antikyunan #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/01/01.jpg",
-   "media": [
-    "content/bilgi/01/01.jpg",
-    "content/bilgi/01/02.jpg",
-    "content/bilgi/01/03.jpg",
-    "content/bilgi/01/04.jpg",
-    "content/bilgi/01/05.jpg",
-    "content/bilgi/01/06.jpg",
-    "content/bilgi/01/07.jpg",
-    "content/bilgi/01/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-02",
-   "type": "carousel",
-   "order": 2,
-   "title": "PLATON'UN MAĞARASI",
-   "subtitle": "Gölgeler ve gerçek",
-   "caption": "Ya gördüğümüz her şey sadece bir gölgeyse? 🕯️\n\n📂 PLATON'UN MAĞARASI — Gölgeler ve gerçek\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Platon, Atina'da Akademia'yı kurdu.\n📖 Alegori \"Devlet\"in 7. kitabında geçer.\n⛓️ Zincirli insanlar yalnızca gölgeleri görür.\n☀️ Dışarı çıkan, gerçeği görür ama inandıramaz.\n🧠 Eğitimin ve sorgulamanın gücünü anlatır.\n\nSizce bugün bizim \"mağaramız\" ne? 👇\n\n#platon #mağaraalegorisi #felsefe #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/02/01.jpg",
-   "media": [
-    "content/bilgi/02/01.jpg",
-    "content/bilgi/02/02.jpg",
-    "content/bilgi/02/03.jpg",
-    "content/bilgi/02/04.jpg",
-    "content/bilgi/02/05.jpg",
-    "content/bilgi/02/06.jpg",
-    "content/bilgi/02/07.jpg",
-    "content/bilgi/02/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-03",
-   "type": "carousel",
-   "order": 3,
-   "title": "ARİSTOTELES",
-   "subtitle": "Altın orta",
-   "caption": "Cesaret, korkaklık ile gözü karalığın tam ortasındadır. ⚖️\n\n📂 ARİSTOTELES — Altın orta\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ 20 yıl Platon'un öğrencisi oldu.\n👑 Büyük İskender'in öğretmeniydi.\n🚶 Yürüyerek ders anlattı: \"gezimciler\".\n⚖️ Erdem iki aşırılığın ortasındadır.\n📜 İslam dünyasında \"ilk öğretmen\" diye anıldı.\n\nHayatınızda \"altın orta\"yı en zor bulduğunuz konu ne? 👇\n\n#aristoteles #altınorta #felsefe #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/03/01.jpg",
-   "media": [
-    "content/bilgi/03/01.jpg",
-    "content/bilgi/03/02.jpg",
-    "content/bilgi/03/03.jpg",
-    "content/bilgi/03/04.jpg",
-    "content/bilgi/03/05.jpg",
-    "content/bilgi/03/06.jpg",
-    "content/bilgi/03/07.jpg",
-    "content/bilgi/03/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-04",
-   "type": "carousel",
-   "order": 4,
-   "title": "DİYOJEN",
-   "subtitle": "Fıçıdaki filozof",
-   "caption": "Büyük İskender'e \"gölge etme\" diyen filozof Sinopluydu. ☀️\n\n📂 DİYOJEN — Fıçıdaki filozof\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Karadeniz kıyısında, Sinop'ta doğdu.\n🏺 Rivayete göre bir toprak küpte yaşadı.\n🏮 Gündüz fenerle \"dürüst insan\" aradı.\n👑 İskender'e \"Güneşimi kesme\" dedi.\n🧘 Mutluluğu az şeye ihtiyaç duymakta gördü.\n\nHayatınızdan çıkarabileceğiniz tek bir eşya olsa ne olurdu? 👇\n\n#diyojen #sinop #felsefe #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/04/01.jpg",
-   "media": [
-    "content/bilgi/04/01.jpg",
-    "content/bilgi/04/02.jpg",
-    "content/bilgi/04/03.jpg",
-    "content/bilgi/04/04.jpg",
-    "content/bilgi/04/05.jpg",
-    "content/bilgi/04/06.jpg",
-    "content/bilgi/04/07.jpg",
-    "content/bilgi/04/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-05",
-   "type": "carousel",
-   "order": 5,
-   "title": "STOACILIK",
-   "subtitle": "Marcus Aurelius",
-   "caption": "Roma'nın en güçlü adamı, kendine sade olmayı öğütleyen notlar yazdı. 🏛️\n\n📂 STOACILIK — Marcus Aurelius\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Adını Atina'daki sütunlu galeriden alır.\n🎯 Huzur: yalnızca elimizdekine odaklanmak.\n⛓️ Epiktetos, Pamukkale yakınlarında doğmuş bir köleydi.\n👑 Marcus Aurelius bir Stoacı imparatordu.\n📓 \"Kendime Düşünceler\" yayımlanmak için yazılmadı.\n\nBugün sizi en çok, elinizde olmayan hangi şey yordu? 👇\n\n#stoacılık #marcusaurelius #felsefe #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/05/01.jpg",
-   "media": [
-    "content/bilgi/05/01.jpg",
-    "content/bilgi/05/02.jpg",
-    "content/bilgi/05/03.jpg",
-    "content/bilgi/05/04.jpg",
-    "content/bilgi/05/05.jpg",
-    "content/bilgi/05/06.jpg",
-    "content/bilgi/05/07.jpg",
-    "content/bilgi/05/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-06",
-   "type": "carousel",
-   "order": 6,
-   "title": "EPİKUROS",
-   "subtitle": "Mutluluk nedir?",
-   "caption": "\"Epikürcü\" zevk düşkünü demek değil; Epikuros ekmek ve suyla yaşadı. 🍞\n\n📂 EPİKUROS — Mutluluk nedir?\n👉 Dosyayı kaydırarak inceleyin.\n\n🌿 Atina'da \"Bahçe\" okulunu kurdu.\n👥 Okuluna kadınları ve köleleri de kabul etti.\n🍞 Ekmek ve suyla yetinen sade bir hayat sürdü.\n😌 Mutluluk: acı ve kaygının olmaması.\n🤝 En büyük hazzın dostluk olduğunu söyledi.\n\nSizce mutluluk için en gerekli üç şey ne? 👇\n\n#epikuros #mutluluk #felsefe #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/06/01.jpg",
-   "media": [
-    "content/bilgi/06/01.jpg",
-    "content/bilgi/06/02.jpg",
-    "content/bilgi/06/03.jpg",
-    "content/bilgi/06/04.jpg",
-    "content/bilgi/06/05.jpg",
-    "content/bilgi/06/06.jpg",
-    "content/bilgi/06/07.jpg",
-    "content/bilgi/06/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-07",
-   "type": "carousel",
-   "order": 7,
-   "title": "DESCARTES",
-   "subtitle": "Düşünüyorum, öyleyse varım",
-   "caption": "Her şeyden şüphe ettiğinizde geriye ne kalır? 🤔\n\n📂 DESCARTES — Düşünüyorum, öyleyse varım\n👉 Dosyayı kaydırarak inceleyin.\n\n🇫🇷 1596'da doğdu; filozof ve matematikçi.\n❓ Şüphe edilebilecek her şeyden şüphe etti.\n💡 \"Düşünüyorum, öyleyse varım.\"\n📈 x-y koordinat sistemi adını ondan alır.\n🏛️ \"Modern felsefenin babası\" olarak anılır.\n\nAsla şüphe etmediğiniz tek bir şey var mı? 👇\n\n#descartes #felsefe #matematik #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/07/01.jpg",
-   "media": [
-    "content/bilgi/07/01.jpg",
-    "content/bilgi/07/02.jpg",
-    "content/bilgi/07/03.jpg",
-    "content/bilgi/07/04.jpg",
-    "content/bilgi/07/05.jpg",
-    "content/bilgi/07/06.jpg",
-    "content/bilgi/07/07.jpg",
-    "content/bilgi/07/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-08",
-   "type": "carousel",
-   "order": 8,
-   "title": "NIETZSCHE",
-   "subtitle": "Seni öldürmeyen şey…",
-   "caption": "\"Seni öldürmeyen şey seni güçlendirir\" sözünün sahibi 24 yaşında profesör olmuştu. 📚\n\n📂 NIETZSCHE — Seni öldürmeyen şey…\n👉 Dosyayı kaydırarak inceleyin.\n\n🎓 24 yaşında Basel'de profesör oldu.\n💪 Ünlü sözü 1888'de \"Putların Alacakaranlığı\"nda geçer.\n🦅 \"Üstinsan\" kavramını \"Zerdüşt\"te anlattı.\n🏥 1889'da Torino'da zihinsel çöküş yaşadı.\n✂️ Yazıları ölümünden sonra kız kardeşince çarpıtıldı.\n\nSizi güçlendiren zor bir dönem oldu mu? 👇\n\n#nietzsche #felsefe #edebiyat #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/08/01.jpg",
-   "media": [
-    "content/bilgi/08/01.jpg",
-    "content/bilgi/08/02.jpg",
-    "content/bilgi/08/03.jpg",
-    "content/bilgi/08/04.jpg",
-    "content/bilgi/08/05.jpg",
-    "content/bilgi/08/06.jpg",
-    "content/bilgi/08/07.jpg",
-    "content/bilgi/08/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-09",
-   "type": "carousel",
-   "order": 9,
-   "title": "FARABİ",
-   "subtitle": "İkinci öğretmen",
-   "caption": "Aristoteles \"ilk öğretmen\"se, Farabi \"ikinci öğretmen\"di. 📜\n\n📂 FARABİ — İkinci öğretmen\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Farab'da (Otrar) doğduğu kabul edilir.\n🏛️ Bağdat'ta Aristoteles'i inceledi.\n🎓 \"Muallim-i Sani\": ikinci öğretmen.\n🏙️ \"Erdemli Şehir\" kitabında ideal toplumu anlattı.\n🎶 Müzik teorisi üzerine kitap yazdı.\n\nSizce \"erdemli bir şehir\"de olmazsa olmaz ne? 👇\n\n#farabi #islamfelsefesi #felsefe #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/09/01.jpg",
-   "media": [
-    "content/bilgi/09/01.jpg",
-    "content/bilgi/09/02.jpg",
-    "content/bilgi/09/03.jpg",
-    "content/bilgi/09/04.jpg",
-    "content/bilgi/09/05.jpg",
-    "content/bilgi/09/06.jpg",
-    "content/bilgi/09/07.jpg",
-    "content/bilgi/09/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-10",
-   "type": "carousel",
-   "order": 10,
-   "title": "İBN-İ SİNA",
-   "subtitle": "Uçan adam deneyi",
-   "caption": "Gözlerin kapalı, hiçbir şey hissetmiyorsun… Yine de var olduğunu bilir misin? 🧠\n\n📂 İBN-İ SİNA — Uçan adam deneyi\n👉 Dosyayı kaydırarak inceleyin.\n\n🌍 Batı'da \"Avicenna\" olarak bilinir.\n📘 \"Kanun\" yüzyıllarca Avrupa'da tıp kitabı oldu.\n🪶 \"Uçan adam\" düşünce deneyini kurguladı.\n🧠 Benlik bilincinin duyulardan bağımsız olduğunu savundu.\n⚕️ Felsefe ve tıbbın en etkili isimlerinden.\n\nUçan adam deneyine sizin cevabınız ne olurdu? 👇\n\n#ibnisina #avicenna #felsefe #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/10/01.jpg",
-   "media": [
-    "content/bilgi/10/01.jpg",
-    "content/bilgi/10/02.jpg",
-    "content/bilgi/10/03.jpg",
-    "content/bilgi/10/04.jpg",
-    "content/bilgi/10/05.jpg",
-    "content/bilgi/10/06.jpg",
-    "content/bilgi/10/07.jpg",
-    "content/bilgi/10/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-11",
-   "type": "carousel",
-   "order": 11,
-   "title": "İBN HALDUN",
-   "subtitle": "Devletlerin ömrü",
-   "caption": "600 yıl önce devletlerin \"yaşlandığını\" söyleyen düşünür. 🏰\n\n📂 İBN HALDUN — Devletlerin ömrü\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 1332'de Tunus'ta doğdu.\n📖 \"Mukaddime\" başlı başına bir başyapıttır.\n🤝 Toplumları bir arada tutan güce \"asabiye\" dedi.\n🔄 Devletlerin doğup yaşlandığını savundu.\n🧭 Sosyolojinin öncülerinden sayılır.\n\nSizce bir toplumu en çok ne bir arada tutar? 👇\n\n#ibnhaldun #mukaddime #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/11/01.jpg",
-   "media": [
-    "content/bilgi/11/01.jpg",
-    "content/bilgi/11/02.jpg",
-    "content/bilgi/11/03.jpg",
-    "content/bilgi/11/04.jpg",
-    "content/bilgi/11/05.jpg",
-    "content/bilgi/11/06.jpg",
-    "content/bilgi/11/07.jpg",
-    "content/bilgi/11/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-12",
-   "type": "carousel",
-   "order": 12,
-   "title": "DARWIN",
-   "subtitle": "Beagle yolculuğu",
-   "caption": "22 yaşında bindiği bir gemi, biyolojinin seyrini değiştirdi. ⛵\n\n📂 DARWIN — Beagle yolculuğu\n👉 Dosyayı kaydırarak inceleyin.\n\n⛵ 1831'de HMS Beagle ile yola çıktı.\n🗺️ Yolculuk yaklaşık beş yıl sürdü.\n🤢 Sık sık deniz tuttu, çoğu zaman karadaydı.\n🐢 Galapagos gözlemleri fikirlerine katkı sağladı.\n📗 \"Türlerin Kökeni\" 1859'da yayımlandı.\n\nBir yolculuk sizin düşüncenizi hiç değiştirdi mi? 👇\n\n#darwin #bilimtarihi #evrim #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/12/01.jpg",
-   "media": [
-    "content/bilgi/12/01.jpg",
-    "content/bilgi/12/02.jpg",
-    "content/bilgi/12/03.jpg",
-    "content/bilgi/12/04.jpg",
-    "content/bilgi/12/05.jpg",
-    "content/bilgi/12/06.jpg",
-    "content/bilgi/12/07.jpg",
-    "content/bilgi/12/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-13",
-   "type": "carousel",
-   "order": 13,
-   "title": "GALİLEO",
-   "subtitle": "Gökyüzüne bakan adam",
-   "caption": "Teleskobunu gökyüzüne çeviren adam, ömrünün sonunu ev hapsinde geçirdi. 🔭\n\n📂 GALİLEO — Gökyüzüne bakan adam\n👉 Dosyayı kaydırarak inceleyin.\n\n🔭 1609'dan itibaren teleskobunu gökyüzüne çevirdi.\n🪐 Jüpiter'in dört uydusunu keşfetti.\n🌑 Ay'da dağları ve kraterleri gördü.\n⚖️ 1633'te yargılanıp ev hapsine alındı.\n📜 Vatikan 1992'de hatayı resmen kabul etti.\n\nTeleskopla ilk neye bakmak isterdiniz? 👇\n\n#galileo #astronomi #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/13/01.jpg",
-   "media": [
-    "content/bilgi/13/01.jpg",
-    "content/bilgi/13/02.jpg",
-    "content/bilgi/13/03.jpg",
-    "content/bilgi/13/04.jpg",
-    "content/bilgi/13/05.jpg",
-    "content/bilgi/13/06.jpg",
-    "content/bilgi/13/07.jpg",
-    "content/bilgi/13/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-14",
-   "type": "carousel",
-   "order": 14,
-   "title": "NEWTON",
-   "subtitle": "Yerçekimi",
-   "caption": "Newton'un en verimli yılları bir salgın sırasında geçti. 🍎\n\n📂 NEWTON — Yerçekimi\n👉 Dosyayı kaydırarak inceleyin.\n\n🦠 Veba yıllarında evinde en büyük fikirlerini geliştirdi.\n🍎 Elma hikâyesi muhtemelen süslenmiş.\n📕 \"Principia\" 1687'de yayımlandı.\n🌈 Beyaz ışığın renklerden oluştuğunu gösterdi.\n🪙 Darphane başkanı olarak sahtecilerle uğraştı.\n\nEvde geçen bir dönemde siz ne öğrendiniz? 👇\n\n#newton #yerçekimi #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/14/01.jpg",
-   "media": [
-    "content/bilgi/14/01.jpg",
-    "content/bilgi/14/02.jpg",
-    "content/bilgi/14/03.jpg",
-    "content/bilgi/14/04.jpg",
-    "content/bilgi/14/05.jpg",
-    "content/bilgi/14/06.jpg",
-    "content/bilgi/14/07.jpg",
-    "content/bilgi/14/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-15",
-   "type": "carousel",
-   "order": 15,
-   "title": "EINSTEIN",
-   "subtitle": "Mucize yıl",
-   "caption": "Nobel'i görelilik için almadı! ⚛️\n\n📂 EINSTEIN — Mucize yıl\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Akademide iş bulamayınca patent memuru oldu.\n✨ 1905'te dört çığır açan makale yazdı.\n⚡ E=mc² bu mucize yılın ürünü.\n🌌 Genel göreliliği 1915'te tamamladı.\n🏅 Nobel'i fotoelektrik etki için aldı.\n\nEinstein'a tek bir soru sorabilseydiniz ne sorardınız? 👇\n\n#einstein #fizik #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/15/01.jpg",
-   "media": [
-    "content/bilgi/15/01.jpg",
-    "content/bilgi/15/02.jpg",
-    "content/bilgi/15/03.jpg",
-    "content/bilgi/15/04.jpg",
-    "content/bilgi/15/05.jpg",
-    "content/bilgi/15/06.jpg",
-    "content/bilgi/15/07.jpg",
-    "content/bilgi/15/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-16",
-   "type": "carousel",
-   "order": 16,
-   "title": "MARIE CURIE",
-   "subtitle": "İki Nobel",
-   "caption": "Defterleri hâlâ kurşun kutularda saklanıyor. ☢️\n\n📂 MARIE CURIE — İki Nobel\n👉 Dosyayı kaydırarak inceleyin.\n\n🇵🇱 Ülkesinde kadınlar üniversiteye alınmıyordu.\n🧪 Polonyum ve radyumu keşfetti.\n🏅 Nobel kazanan ilk kadın oldu (1903).\n🥇 İki farklı bilimde Nobel alan tek insan.\n📦 Defterleri hâlâ radyoaktif.\n\nSizce bilim tarihinin en ilham verici insanı kim? 👇\n\n#mariecurie #kadınbilimciler #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/16/01.jpg",
-   "media": [
-    "content/bilgi/16/01.jpg",
-    "content/bilgi/16/02.jpg",
-    "content/bilgi/16/03.jpg",
-    "content/bilgi/16/04.jpg",
-    "content/bilgi/16/05.jpg",
-    "content/bilgi/16/06.jpg",
-    "content/bilgi/16/07.jpg",
-    "content/bilgi/16/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-17",
-   "type": "carousel",
-   "order": 17,
-   "title": "PENİSİLİN",
-   "subtitle": "Tesadüfi keşif",
-   "caption": "Bir tatil dönüşü fark edilen küf, tıbbın seyrini değiştirdi. 🧫\n\n📂 PENİSİLİN — Tesadüfi keşif\n👉 Dosyayı kaydırarak inceleyin.\n\n🧫 Tatilden dönen Fleming küflenmiş bir kap buldu.\n🦠 Küfün çevresindeki bakteriler yok olmuştu.\n💊 Maddeye \"penisilin\" adını verdi.\n🏭 İlaç haline getirmeyi Florey ve Chain başardı.\n🏅 1945'te Nobel Tıp Ödülü'nü paylaştılar.\n\nHayatınızda güzel bir tesadüf yaşadınız mı? 👇\n\n#penisilin #fleming #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/17/01.jpg",
-   "media": [
-    "content/bilgi/17/01.jpg",
-    "content/bilgi/17/02.jpg",
-    "content/bilgi/17/03.jpg",
-    "content/bilgi/17/04.jpg",
-    "content/bilgi/17/05.jpg",
-    "content/bilgi/17/06.jpg",
-    "content/bilgi/17/07.jpg",
-    "content/bilgi/17/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-18",
-   "type": "carousel",
-   "order": 18,
-   "title": "HAREZMİ",
-   "subtitle": "Algoritmanın babası",
-   "caption": "Telefonunuzdaki her uygulama, 1200 yıl önce yaşamış bir matematikçinin adını taşıyor. 🔢\n\n📂 HAREZMİ — Algoritmanın babası\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Harezm bölgesinde doğdu.\n🏛️ Bağdat'taki Beytülhikme'de çalıştı.\n➗ \"Cebir\" kelimesi onun kitabından gelir.\n0️⃣ Hint rakamlarının ve sıfırın yayılmasını sağladı.\n💻 \"Algoritma\" kelimesi onun adından türedi.\n\nMatematikle aranız nasıl? 👇\n\n#harezmi #matematik #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/18/01.jpg",
-   "media": [
-    "content/bilgi/18/01.jpg",
-    "content/bilgi/18/02.jpg",
-    "content/bilgi/18/03.jpg",
-    "content/bilgi/18/04.jpg",
-    "content/bilgi/18/05.jpg",
-    "content/bilgi/18/06.jpg",
-    "content/bilgi/18/07.jpg",
-    "content/bilgi/18/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-19",
-   "type": "carousel",
-   "order": 19,
-   "title": "ULUĞ BEY",
-   "subtitle": "Gökyüzünün hükümdarı",
-   "caption": "Bir hükümdar, tahtını değil yıldızları sayarak tarihe geçti. ✨\n\n📂 ULUĞ BEY — Gökyüzünün hükümdarı\n👉 Dosyayı kaydırarak inceleyin.\n\n👑 Timur'un torunuydu, Semerkant'ı yönetti.\n🔭 Dönemin en büyük gözlemevlerinden birini kurdu.\n⭐ 1018 yıldızın kataloğu hazırlandı.\n📅 Yılın uzunluğunu yaklaşık bir dakika farkla hesapladılar.\n🕌 Öğrencisi Ali Kuşçu bilgileri İstanbul'a taşıdı.\n\nEn son ne zaman yıldızlara uzun uzun baktınız? 👇\n\n#uluğbey #astronomi #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/19/01.jpg",
-   "media": [
-    "content/bilgi/19/01.jpg",
-    "content/bilgi/19/02.jpg",
-    "content/bilgi/19/03.jpg",
-    "content/bilgi/19/04.jpg",
-    "content/bilgi/19/05.jpg",
-    "content/bilgi/19/06.jpg",
-    "content/bilgi/19/07.jpg",
-    "content/bilgi/19/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-20",
-   "type": "carousel",
-   "order": 20,
-   "title": "EL-CEZERİ",
-   "subtitle": "Sibernetiğin öncüsü",
-   "caption": "800 yıl önce Cizre'de doğan bir mühendis, robotların öncüsü oldu. ⚙️\n\n📂 EL-CEZERİ — Sibernetiğin öncüsü\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 1136'da Cizre'de doğdu.\n🏰 Artuklu sarayında mühendis olarak çalıştı.\n📖 1206'da 50'ye yakın makineyi çizimleriyle anlattı.\n🐘 En ünlü icadı su ile çalışan fil saati.\n🤖 Robot biliminin öncülerinden sayılır.\n\nSizce 800 yıl sonra hangi icadımız konuşulacak? 👇\n\n#elcezeri #mühendislik #bilimtarihi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/20/01.jpg",
-   "media": [
-    "content/bilgi/20/01.jpg",
-    "content/bilgi/20/02.jpg",
-    "content/bilgi/20/03.jpg",
-    "content/bilgi/20/04.jpg",
-    "content/bilgi/20/05.jpg",
-    "content/bilgi/20/06.jpg",
-    "content/bilgi/20/07.jpg",
-    "content/bilgi/20/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-21",
-   "type": "carousel",
-   "order": 21,
-   "title": "GÖBEKLİTEPE",
-   "subtitle": "Tarihin sıfır noktası",
-   "caption": "Piramitlerden 7 bin yıl önce, Şanlıurfa'da dev taşlar dikildi. 🗿\n\n📂 GÖBEKLİTEPE — Tarihin sıfır noktası\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Şanlıurfa merkezinin yaklaşık 15 km kuzeydoğusunda.\n⏳ Yaklaşık 12 bin yıllık.\n🏹 Yapanlar avcı-toplayıcılardı.\n🦊 Dikilitaşlarda hayvan kabartmaları var.\n🌍 2018'de UNESCO Dünya Mirası oldu.\n\nGöbeklitepe'yi gördünüz mü? 👇\n\n#göbeklitepe #şanlıurfa #arkeoloji #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/21/01.jpg",
-   "media": [
-    "content/bilgi/21/01.jpg",
-    "content/bilgi/21/02.jpg",
-    "content/bilgi/21/03.jpg",
-    "content/bilgi/21/04.jpg",
-    "content/bilgi/21/05.jpg",
-    "content/bilgi/21/06.jpg",
-    "content/bilgi/21/07.jpg",
-    "content/bilgi/21/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-22",
-   "type": "carousel",
-   "order": 22,
-   "title": "YAZININ İCADI",
-   "subtitle": "Sümer çivi yazısı",
-   "caption": "İlk yazılar şiir değil, koyun hesabıydı! 🐑\n\n📂 YAZININ İCADI — Sümer çivi yazısı\n👉 Dosyayı kaydırarak inceleyin.\n\n🏺 Çivi yazısı yaklaşık MÖ 3200'de Sümerlerde doğdu.\n🐑 İlk yazılar ticari kayıtlardı.\n✍️ Islak kile kamışla bastırılarak yazıldı.\n🏫 Öğrenciler \"tablet evi\"nde okurdu.\n📜 Kültepe tabletleri Anadolu'nun en eski belgelerinden.\n\nYazı olmasaydı en çok neyi kaybederdik? 👇\n\n#çiviyazısı #sümerler #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/22/01.jpg",
-   "media": [
-    "content/bilgi/22/01.jpg",
-    "content/bilgi/22/02.jpg",
-    "content/bilgi/22/03.jpg",
-    "content/bilgi/22/04.jpg",
-    "content/bilgi/22/05.jpg",
-    "content/bilgi/22/06.jpg",
-    "content/bilgi/22/07.jpg",
-    "content/bilgi/22/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-23",
-   "type": "carousel",
-   "order": 23,
-   "title": "İSKENDERİYE KÜTÜPHANESİ",
-   "subtitle": "Antik dünyanın hafızası",
-   "caption": "Kütüphane tek bir yangında yok olmadı; yavaş yavaş unutuldu. 📜\n\n📂 İSKENDERİYE KÜTÜPHANESİ — Antik dünyanın hafızası\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ MÖ 3. yüzyılda Mısır'da kuruldu.\n📚 Amaç dünyadaki bütün kitapları toplamaktı.\n⛵ Gemilerdeki kitaplar kopyalanırdı.\n🌍 Eratosthenes Dünya'nın çevresini hesapladı.\n🔥 \"Tek yangın\" hikâyesi büyük ölçüde efsane.\n\nBugünün İskenderiye Kütüphanesi sizce internet mi? 👇\n\n#iskenderiye #kütüphane #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/23/01.jpg",
-   "media": [
-    "content/bilgi/23/01.jpg",
-    "content/bilgi/23/02.jpg",
-    "content/bilgi/23/03.jpg",
-    "content/bilgi/23/04.jpg",
-    "content/bilgi/23/05.jpg",
-    "content/bilgi/23/06.jpg",
-    "content/bilgi/23/07.jpg",
-    "content/bilgi/23/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-24",
-   "type": "carousel",
-   "order": 24,
-   "title": "ANTİKYTHERA DÜZENEĞİ",
-   "subtitle": "2000 yıllık bilgisayar",
-   "caption": "Süngerciler denizin dibinde 2000 yıllık bir \"bilgisayar\" buldu. ⚙️\n\n📂 ANTİKYTHERA DÜZENEĞİ — 2000 yıllık bilgisayar\n👉 Dosyayı kaydırarak inceleyin.\n\n🌊 1901'de bir antik gemi batığında bulundu.\n⏳ MÖ 2. ya da 1. yüzyıla tarihleniyor.\n⚙️ En az 30 dişli çark içeriyor.\n🌒 Tutulmaları ve Ay evrelerini hesaplıyordu.\n🏅 Olimpiyat takvimi bile üzerindeydi.\n\nSizce antik dünyanın kaybolan başka hangi icatları vardı? 👇\n\n#antikythera #arkeoloji #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/24/01.jpg",
-   "media": [
-    "content/bilgi/24/01.jpg",
-    "content/bilgi/24/02.jpg",
-    "content/bilgi/24/03.jpg",
-    "content/bilgi/24/04.jpg",
-    "content/bilgi/24/05.jpg",
-    "content/bilgi/24/06.jpg",
-    "content/bilgi/24/07.jpg",
-    "content/bilgi/24/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-25",
-   "type": "carousel",
-   "order": 25,
-   "title": "PİRİ REİS HARİTASI",
-   "subtitle": "Bir ceylan derisinde dünya",
-   "caption": "1513'te ceylan derisine çizilen harita, Amerika'yı gösteriyor. 🗺️\n\n📂 PİRİ REİS HARİTASI — Bir ceylan derisinde dünya\n👉 Dosyayı kaydırarak inceleyin.\n\n⚓ Piri Reis, Gelibolulu bir denizciydi.\n🦌 Harita 1513'te ceylan derisine çizildi.\n🗺️ Yaklaşık 20 kaynak haritadan yararlandı.\n🌎 Amerika'yı gösteren en eski haritalardan.\n🏰 1929'da Topkapı Sarayı'nda yeniden keşfedildi.\n\nPiri Reis haritasını daha önce duymuş muydunuz? 👇\n\n#pirireis #harita #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/25/01.jpg",
-   "media": [
-    "content/bilgi/25/01.jpg",
-    "content/bilgi/25/02.jpg",
-    "content/bilgi/25/03.jpg",
-    "content/bilgi/25/04.jpg",
-    "content/bilgi/25/05.jpg",
-    "content/bilgi/25/06.jpg",
-    "content/bilgi/25/07.jpg",
-    "content/bilgi/25/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-26",
-   "type": "carousel",
-   "order": 26,
-   "title": "MATBAA",
-   "subtitle": "Gutenberg devrimi",
-   "caption": "Bir kuyumcu, bilgiyi herkesin ulaşabileceği hale getirdi. 📖\n\n📂 MATBAA — Gutenberg devrimi\n👉 Dosyayı kaydırarak inceleyin.\n\n🔠 Metal hareketli harflerle baskı sistemi geliştirdi.\n🌏 Hareketli harf daha önce Çin ve Kore'de vardı.\n📕 Gutenberg İncili 1455 civarında basıldı.\n📚 1500'e kadar milyonlarca kitap basıldı.\n🖨️ İbrahim Müteferrika matbaası 1727'de kuruldu.\n\nEn son basılı bir kitabı ne zaman okudunuz? 👇\n\n#matbaa #gutenberg #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/26/01.jpg",
-   "media": [
-    "content/bilgi/26/01.jpg",
-    "content/bilgi/26/02.jpg",
-    "content/bilgi/26/03.jpg",
-    "content/bilgi/26/04.jpg",
-    "content/bilgi/26/05.jpg",
-    "content/bilgi/26/06.jpg",
-    "content/bilgi/26/07.jpg",
-    "content/bilgi/26/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-27",
-   "type": "carousel",
-   "order": 27,
-   "title": "TELEFONUN İCADI",
-   "subtitle": "\"Bay Watson, buraya gel\"",
-   "caption": "İlk telefon konuşması: \"Bay Watson, buraya gel.\" ☎️\n\n📂 TELEFONUN İCADI — \"Bay Watson, buraya gel\"\n👉 Dosyayı kaydırarak inceleyin.\n\n📜 Bell, patentini 1876'da aldı.\n⏱️ Elisha Gray aynı gün başvurmuştu.\n🗣️ İlk sözler: \"Bay Watson, buraya gel.\"\n🇮🇹 Meucci'nin katkısı 2002'de tanındı.\n👂 Bell, işitme engellilerin eğitimiyle uğraştı.\n\nTelefonsuz bir gün geçirebilir misiniz? 👇\n\n#telefon #icatlar #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/27/01.jpg",
-   "media": [
-    "content/bilgi/27/01.jpg",
-    "content/bilgi/27/02.jpg",
-    "content/bilgi/27/03.jpg",
-    "content/bilgi/27/04.jpg",
-    "content/bilgi/27/05.jpg",
-    "content/bilgi/27/06.jpg",
-    "content/bilgi/27/07.jpg",
-    "content/bilgi/27/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-28",
-   "type": "carousel",
-   "order": 28,
-   "title": "TAKVİMİN TARİHİ",
-   "subtitle": "Kaybolan 10 gün",
-   "caption": "1582'de 4 Ekim'in ertesi günü 15 Ekim oldu! 📅\n\n📂 TAKVİMİN TARİHİ — Kaybolan 10 gün\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Jülyen takvimi MÖ 46'da başladı.\n⏱️ Yılı yaklaşık 11 dakika uzundu.\n📜 Papa XIII. Gregorius 1582'de takvimi düzeltti.\n📅 4 Ekim'in ertesi günü 15 Ekim oldu.\n🇹🇷 Türkiye 1926'da Gregoryen takvimine geçti.\n\nTakvimden 10 gün silinse hangi günleri silerdiniz? 👇\n\n#takvim #tarih #bilgi #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/28/01.jpg",
-   "media": [
-    "content/bilgi/28/01.jpg",
-    "content/bilgi/28/02.jpg",
-    "content/bilgi/28/03.jpg",
-    "content/bilgi/28/04.jpg",
-    "content/bilgi/28/05.jpg",
-    "content/bilgi/28/06.jpg",
-    "content/bilgi/28/07.jpg",
-    "content/bilgi/28/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-29",
-   "type": "carousel",
-   "order": 29,
-   "title": "AY'A İLK ADIM",
-   "subtitle": "Apollo 11",
-   "caption": "Ay'daki en ünlü fotoğrafta Armstrong'u Aldrin'in vizöründe görebilirsiniz. 🌕\n\n📂 AY'A İLK ADIM — Apollo 11\n👉 Dosyayı kaydırarak inceleyin.\n\n🚀 16 Temmuz 1969'da fırlatıldı.\n🦅 \"Eagle\" 20 Temmuz'da Ay'a indi.\n👣 Armstrong, Ay'a ayak basan ilk insan oldu.\n📸 Ünlü fotoğrafta Armstrong vizörde yansıyor.\n🛰️ Collins yörüngede tek başına bekledi.\n\nFırsatınız olsa Ay'a gider miydiniz? 👇\n\n#apollo11 #uzay #nasa #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/29/01.jpg",
-   "media": [
-    "content/bilgi/29/01.jpg",
-    "content/bilgi/29/02.jpg",
-    "content/bilgi/29/03.jpg",
-    "content/bilgi/29/04.jpg",
-    "content/bilgi/29/05.jpg",
-    "content/bilgi/29/06.jpg",
-    "content/bilgi/29/07.jpg",
-    "content/bilgi/29/08.jpg"
-   ]
-  },
-  {
-   "id": "bilgi-30",
-   "type": "carousel",
-   "order": 30,
-   "title": "İNTERNETİN DOĞUŞU",
-   "subtitle": "İlk mesaj: \"LO\"",
-   "caption": "İnternetteki ilk mesaj \"LOGIN\" olacaktı, ama sadece \"LO\" gidebildi. 💻\n\n📂 İNTERNETİN DOĞUŞU — İlk mesaj: \"LO\"\n👉 Dosyayı kaydırarak inceleyin.\n\n🖧 İnternetin atası ARPANET 1969'da kuruldu.\n💥 İlk mesaj \"LO\"da kesildi.\n📡 1983'te TCP/IP'ye geçildi.\n🌐 Web, 1989'da CERN'de önerildi.\n🇹🇷 Türkiye 1993'te ODTÜ'den bağlandı.\n\nİnternete ilk ne zaman bağlandınız? 👇\n\n#internet #teknoloji #tarih #genelkültür #evrimarşivi",
-   "cover": "content/bilgi/30/01.jpg",
-   "media": [
-    "content/bilgi/30/01.jpg",
-    "content/bilgi/30/02.jpg",
-    "content/bilgi/30/03.jpg",
-    "content/bilgi/30/04.jpg",
-    "content/bilgi/30/05.jpg",
-    "content/bilgi/30/06.jpg",
-    "content/bilgi/30/07.jpg",
-    "content/bilgi/30/08.jpg"
-   ]
-  },
-  {
-   "id": "reel-kurt",
-   "type": "reel",
-   "order": 1,
-   "title": "KURT DOSYASI",
-   "subtitle": "Bozkırın efsanesi",
-   "caption": "Bir kurt sürüsü aslında bir ailedir. 🐺\n\n📂 KURT DOSYASI: Bozkırın efsanesi — anlatan: Eli\n\n❄️ Gri kurt, yüz binlerce yıl önce buzul çağı Avrasya'sında ortaya çıktı.\n👨‍👩‍👧 Sürü; anne, baba ve yavrulardan oluşan bir aile.\n🌕 Ulumaları açık arazide kilometrelerce uzaktan duyulabiliyor.\n📜 Göktürk türeyiş destanında dişi kurt Asena bir halkın atası olarak anlatılır.\n🏛️ Roma efsanesinde bir dişi kurt Romulus ve Remus'u büyütür.\n🌲 1995'te Yellowstone'a geri getirilen kurtlar bütün parkın dengesini değiştirdi.\n\nEfsaneler, destanlar, sürüler… Eli'nin sürüsü ise kliniğin personeli. 😼\n\nBir sonraki dosya hangi hayvan olsun? 👇\n\n#kurt #bozkurt #evrim #bilgi #evrimarşivi",
-   "cover": "content/reels/kurt.jpg",
-   "media": [
-    "content/reels/kurt.mp4"
-   ]
-  },
-  {
-   "id": "reel-kaplumbaga",
-   "type": "reel",
-   "order": 2,
-   "title": "DENİZ KAPLUMBAĞASI DOSYASI",
-   "subtitle": "Dinozorlardan Dalyan'a",
-   "caption": "Yavru kaplumbağanın dişi mi erkek mi olacağına kumun sıcaklığı karar veriyor! 🐢\n\n📂 DENİZ KAPLUMBAĞASI DOSYASI: Dinozorlardan Dalyan'a — anlatan: Eli\n\n🦕 Deniz kaplumbağaları dinozorlar çağında okyanuslara açıldı.\n📏 Dev Archelon'un boyu dört metreyi buluyordu.\n🧭 Dişiler yumurtlamak için çoğu zaman doğdukları bölgeye döner; manyetik alanla yön bulurlar.\n🌡️ Sıcak kumdan daha çok dişi, serin kumdan daha çok erkek yavru çıkar.\n🏖️ Dalyan İztuzu Kumsalı, 80'lerde otel projesine karşı verilen mücadeleyle koruma altına alındı.\n🛍️ Plastik poşetleri denizanası sanıp yutabiliyorlar.\n\nYüz milyon yıldır aynı kumsallara dönüyorlar… Eli ise her gün güneş alan pencereye. ☀️\n\nHiç yuvadan denize koşan yavru kaplumbağa gördünüz mü? 👇\n\n#carettacaretta #denizkaplumbağası #dalyan #evrim #evrimarşivi",
-   "cover": "content/reels/kaplumbaga.jpg",
-   "media": [
-    "content/reels/kaplumbaga.mp4"
-   ]
-  },
-  {
-   "id": "reel-yunus",
-   "type": "reel",
-   "order": 3,
-   "title": "YUNUS DOSYASI",
-   "subtitle": "Denizin dahileri",
-   "caption": "Yunuslar birbirine ıslıkla adeta isimleriyle sesleniyor! 🐬\n\n📂 YUNUS DOSYASI: Denizin dahileri — anlatan: Eli\n\n🦵 Yunusların ataları karada yaşayan dört ayaklı memelilerdi.\n🫁 Balık değil memeliler: yavrularını emzirir, nefes almak için yüzeye çıkarlar.\n🔊 Ekolokasyonla bulanık suda bile balığın yerini bulurlar.\n🎵 Her yunusun kendine özgü bir 'isim ıslığı' var.\n🪞 2001'deki bir deneyde yunuslar aynada kendilerini tanıdı.\n🌊 Karadeniz, Marmara ve Ege'de yunuslar yaşıyor.\n\nAynada kendini tanımak mı? Eli bunu her sabah yapıyor ve çok beğeniyor. 😸\n\nBoğaz'da hiç yunus gördünüz mü? 👇\n\n#yunus #deniz #evrim #bilgi #evrimarşivi",
-   "cover": "content/reels/yunus.jpg",
-   "media": [
-    "content/reels/yunus.mp4"
-   ]
-  },
-  {
-   "id": "reel-leylek",
-   "type": "reel",
-   "order": 4,
-   "title": "LEYLEK DOSYASI",
-   "subtitle": "Afrika'dan Anadolu'ya",
-   "caption": "1822'de boynunda Afrika oku olan bir leylek, göçün sırrını çözdürdü! 🕊️\n\n📂 LEYLEK DOSYASI: Afrika'dan Anadolu'ya — anlatan: Eli\n\n🌍 Leylekler sonbaharda binlerce kilometre yol alıp Afrika'ya göç eder.\n🌀 Kanat çırpmak yerine sıcak hava akımlarıyla süzülürler, açık denizden kaçınırlar.\n🌉 Bu yüzden göç yolları İstanbul Boğazı'ndan geçer.\n🏹 1822'de Almanya'da boynunda Afrika oku saplı bir leylek bulundu.\n🥢 Sesleri yok denecek kadar az; gagalarını takırdatarak haberleşirler.\n🏡 Bursa Eskikaraağaç'ta her yıl yüzlerce leylek yuva yapar; Yaren leylek de her bahar aynı köye döner.\n\nBinlerce kilometre uçup aynı yuvaya dönmek… Eli de aynı koltuğa dönüyor, ama hiç gitmeden. 🛋️\n\nSizin oralarda leylek yuvası var mı? 👇\n\n#leylek #yarenleylek #göç #evrim #evrimarşivi",
-   "cover": "content/reels/leylek.jpg",
-   "media": [
-    "content/reels/leylek.mp4"
-   ]
-  },
-  {
-   "id": "reel-kelaynak",
-   "type": "reel",
-   "order": 5,
-   "title": "KELAYNAK DOSYASI",
-   "subtitle": "Birecik'in kara kuşu",
-   "caption": "Bir zamanlar yok olmanın eşiğine gelen kelaynaklar, Birecik'te yeniden uçuyor. 🖤\n\n📂 KELAYNAK DOSYASI: Birecik'in kara kuşu — anlatan: Eli\n\n𓅜 Kelaynak eski Mısır'da bir hiyeroglif işaretiydi.\n🔴 Çıplak kırmızı yüz, kıvrık gaga ve güneşte yeşil-mor parlayan tüyler.\n🏞️ Birecik'te Fırat kıyısındaki kayalıklarda yüzyıllardır yaşıyorlar.\n🐪 Eski bir inanışa göre hacı kafilelerine yol gösterirlerdi.\n☠️ 1950'lerde zirai ilaçlar yüzünden koloni neredeyse yok oldu; 1977'de üretim istasyonu kuruldu.\n✈️ Avusturya'da yavrulara hafif uçaklarla göç yolu öğretiliyor.\n\nYok olmanın eşiğinden dönmek kolay değil… Eli için yataktan kalkmak da öyle. 😴\n\nKelaynakları hiç yakından gördünüz mü? 👇\n\n#kelaynak #birecik #doğakoruma #evrim #evrimarşivi",
-   "cover": "content/reels/kelaynak.jpg",
-   "media": [
-    "content/reels/kelaynak.mp4"
-   ]
-  },
-  {
-   "id": "reel-aslan",
-   "type": "reel",
-   "order": 6,
-   "title": "ASLAN DOSYASI",
-   "subtitle": "Anadolu'nun kayıp kralı",
-   "caption": "Aslanlar bir zamanlar Anadolu'da da yaşıyordu! 🦁\n\n📂 ASLAN DOSYASI: Anadolu'nun kayıp kralı — anlatan: Eli\n\n🎨 Buzul çağı mağara aslanları Chauvet Mağarası'nın duvarlarına çizildi.\n🏛️ Hattuşa'nın Aslanlı Kapı'sı yaklaşık 3.300 yıldır şehri bekliyor.\n🪨 Asur kralları aslan avını Ninova kabartmalarına işletti.\n📜 Kayıtlara göre son Anadolu aslanları 19. yüzyılda Güneydoğu'da görüldü.\n👑 Sürü halinde yaşarlar; avın çoğunu dişiler birlikte yapar.\n🌳 Asya aslanları bugün yalnızca Hindistan'daki Gir Ormanı'nda yaşıyor.\n\nKükreme, krallık, taştan heykeller… Eli de kükrüyor, ama sadece mama saatinde. 🍽️\n\nAslanlı Kapı'yı gördünüz mü? 👇\n\n#aslan #hattuşa #anadolu #evrim #evrimarşivi",
-   "cover": "content/reels/aslan.jpg",
-   "media": [
-    "content/reels/aslan.mp4"
-   ]
-  },
-  {
-   "id": "reel-baykus",
-   "type": "reel",
-   "order": 7,
-   "title": "BAYKUŞ DOSYASI",
-   "subtitle": "Gecenin sessiz avcısı",
-   "caption": "Baykuşlar başlarını 270 dereceye kadar çevirebiliyor! 🦉\n\n📂 BAYKUŞ DOSYASI: Gecenin sessiz avcısı — anlatan: Eli\n\n🦖 İlk baykuş benzeri kuşlar dinozorların yok olmasından kısa süre sonra ortaya çıktı.\n🔄 Gözlerini oynatamadıkları için başlarını çevirirler.\n🤫 Tarak gibi tüy kenarları sayesinde neredeyse sessiz uçarlar.\n👂 Bazılarının kulakları farklı yükseklikte; karın altındaki fareyi bile duyarlar.\n🪙 Antik Atina'nın gümüş paralarında Athena'nın baykuşu vardı.\n🌾 Puhu, Avrupa'nın en büyük baykuşlarından biri; baykuşlar tarlaları kemirgenlerden korur.\n\nGece avlanmak, sessiz yürümek… Eli bunların hepsini yapıyor, sadece 270 derece değil. 😼\n\nGeceleri baykuş sesi duyuyor musunuz? 👇\n\n#baykuş #puhu #gece #evrim #evrimarşivi",
-   "cover": "content/reels/baykus.jpg",
-   "media": [
-    "content/reels/baykus.mp4"
-   ]
-  },
-  {
-   "id": "reel-ahtapot",
+   "id": "evrim-reel-ahtapot",
+   "account": "evrim",
    "type": "reel",
    "order": 8,
    "title": "AHTAPOT DOSYASI",
    "subtitle": "Sekiz kollu deha",
    "caption": "Üç kalp, mavi kan ve düşünen kollar: ahtapotlar! 🐙\n\n📂 AHTAPOT DOSYASI: Sekiz kollu deha — anlatan: Eli\n\n🐚 Ataları yarım milyar yıl önce kabuk içinde yaşıyordu.\n💙 Üç kalpleri var; bakır içeren kanları mavidir.\n🧠 Sinir hücrelerinin büyük kısmı kollarında.\n🎨 Bir saniyeden kısa sürede renk ve doku değiştirebilirler.\n🥥 2009'da Endonezya'da hindistan cevizi kabuğunu sığınak olarak taşıdıkları görüldü.\n⚽ 2010 Dünya Kupası'nda Paul ahtapot maç tahminleriyle ünlendi (tabii şanstı).\n\nÜç kalp, sekiz kol… Eli'nin tek kalbi var ama mama kavanozunu açmayı o da biliyor. 😸\n\nSizce en zeki deniz canlısı hangisi? 👇\n\n#ahtapot #deniz #evrim #bilgi #evrimarşivi",
-   "cover": "content/reels/ahtapot.jpg",
+   "cover": "content/evrim/reel/ahtapot/cover.jpg",
    "media": [
-    "content/reels/ahtapot.mp4"
+    "content/evrim/reel/ahtapot/video.mp4"
    ]
   },
   {
-   "id": "reel-karinca",
+   "id": "evrim-reel-aslan",
+   "account": "evrim",
+   "type": "reel",
+   "order": 6,
+   "title": "ASLAN DOSYASI",
+   "subtitle": "Anadolu'nun kayıp kralı",
+   "caption": "Aslanlar bir zamanlar Anadolu'da da yaşıyordu! 🦁\n\n📂 ASLAN DOSYASI: Anadolu'nun kayıp kralı — anlatan: Eli\n\n🎨 Buzul çağı mağara aslanları Chauvet Mağarası'nın duvarlarına çizildi.\n🏛️ Hattuşa'nın Aslanlı Kapı'sı yaklaşık 3.300 yıldır şehri bekliyor.\n🪨 Asur kralları aslan avını Ninova kabartmalarına işletti.\n📜 Kayıtlara göre son Anadolu aslanları 19. yüzyılda Güneydoğu'da görüldü.\n👑 Sürü halinde yaşarlar; avın çoğunu dişiler birlikte yapar.\n🌳 Asya aslanları bugün yalnızca Hindistan'daki Gir Ormanı'nda yaşıyor.\n\nKükreme, krallık, taştan heykeller… Eli de kükrüyor, ama sadece mama saatinde. 🍽️\n\nAslanlı Kapı'yı gördünüz mü? 👇\n\n#aslan #hattuşa #anadolu #evrim #evrimarşivi",
+   "cover": "content/evrim/reel/aslan/cover.jpg",
+   "media": [
+    "content/evrim/reel/aslan/video.mp4"
+   ]
+  },
+  {
+   "id": "evrim-reel-baykus",
+   "account": "evrim",
+   "type": "reel",
+   "order": 7,
+   "title": "BAYKUŞ DOSYASI",
+   "subtitle": "Gecenin sessiz avcısı",
+   "caption": "Baykuşlar başlarını 270 dereceye kadar çevirebiliyor! 🦉\n\n📂 BAYKUŞ DOSYASI: Gecenin sessiz avcısı — anlatan: Eli\n\n🦖 İlk baykuş benzeri kuşlar dinozorların yok olmasından kısa süre sonra ortaya çıktı.\n🔄 Gözlerini oynatamadıkları için başlarını çevirirler.\n🤫 Tarak gibi tüy kenarları sayesinde neredeyse sessiz uçarlar.\n👂 Bazılarının kulakları farklı yükseklikte; karın altındaki fareyi bile duyarlar.\n🪙 Antik Atina'nın gümüş paralarında Athena'nın baykuşu vardı.\n🌾 Puhu, Avrupa'nın en büyük baykuşlarından biri; baykuşlar tarlaları kemirgenlerden korur.\n\nGece avlanmak, sessiz yürümek… Eli bunların hepsini yapıyor, sadece 270 derece değil. 😼\n\nGeceleri baykuş sesi duyuyor musunuz? 👇\n\n#baykuş #puhu #gece #evrim #evrimarşivi",
+   "cover": "content/evrim/reel/baykus/cover.jpg",
+   "media": [
+    "content/evrim/reel/baykus/video.mp4"
+   ]
+  },
+  {
+   "id": "evrim-reel-kaplumbaga",
+   "account": "evrim",
+   "type": "reel",
+   "order": 2,
+   "title": "DENİZ KAPLUMBAĞASI DOSYASI",
+   "subtitle": "Dinozorlardan Dalyan'a",
+   "caption": "Yavru kaplumbağanın dişi mi erkek mi olacağına kumun sıcaklığı karar veriyor! 🐢\n\n📂 DENİZ KAPLUMBAĞASI DOSYASI: Dinozorlardan Dalyan'a — anlatan: Eli\n\n🦕 Deniz kaplumbağaları dinozorlar çağında okyanuslara açıldı.\n📏 Dev Archelon'un boyu dört metreyi buluyordu.\n🧭 Dişiler yumurtlamak için çoğu zaman doğdukları bölgeye döner; manyetik alanla yön bulurlar.\n🌡️ Sıcak kumdan daha çok dişi, serin kumdan daha çok erkek yavru çıkar.\n🏖️ Dalyan İztuzu Kumsalı, 80'lerde otel projesine karşı verilen mücadeleyle koruma altına alındı.\n🛍️ Plastik poşetleri denizanası sanıp yutabiliyorlar.\n\nYüz milyon yıldır aynı kumsallara dönüyorlar… Eli ise her gün güneş alan pencereye. ☀️\n\nHiç yuvadan denize koşan yavru kaplumbağa gördünüz mü? 👇\n\n#carettacaretta #denizkaplumbağası #dalyan #evrim #evrimarşivi",
+   "cover": "content/evrim/reel/kaplumbaga/cover.jpg",
+   "media": [
+    "content/evrim/reel/kaplumbaga/video.mp4"
+   ]
+  },
+  {
+   "id": "evrim-reel-karinca",
+   "account": "evrim",
    "type": "reel",
    "order": 9,
    "title": "KARINCA DOSYASI",
    "subtitle": "Minik dev uygarlık",
    "caption": "Karıncalar milyonlarca yıldır tarım yapıyor! 🐜\n\n📂 KARINCA DOSYASI: Minik dev uygarlık — anlatan: Eli\n\n🟠 En eski karıncalar dinozorlar çağında yaşadı; bazıları kehribar içinde bulundu.\n👑 Kolonide kraliçe yumurtlar, işçiler toplar, temizler, yavrulara bakar.\n👃 Koku izleriyle yiyeceğe giden en kısa yolu bulurlar.\n🍄 Yaprak kesen karıncalar yaprakların üzerinde mantar yetiştirip onu yer.\n💪 Kendi ağırlıklarının kat kat fazlasını taşıyabilirler.\n🌍 2022 hesabına göre dünyada yaklaşık 20 katrilyon karınca var.\n\n20 katrilyon karınca çalışıyor… Eli ise bütün kliniği tek başına, yatarak yönetiyor. 😼\n\nSizce karıncalar mı daha çalışkan, arılar mı? 👇\n\n#karınca #doğa #evrim #bilgi #evrimarşivi",
-   "cover": "content/reels/karinca.jpg",
+   "cover": "content/evrim/reel/karinca/cover.jpg",
    "media": [
-    "content/reels/karinca.mp4"
+    "content/evrim/reel/karinca/video.mp4"
    ]
   },
   {
-   "id": "reel-tavsan",
+   "id": "evrim-reel-kelaynak",
+   "account": "evrim",
+   "type": "reel",
+   "order": 5,
+   "title": "KELAYNAK DOSYASI",
+   "subtitle": "Birecik'in kara kuşu",
+   "caption": "Bir zamanlar yok olmanın eşiğine gelen kelaynaklar, Birecik'te yeniden uçuyor. 🖤\n\n📂 KELAYNAK DOSYASI: Birecik'in kara kuşu — anlatan: Eli\n\n𓅜 Kelaynak eski Mısır'da bir hiyeroglif işaretiydi.\n🔴 Çıplak kırmızı yüz, kıvrık gaga ve güneşte yeşil-mor parlayan tüyler.\n🏞️ Birecik'te Fırat kıyısındaki kayalıklarda yüzyıllardır yaşıyorlar.\n🐪 Eski bir inanışa göre hacı kafilelerine yol gösterirlerdi.\n☠️ 1950'lerde zirai ilaçlar yüzünden koloni neredeyse yok oldu; 1977'de üretim istasyonu kuruldu.\n✈️ Avusturya'da yavrulara hafif uçaklarla göç yolu öğretiliyor.\n\nYok olmanın eşiğinden dönmek kolay değil… Eli için yataktan kalkmak da öyle. 😴\n\nKelaynakları hiç yakından gördünüz mü? 👇\n\n#kelaynak #birecik #doğakoruma #evrim #evrimarşivi",
+   "cover": "content/evrim/reel/kelaynak/cover.jpg",
+   "media": [
+    "content/evrim/reel/kelaynak/video.mp4"
+   ]
+  },
+  {
+   "id": "evrim-reel-kurt",
+   "account": "evrim",
+   "type": "reel",
+   "order": 1,
+   "title": "KURT DOSYASI",
+   "subtitle": "Bozkırın efsanesi",
+   "caption": "Bir kurt sürüsü aslında bir ailedir. 🐺\n\n📂 KURT DOSYASI: Bozkırın efsanesi — anlatan: Eli\n\n❄️ Gri kurt, yüz binlerce yıl önce buzul çağı Avrasya'sında ortaya çıktı.\n👨‍👩‍👧 Sürü; anne, baba ve yavrulardan oluşan bir aile.\n🌕 Ulumaları açık arazide kilometrelerce uzaktan duyulabiliyor.\n📜 Göktürk türeyiş destanında dişi kurt Asena bir halkın atası olarak anlatılır.\n🏛️ Roma efsanesinde bir dişi kurt Romulus ve Remus'u büyütür.\n🌲 1995'te Yellowstone'a geri getirilen kurtlar bütün parkın dengesini değiştirdi.\n\nEfsaneler, destanlar, sürüler… Eli'nin sürüsü ise kliniğin personeli. 😼\n\nBir sonraki dosya hangi hayvan olsun? 👇\n\n#kurt #bozkurt #evrim #bilgi #evrimarşivi",
+   "cover": "content/evrim/reel/kurt/cover.jpg",
+   "media": [
+    "content/evrim/reel/kurt/video.mp4"
+   ]
+  },
+  {
+   "id": "evrim-reel-leylek",
+   "account": "evrim",
+   "type": "reel",
+   "order": 4,
+   "title": "LEYLEK DOSYASI",
+   "subtitle": "Afrika'dan Anadolu'ya",
+   "caption": "1822'de boynunda Afrika oku olan bir leylek, göçün sırrını çözdürdü! 🕊️\n\n📂 LEYLEK DOSYASI: Afrika'dan Anadolu'ya — anlatan: Eli\n\n🌍 Leylekler sonbaharda binlerce kilometre yol alıp Afrika'ya göç eder.\n🌀 Kanat çırpmak yerine sıcak hava akımlarıyla süzülürler, açık denizden kaçınırlar.\n🌉 Bu yüzden göç yolları İstanbul Boğazı'ndan geçer.\n🏹 1822'de Almanya'da boynunda Afrika oku saplı bir leylek bulundu.\n🥢 Sesleri yok denecek kadar az; gagalarını takırdatarak haberleşirler.\n🏡 Bursa Eskikaraağaç'ta her yıl yüzlerce leylek yuva yapar; Yaren leylek de her bahar aynı köye döner.\n\nBinlerce kilometre uçup aynı yuvaya dönmek… Eli de aynı koltuğa dönüyor, ama hiç gitmeden. 🛋️\n\nSizin oralarda leylek yuvası var mı? 👇\n\n#leylek #yarenleylek #göç #evrim #evrimarşivi",
+   "cover": "content/evrim/reel/leylek/cover.jpg",
+   "media": [
+    "content/evrim/reel/leylek/video.mp4"
+   ]
+  },
+  {
+   "id": "evrim-reel-saat0905",
+   "account": "evrim",
+   "type": "reel",
+   "order": 0,
+   "title": "SAAT 09.05",
+   "subtitle": "10 Kasım belgeseli",
+   "caption": "Saatler dokuzu beş geçeyi gösterirken bir millet nefesini tuttu. 🕰️\n\n📂 SAAT 09.05: Bir saatin değil, bir milletin hikâyesi\n\n1938 baharından 10 Kasım sabahına, Dolmabahçe'den Anıtkabir'e uzanan son yolculuk.\n\n🌸 1938 baharı: Genç Cumhuriyet 15. yaşına hazırlanıyor.\n⛵ Yaz: Doktorların ısrarıyla Savarona yatına taşınıyor.\n🕯️ 16 Ekim: Saray koridorlarında ayak sesleri hızlanıyor.\n🕰️ 10 Kasım 1938, saat 09.05: Dolmabahçe'deki saat duruyor.\n🚢 19 Kasım: Naaşı Yavuz zırhlısıyla İzmit'e, oradan trenle Ankara'ya.\n🏛️ 10 Kasım 1953: Anıtkabir'e taşınıyor.\n\nSiyah-beyaz fotoğraflar gerçek arşiv kayıtlarıdır; canlandırma sahneleri yapay zekâ ile üretilmiştir.\n\nSaygıyla, minnetle ve özlemle anıyoruz. 🇹🇷\n\n#10kasım #atatürk #saat0905 #unutmadık #evrimarşivi",
+   "cover": "content/evrim/reel/saat0905/cover.jpg",
+   "media": [
+    "content/evrim/reel/saat0905/video.mp4"
+   ],
+   "date": "2026-11-10"
+  },
+  {
+   "id": "evrim-reel-tavsan",
+   "account": "evrim",
    "type": "reel",
    "order": 10,
    "title": "TAVŞAN DOSYASI",
    "subtitle": "Uzun kulaklı yolcular",
    "caption": "Tavşanlar kemirgen değil! 🐇\n\n📂 TAVŞAN DOSYASI: Uzun kulaklı yolcular — anlatan: Eli\n\n🦴 Ataları ~55 milyon yıl önce Asya'da ortaya çıktı; 'tavşangiller' ayrı bir grup.\n🦷 Ön dişleri ömür boyu uzar; bol ot ve saman dişleri aşındırır.\n🔁 Geceleri çıkardıkları yumuşak dışkıyı yeniden yiyerek besinlerden ikinci kez yararlanırlar.\n🇪🇸 Evcil tavşanın atası İberya'nın yabani tavşanı.\n🇦🇺 1859'da Avustralya'da salınan 24 tavşan, kısa sürede milyonlara ulaştı.\n👂 Uzun kulaklar vücut ısısını düşürmeye de yardım eder.\n\nSevimliler, kabul… ama kliniğin maskotu hâlâ Eli. 🐾\n\nEvinizde tavşan var mı? 👇\n\n#tavşan #evcilhayvan #veteriner #evrim #evrimarşivi",
-   "cover": "content/reels/tavsan.jpg",
+   "cover": "content/evrim/reel/tavsan/cover.jpg",
    "media": [
-    "content/reels/tavsan.mp4"
+    "content/evrim/reel/tavsan/video.mp4"
    ]
   },
   {
-   "id": "reel-saat0905",
+   "id": "evrim-reel-yunus",
+   "account": "evrim",
    "type": "reel",
-   "order": 0,
-   "title": "SAAT 09.05",
-   "subtitle": "10 Kasım belgeseli · 10 Kasım'da önerilir",
-   "caption": "Saatler dokuzu beş geçeyi gösterirken bir millet nefesini tuttu. 🕰️\n\n📂 SAAT 09.05: Bir saatin değil, bir milletin hikâyesi\n\n1938 baharından 10 Kasım sabahına, Dolmabahçe'den Anıtkabir'e uzanan son yolculuk.\n\n🌸 1938 baharı: Genç Cumhuriyet 15. yaşına hazırlanıyor.\n⛵ Yaz: Doktorların ısrarıyla Savarona yatına taşınıyor.\n🕯️ 16 Ekim: Saray koridorlarında ayak sesleri hızlanıyor.\n🕰️ 10 Kasım 1938, saat 09.05: Dolmabahçe'deki saat duruyor.\n🚢 19 Kasım: Naaşı Yavuz zırhlısıyla İzmit'e, oradan trenle Ankara'ya.\n🏛️ 10 Kasım 1953: Anıtkabir'e taşınıyor.\n\nSiyah-beyaz fotoğraflar gerçek arşiv kayıtlarıdır; canlandırma sahneleri yapay zekâ ile üretilmiştir.\n\nSaygıyla, minnetle ve özlemle anıyoruz. 🇹🇷\n\n#10kasım #atatürk #saat0905 #unutmadık #evrimarşivi",
-   "cover": "content/reels/saat0905.jpg",
+   "order": 3,
+   "title": "YUNUS DOSYASI",
+   "subtitle": "Denizin dahileri",
+   "caption": "Yunuslar birbirine ıslıkla adeta isimleriyle sesleniyor! 🐬\n\n📂 YUNUS DOSYASI: Denizin dahileri — anlatan: Eli\n\n🦵 Yunusların ataları karada yaşayan dört ayaklı memelilerdi.\n🫁 Balık değil memeliler: yavrularını emzirir, nefes almak için yüzeye çıkarlar.\n🔊 Ekolokasyonla bulanık suda bile balığın yerini bulurlar.\n🎵 Her yunusun kendine özgü bir 'isim ıslığı' var.\n🪞 2001'deki bir deneyde yunuslar aynada kendilerini tanıdı.\n🌊 Karadeniz, Marmara ve Ege'de yunuslar yaşıyor.\n\nAynada kendini tanımak mı? Eli bunu her sabah yapıyor ve çok beğeniyor. 😸\n\nBoğaz'da hiç yunus gördünüz mü? 👇\n\n#yunus #deniz #evrim #bilgi #evrimarşivi",
+   "cover": "content/evrim/reel/yunus/cover.jpg",
    "media": [
-    "content/reels/saat0905.mp4"
-   ],
-   "date": "2026-11-10"
+    "content/evrim/reel/yunus/video.mp4"
+   ]
+  },
+  {
+   "id": "evrim-feed-01",
+   "account": "evrim",
+   "type": "feed",
+   "order": 1,
+   "title": "SOKRATES",
+   "subtitle": "Bildiğim tek şey…",
+   "caption": "Hiç kitap yazmayan bir filozof, felsefe tarihini ikiye böldü. 🏛️\n\n📂 SOKRATES — Bildiğim tek şey…\n👉 Dosyayı kaydırarak inceleyin.\n\n🗣️ Hiç kitap yazmadı, sokakta sorularla düşündü.\n👶 Yöntemini annesinin ebeliğine benzetti.\n❓ \"Bildiğim tek şey, hiçbir şey bilmediğimdir.\"\n⚖️ MÖ 399'da ölüme mahkûm edildi.\n📚 Fikirlerini Platon'dan öğreniyoruz.\n\nSizce en iyi öğretmen soru soran mı, cevap veren mi? 👇\n\n#sokrates #felsefe #antikyunan #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/01/01.jpg",
+   "media": [
+    "content/evrim/feed/01/01.jpg",
+    "content/evrim/feed/01/02.jpg",
+    "content/evrim/feed/01/03.jpg",
+    "content/evrim/feed/01/04.jpg",
+    "content/evrim/feed/01/05.jpg",
+    "content/evrim/feed/01/06.jpg",
+    "content/evrim/feed/01/07.jpg",
+    "content/evrim/feed/01/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-02",
+   "account": "evrim",
+   "type": "feed",
+   "order": 2,
+   "title": "PLATON'UN MAĞARASI",
+   "subtitle": "Gölgeler ve gerçek",
+   "caption": "Ya gördüğümüz her şey sadece bir gölgeyse? 🕯️\n\n📂 PLATON'UN MAĞARASI — Gölgeler ve gerçek\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Platon, Atina'da Akademia'yı kurdu.\n📖 Alegori \"Devlet\"in 7. kitabında geçer.\n⛓️ Zincirli insanlar yalnızca gölgeleri görür.\n☀️ Dışarı çıkan, gerçeği görür ama inandıramaz.\n🧠 Eğitimin ve sorgulamanın gücünü anlatır.\n\nSizce bugün bizim \"mağaramız\" ne? 👇\n\n#platon #mağaraalegorisi #felsefe #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/02/01.jpg",
+   "media": [
+    "content/evrim/feed/02/01.jpg",
+    "content/evrim/feed/02/02.jpg",
+    "content/evrim/feed/02/03.jpg",
+    "content/evrim/feed/02/04.jpg",
+    "content/evrim/feed/02/05.jpg",
+    "content/evrim/feed/02/06.jpg",
+    "content/evrim/feed/02/07.jpg",
+    "content/evrim/feed/02/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-03",
+   "account": "evrim",
+   "type": "feed",
+   "order": 3,
+   "title": "ARİSTOTELES",
+   "subtitle": "Altın orta",
+   "caption": "Cesaret, korkaklık ile gözü karalığın tam ortasındadır. ⚖️\n\n📂 ARİSTOTELES — Altın orta\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ 20 yıl Platon'un öğrencisi oldu.\n👑 Büyük İskender'in öğretmeniydi.\n🚶 Yürüyerek ders anlattı: \"gezimciler\".\n⚖️ Erdem iki aşırılığın ortasındadır.\n📜 İslam dünyasında \"ilk öğretmen\" diye anıldı.\n\nHayatınızda \"altın orta\"yı en zor bulduğunuz konu ne? 👇\n\n#aristoteles #altınorta #felsefe #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/03/01.jpg",
+   "media": [
+    "content/evrim/feed/03/01.jpg",
+    "content/evrim/feed/03/02.jpg",
+    "content/evrim/feed/03/03.jpg",
+    "content/evrim/feed/03/04.jpg",
+    "content/evrim/feed/03/05.jpg",
+    "content/evrim/feed/03/06.jpg",
+    "content/evrim/feed/03/07.jpg",
+    "content/evrim/feed/03/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-04",
+   "account": "evrim",
+   "type": "feed",
+   "order": 4,
+   "title": "DİYOJEN",
+   "subtitle": "Fıçıdaki filozof",
+   "caption": "Büyük İskender'e \"gölge etme\" diyen filozof Sinopluydu. ☀️\n\n📂 DİYOJEN — Fıçıdaki filozof\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Karadeniz kıyısında, Sinop'ta doğdu.\n🏺 Rivayete göre bir toprak küpte yaşadı.\n🏮 Gündüz fenerle \"dürüst insan\" aradı.\n👑 İskender'e \"Güneşimi kesme\" dedi.\n🧘 Mutluluğu az şeye ihtiyaç duymakta gördü.\n\nHayatınızdan çıkarabileceğiniz tek bir eşya olsa ne olurdu? 👇\n\n#diyojen #sinop #felsefe #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/04/01.jpg",
+   "media": [
+    "content/evrim/feed/04/01.jpg",
+    "content/evrim/feed/04/02.jpg",
+    "content/evrim/feed/04/03.jpg",
+    "content/evrim/feed/04/04.jpg",
+    "content/evrim/feed/04/05.jpg",
+    "content/evrim/feed/04/06.jpg",
+    "content/evrim/feed/04/07.jpg",
+    "content/evrim/feed/04/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-05",
+   "account": "evrim",
+   "type": "feed",
+   "order": 5,
+   "title": "STOACILIK",
+   "subtitle": "Marcus Aurelius",
+   "caption": "Roma'nın en güçlü adamı, kendine sade olmayı öğütleyen notlar yazdı. 🏛️\n\n📂 STOACILIK — Marcus Aurelius\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Adını Atina'daki sütunlu galeriden alır.\n🎯 Huzur: yalnızca elimizdekine odaklanmak.\n⛓️ Epiktetos, Pamukkale yakınlarında doğmuş bir köleydi.\n👑 Marcus Aurelius bir Stoacı imparatordu.\n📓 \"Kendime Düşünceler\" yayımlanmak için yazılmadı.\n\nBugün sizi en çok, elinizde olmayan hangi şey yordu? 👇\n\n#stoacılık #marcusaurelius #felsefe #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/05/01.jpg",
+   "media": [
+    "content/evrim/feed/05/01.jpg",
+    "content/evrim/feed/05/02.jpg",
+    "content/evrim/feed/05/03.jpg",
+    "content/evrim/feed/05/04.jpg",
+    "content/evrim/feed/05/05.jpg",
+    "content/evrim/feed/05/06.jpg",
+    "content/evrim/feed/05/07.jpg",
+    "content/evrim/feed/05/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-06",
+   "account": "evrim",
+   "type": "feed",
+   "order": 6,
+   "title": "EPİKUROS",
+   "subtitle": "Mutluluk nedir?",
+   "caption": "\"Epikürcü\" zevk düşkünü demek değil; Epikuros ekmek ve suyla yaşadı. 🍞\n\n📂 EPİKUROS — Mutluluk nedir?\n👉 Dosyayı kaydırarak inceleyin.\n\n🌿 Atina'da \"Bahçe\" okulunu kurdu.\n👥 Okuluna kadınları ve köleleri de kabul etti.\n🍞 Ekmek ve suyla yetinen sade bir hayat sürdü.\n😌 Mutluluk: acı ve kaygının olmaması.\n🤝 En büyük hazzın dostluk olduğunu söyledi.\n\nSizce mutluluk için en gerekli üç şey ne? 👇\n\n#epikuros #mutluluk #felsefe #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/06/01.jpg",
+   "media": [
+    "content/evrim/feed/06/01.jpg",
+    "content/evrim/feed/06/02.jpg",
+    "content/evrim/feed/06/03.jpg",
+    "content/evrim/feed/06/04.jpg",
+    "content/evrim/feed/06/05.jpg",
+    "content/evrim/feed/06/06.jpg",
+    "content/evrim/feed/06/07.jpg",
+    "content/evrim/feed/06/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-07",
+   "account": "evrim",
+   "type": "feed",
+   "order": 7,
+   "title": "DESCARTES",
+   "subtitle": "Düşünüyorum, öyleyse varım",
+   "caption": "Her şeyden şüphe ettiğinizde geriye ne kalır? 🤔\n\n📂 DESCARTES — Düşünüyorum, öyleyse varım\n👉 Dosyayı kaydırarak inceleyin.\n\n🇫🇷 1596'da doğdu; filozof ve matematikçi.\n❓ Şüphe edilebilecek her şeyden şüphe etti.\n💡 \"Düşünüyorum, öyleyse varım.\"\n📈 x-y koordinat sistemi adını ondan alır.\n🏛️ \"Modern felsefenin babası\" olarak anılır.\n\nAsla şüphe etmediğiniz tek bir şey var mı? 👇\n\n#descartes #felsefe #matematik #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/07/01.jpg",
+   "media": [
+    "content/evrim/feed/07/01.jpg",
+    "content/evrim/feed/07/02.jpg",
+    "content/evrim/feed/07/03.jpg",
+    "content/evrim/feed/07/04.jpg",
+    "content/evrim/feed/07/05.jpg",
+    "content/evrim/feed/07/06.jpg",
+    "content/evrim/feed/07/07.jpg",
+    "content/evrim/feed/07/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-08",
+   "account": "evrim",
+   "type": "feed",
+   "order": 8,
+   "title": "NIETZSCHE",
+   "subtitle": "Seni öldürmeyen şey…",
+   "caption": "\"Seni öldürmeyen şey seni güçlendirir\" sözünün sahibi 24 yaşında profesör olmuştu. 📚\n\n📂 NIETZSCHE — Seni öldürmeyen şey…\n👉 Dosyayı kaydırarak inceleyin.\n\n🎓 24 yaşında Basel'de profesör oldu.\n💪 Ünlü sözü 1888'de \"Putların Alacakaranlığı\"nda geçer.\n🦅 \"Üstinsan\" kavramını \"Zerdüşt\"te anlattı.\n🏥 1889'da Torino'da zihinsel çöküş yaşadı.\n✂️ Yazıları ölümünden sonra kız kardeşince çarpıtıldı.\n\nSizi güçlendiren zor bir dönem oldu mu? 👇\n\n#nietzsche #felsefe #edebiyat #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/08/01.jpg",
+   "media": [
+    "content/evrim/feed/08/01.jpg",
+    "content/evrim/feed/08/02.jpg",
+    "content/evrim/feed/08/03.jpg",
+    "content/evrim/feed/08/04.jpg",
+    "content/evrim/feed/08/05.jpg",
+    "content/evrim/feed/08/06.jpg",
+    "content/evrim/feed/08/07.jpg",
+    "content/evrim/feed/08/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-09",
+   "account": "evrim",
+   "type": "feed",
+   "order": 9,
+   "title": "FARABİ",
+   "subtitle": "İkinci öğretmen",
+   "caption": "Aristoteles \"ilk öğretmen\"se, Farabi \"ikinci öğretmen\"di. 📜\n\n📂 FARABİ — İkinci öğretmen\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Farab'da (Otrar) doğduğu kabul edilir.\n🏛️ Bağdat'ta Aristoteles'i inceledi.\n🎓 \"Muallim-i Sani\": ikinci öğretmen.\n🏙️ \"Erdemli Şehir\" kitabında ideal toplumu anlattı.\n🎶 Müzik teorisi üzerine kitap yazdı.\n\nSizce \"erdemli bir şehir\"de olmazsa olmaz ne? 👇\n\n#farabi #islamfelsefesi #felsefe #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/09/01.jpg",
+   "media": [
+    "content/evrim/feed/09/01.jpg",
+    "content/evrim/feed/09/02.jpg",
+    "content/evrim/feed/09/03.jpg",
+    "content/evrim/feed/09/04.jpg",
+    "content/evrim/feed/09/05.jpg",
+    "content/evrim/feed/09/06.jpg",
+    "content/evrim/feed/09/07.jpg",
+    "content/evrim/feed/09/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-10",
+   "account": "evrim",
+   "type": "feed",
+   "order": 10,
+   "title": "İBN-İ SİNA",
+   "subtitle": "Uçan adam deneyi",
+   "caption": "Gözlerin kapalı, hiçbir şey hissetmiyorsun… Yine de var olduğunu bilir misin? 🧠\n\n📂 İBN-İ SİNA — Uçan adam deneyi\n👉 Dosyayı kaydırarak inceleyin.\n\n🌍 Batı'da \"Avicenna\" olarak bilinir.\n📘 \"Kanun\" yüzyıllarca Avrupa'da tıp kitabı oldu.\n🪶 \"Uçan adam\" düşünce deneyini kurguladı.\n🧠 Benlik bilincinin duyulardan bağımsız olduğunu savundu.\n⚕️ Felsefe ve tıbbın en etkili isimlerinden.\n\nUçan adam deneyine sizin cevabınız ne olurdu? 👇\n\n#ibnisina #avicenna #felsefe #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/10/01.jpg",
+   "media": [
+    "content/evrim/feed/10/01.jpg",
+    "content/evrim/feed/10/02.jpg",
+    "content/evrim/feed/10/03.jpg",
+    "content/evrim/feed/10/04.jpg",
+    "content/evrim/feed/10/05.jpg",
+    "content/evrim/feed/10/06.jpg",
+    "content/evrim/feed/10/07.jpg",
+    "content/evrim/feed/10/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-11",
+   "account": "evrim",
+   "type": "feed",
+   "order": 11,
+   "title": "İBN HALDUN",
+   "subtitle": "Devletlerin ömrü",
+   "caption": "600 yıl önce devletlerin \"yaşlandığını\" söyleyen düşünür. 🏰\n\n📂 İBN HALDUN — Devletlerin ömrü\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 1332'de Tunus'ta doğdu.\n📖 \"Mukaddime\" başlı başına bir başyapıttır.\n🤝 Toplumları bir arada tutan güce \"asabiye\" dedi.\n🔄 Devletlerin doğup yaşlandığını savundu.\n🧭 Sosyolojinin öncülerinden sayılır.\n\nSizce bir toplumu en çok ne bir arada tutar? 👇\n\n#ibnhaldun #mukaddime #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/11/01.jpg",
+   "media": [
+    "content/evrim/feed/11/01.jpg",
+    "content/evrim/feed/11/02.jpg",
+    "content/evrim/feed/11/03.jpg",
+    "content/evrim/feed/11/04.jpg",
+    "content/evrim/feed/11/05.jpg",
+    "content/evrim/feed/11/06.jpg",
+    "content/evrim/feed/11/07.jpg",
+    "content/evrim/feed/11/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-12",
+   "account": "evrim",
+   "type": "feed",
+   "order": 12,
+   "title": "DARWIN",
+   "subtitle": "Beagle yolculuğu",
+   "caption": "22 yaşında bindiği bir gemi, biyolojinin seyrini değiştirdi. ⛵\n\n📂 DARWIN — Beagle yolculuğu\n👉 Dosyayı kaydırarak inceleyin.\n\n⛵ 1831'de HMS Beagle ile yola çıktı.\n🗺️ Yolculuk yaklaşık beş yıl sürdü.\n🤢 Sık sık deniz tuttu, çoğu zaman karadaydı.\n🐢 Galapagos gözlemleri fikirlerine katkı sağladı.\n📗 \"Türlerin Kökeni\" 1859'da yayımlandı.\n\nBir yolculuk sizin düşüncenizi hiç değiştirdi mi? 👇\n\n#darwin #bilimtarihi #evrim #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/12/01.jpg",
+   "media": [
+    "content/evrim/feed/12/01.jpg",
+    "content/evrim/feed/12/02.jpg",
+    "content/evrim/feed/12/03.jpg",
+    "content/evrim/feed/12/04.jpg",
+    "content/evrim/feed/12/05.jpg",
+    "content/evrim/feed/12/06.jpg",
+    "content/evrim/feed/12/07.jpg",
+    "content/evrim/feed/12/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-13",
+   "account": "evrim",
+   "type": "feed",
+   "order": 13,
+   "title": "GALİLEO",
+   "subtitle": "Gökyüzüne bakan adam",
+   "caption": "Teleskobunu gökyüzüne çeviren adam, ömrünün sonunu ev hapsinde geçirdi. 🔭\n\n📂 GALİLEO — Gökyüzüne bakan adam\n👉 Dosyayı kaydırarak inceleyin.\n\n🔭 1609'dan itibaren teleskobunu gökyüzüne çevirdi.\n🪐 Jüpiter'in dört uydusunu keşfetti.\n🌑 Ay'da dağları ve kraterleri gördü.\n⚖️ 1633'te yargılanıp ev hapsine alındı.\n📜 Vatikan 1992'de hatayı resmen kabul etti.\n\nTeleskopla ilk neye bakmak isterdiniz? 👇\n\n#galileo #astronomi #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/13/01.jpg",
+   "media": [
+    "content/evrim/feed/13/01.jpg",
+    "content/evrim/feed/13/02.jpg",
+    "content/evrim/feed/13/03.jpg",
+    "content/evrim/feed/13/04.jpg",
+    "content/evrim/feed/13/05.jpg",
+    "content/evrim/feed/13/06.jpg",
+    "content/evrim/feed/13/07.jpg",
+    "content/evrim/feed/13/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-14",
+   "account": "evrim",
+   "type": "feed",
+   "order": 14,
+   "title": "NEWTON",
+   "subtitle": "Yerçekimi",
+   "caption": "Newton'un en verimli yılları bir salgın sırasında geçti. 🍎\n\n📂 NEWTON — Yerçekimi\n👉 Dosyayı kaydırarak inceleyin.\n\n🦠 Veba yıllarında evinde en büyük fikirlerini geliştirdi.\n🍎 Elma hikâyesi muhtemelen süslenmiş.\n📕 \"Principia\" 1687'de yayımlandı.\n🌈 Beyaz ışığın renklerden oluştuğunu gösterdi.\n🪙 Darphane başkanı olarak sahtecilerle uğraştı.\n\nEvde geçen bir dönemde siz ne öğrendiniz? 👇\n\n#newton #yerçekimi #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/14/01.jpg",
+   "media": [
+    "content/evrim/feed/14/01.jpg",
+    "content/evrim/feed/14/02.jpg",
+    "content/evrim/feed/14/03.jpg",
+    "content/evrim/feed/14/04.jpg",
+    "content/evrim/feed/14/05.jpg",
+    "content/evrim/feed/14/06.jpg",
+    "content/evrim/feed/14/07.jpg",
+    "content/evrim/feed/14/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-15",
+   "account": "evrim",
+   "type": "feed",
+   "order": 15,
+   "title": "EINSTEIN",
+   "subtitle": "Mucize yıl",
+   "caption": "Nobel'i görelilik için almadı! ⚛️\n\n📂 EINSTEIN — Mucize yıl\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Akademide iş bulamayınca patent memuru oldu.\n✨ 1905'te dört çığır açan makale yazdı.\n⚡ E=mc² bu mucize yılın ürünü.\n🌌 Genel göreliliği 1915'te tamamladı.\n🏅 Nobel'i fotoelektrik etki için aldı.\n\nEinstein'a tek bir soru sorabilseydiniz ne sorardınız? 👇\n\n#einstein #fizik #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/15/01.jpg",
+   "media": [
+    "content/evrim/feed/15/01.jpg",
+    "content/evrim/feed/15/02.jpg",
+    "content/evrim/feed/15/03.jpg",
+    "content/evrim/feed/15/04.jpg",
+    "content/evrim/feed/15/05.jpg",
+    "content/evrim/feed/15/06.jpg",
+    "content/evrim/feed/15/07.jpg",
+    "content/evrim/feed/15/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-16",
+   "account": "evrim",
+   "type": "feed",
+   "order": 16,
+   "title": "MARIE CURIE",
+   "subtitle": "İki Nobel",
+   "caption": "Defterleri hâlâ kurşun kutularda saklanıyor. ☢️\n\n📂 MARIE CURIE — İki Nobel\n👉 Dosyayı kaydırarak inceleyin.\n\n🇵🇱 Ülkesinde kadınlar üniversiteye alınmıyordu.\n🧪 Polonyum ve radyumu keşfetti.\n🏅 Nobel kazanan ilk kadın oldu (1903).\n🥇 İki farklı bilimde Nobel alan tek insan.\n📦 Defterleri hâlâ radyoaktif.\n\nSizce bilim tarihinin en ilham verici insanı kim? 👇\n\n#mariecurie #kadınbilimciler #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/16/01.jpg",
+   "media": [
+    "content/evrim/feed/16/01.jpg",
+    "content/evrim/feed/16/02.jpg",
+    "content/evrim/feed/16/03.jpg",
+    "content/evrim/feed/16/04.jpg",
+    "content/evrim/feed/16/05.jpg",
+    "content/evrim/feed/16/06.jpg",
+    "content/evrim/feed/16/07.jpg",
+    "content/evrim/feed/16/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-17",
+   "account": "evrim",
+   "type": "feed",
+   "order": 17,
+   "title": "PENİSİLİN",
+   "subtitle": "Tesadüfi keşif",
+   "caption": "Bir tatil dönüşü fark edilen küf, tıbbın seyrini değiştirdi. 🧫\n\n📂 PENİSİLİN — Tesadüfi keşif\n👉 Dosyayı kaydırarak inceleyin.\n\n🧫 Tatilden dönen Fleming küflenmiş bir kap buldu.\n🦠 Küfün çevresindeki bakteriler yok olmuştu.\n💊 Maddeye \"penisilin\" adını verdi.\n🏭 İlaç haline getirmeyi Florey ve Chain başardı.\n🏅 1945'te Nobel Tıp Ödülü'nü paylaştılar.\n\nHayatınızda güzel bir tesadüf yaşadınız mı? 👇\n\n#penisilin #fleming #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/17/01.jpg",
+   "media": [
+    "content/evrim/feed/17/01.jpg",
+    "content/evrim/feed/17/02.jpg",
+    "content/evrim/feed/17/03.jpg",
+    "content/evrim/feed/17/04.jpg",
+    "content/evrim/feed/17/05.jpg",
+    "content/evrim/feed/17/06.jpg",
+    "content/evrim/feed/17/07.jpg",
+    "content/evrim/feed/17/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-18",
+   "account": "evrim",
+   "type": "feed",
+   "order": 18,
+   "title": "HAREZMİ",
+   "subtitle": "Algoritmanın babası",
+   "caption": "Telefonunuzdaki her uygulama, 1200 yıl önce yaşamış bir matematikçinin adını taşıyor. 🔢\n\n📂 HAREZMİ — Algoritmanın babası\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Harezm bölgesinde doğdu.\n🏛️ Bağdat'taki Beytülhikme'de çalıştı.\n➗ \"Cebir\" kelimesi onun kitabından gelir.\n0️⃣ Hint rakamlarının ve sıfırın yayılmasını sağladı.\n💻 \"Algoritma\" kelimesi onun adından türedi.\n\nMatematikle aranız nasıl? 👇\n\n#harezmi #matematik #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/18/01.jpg",
+   "media": [
+    "content/evrim/feed/18/01.jpg",
+    "content/evrim/feed/18/02.jpg",
+    "content/evrim/feed/18/03.jpg",
+    "content/evrim/feed/18/04.jpg",
+    "content/evrim/feed/18/05.jpg",
+    "content/evrim/feed/18/06.jpg",
+    "content/evrim/feed/18/07.jpg",
+    "content/evrim/feed/18/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-19",
+   "account": "evrim",
+   "type": "feed",
+   "order": 19,
+   "title": "ULUĞ BEY",
+   "subtitle": "Gökyüzünün hükümdarı",
+   "caption": "Bir hükümdar, tahtını değil yıldızları sayarak tarihe geçti. ✨\n\n📂 ULUĞ BEY — Gökyüzünün hükümdarı\n👉 Dosyayı kaydırarak inceleyin.\n\n👑 Timur'un torunuydu, Semerkant'ı yönetti.\n🔭 Dönemin en büyük gözlemevlerinden birini kurdu.\n⭐ 1018 yıldızın kataloğu hazırlandı.\n📅 Yılın uzunluğunu yaklaşık bir dakika farkla hesapladılar.\n🕌 Öğrencisi Ali Kuşçu bilgileri İstanbul'a taşıdı.\n\nEn son ne zaman yıldızlara uzun uzun baktınız? 👇\n\n#uluğbey #astronomi #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/19/01.jpg",
+   "media": [
+    "content/evrim/feed/19/01.jpg",
+    "content/evrim/feed/19/02.jpg",
+    "content/evrim/feed/19/03.jpg",
+    "content/evrim/feed/19/04.jpg",
+    "content/evrim/feed/19/05.jpg",
+    "content/evrim/feed/19/06.jpg",
+    "content/evrim/feed/19/07.jpg",
+    "content/evrim/feed/19/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-20",
+   "account": "evrim",
+   "type": "feed",
+   "order": 20,
+   "title": "EL-CEZERİ",
+   "subtitle": "Sibernetiğin öncüsü",
+   "caption": "800 yıl önce Cizre'de doğan bir mühendis, robotların öncüsü oldu. ⚙️\n\n📂 EL-CEZERİ — Sibernetiğin öncüsü\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 1136'da Cizre'de doğdu.\n🏰 Artuklu sarayında mühendis olarak çalıştı.\n📖 1206'da 50'ye yakın makineyi çizimleriyle anlattı.\n🐘 En ünlü icadı su ile çalışan fil saati.\n🤖 Robot biliminin öncülerinden sayılır.\n\nSizce 800 yıl sonra hangi icadımız konuşulacak? 👇\n\n#elcezeri #mühendislik #bilimtarihi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/20/01.jpg",
+   "media": [
+    "content/evrim/feed/20/01.jpg",
+    "content/evrim/feed/20/02.jpg",
+    "content/evrim/feed/20/03.jpg",
+    "content/evrim/feed/20/04.jpg",
+    "content/evrim/feed/20/05.jpg",
+    "content/evrim/feed/20/06.jpg",
+    "content/evrim/feed/20/07.jpg",
+    "content/evrim/feed/20/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-21",
+   "account": "evrim",
+   "type": "feed",
+   "order": 21,
+   "title": "GÖBEKLİTEPE",
+   "subtitle": "Tarihin sıfır noktası",
+   "caption": "Piramitlerden 7 bin yıl önce, Şanlıurfa'da dev taşlar dikildi. 🗿\n\n📂 GÖBEKLİTEPE — Tarihin sıfır noktası\n👉 Dosyayı kaydırarak inceleyin.\n\n📍 Şanlıurfa merkezinin yaklaşık 15 km kuzeydoğusunda.\n⏳ Yaklaşık 12 bin yıllık.\n🏹 Yapanlar avcı-toplayıcılardı.\n🦊 Dikilitaşlarda hayvan kabartmaları var.\n🌍 2018'de UNESCO Dünya Mirası oldu.\n\nGöbeklitepe'yi gördünüz mü? 👇\n\n#göbeklitepe #şanlıurfa #arkeoloji #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/21/01.jpg",
+   "media": [
+    "content/evrim/feed/21/01.jpg",
+    "content/evrim/feed/21/02.jpg",
+    "content/evrim/feed/21/03.jpg",
+    "content/evrim/feed/21/04.jpg",
+    "content/evrim/feed/21/05.jpg",
+    "content/evrim/feed/21/06.jpg",
+    "content/evrim/feed/21/07.jpg",
+    "content/evrim/feed/21/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-22",
+   "account": "evrim",
+   "type": "feed",
+   "order": 22,
+   "title": "YAZININ İCADI",
+   "subtitle": "Sümer çivi yazısı",
+   "caption": "İlk yazılar şiir değil, koyun hesabıydı! 🐑\n\n📂 YAZININ İCADI — Sümer çivi yazısı\n👉 Dosyayı kaydırarak inceleyin.\n\n🏺 Çivi yazısı yaklaşık MÖ 3200'de Sümerlerde doğdu.\n🐑 İlk yazılar ticari kayıtlardı.\n✍️ Islak kile kamışla bastırılarak yazıldı.\n🏫 Öğrenciler \"tablet evi\"nde okurdu.\n📜 Kültepe tabletleri Anadolu'nun en eski belgelerinden.\n\nYazı olmasaydı en çok neyi kaybederdik? 👇\n\n#çiviyazısı #sümerler #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/22/01.jpg",
+   "media": [
+    "content/evrim/feed/22/01.jpg",
+    "content/evrim/feed/22/02.jpg",
+    "content/evrim/feed/22/03.jpg",
+    "content/evrim/feed/22/04.jpg",
+    "content/evrim/feed/22/05.jpg",
+    "content/evrim/feed/22/06.jpg",
+    "content/evrim/feed/22/07.jpg",
+    "content/evrim/feed/22/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-23",
+   "account": "evrim",
+   "type": "feed",
+   "order": 23,
+   "title": "İSKENDERİYE KÜTÜPHANESİ",
+   "subtitle": "Antik dünyanın hafızası",
+   "caption": "Kütüphane tek bir yangında yok olmadı; yavaş yavaş unutuldu. 📜\n\n📂 İSKENDERİYE KÜTÜPHANESİ — Antik dünyanın hafızası\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ MÖ 3. yüzyılda Mısır'da kuruldu.\n📚 Amaç dünyadaki bütün kitapları toplamaktı.\n⛵ Gemilerdeki kitaplar kopyalanırdı.\n🌍 Eratosthenes Dünya'nın çevresini hesapladı.\n🔥 \"Tek yangın\" hikâyesi büyük ölçüde efsane.\n\nBugünün İskenderiye Kütüphanesi sizce internet mi? 👇\n\n#iskenderiye #kütüphane #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/23/01.jpg",
+   "media": [
+    "content/evrim/feed/23/01.jpg",
+    "content/evrim/feed/23/02.jpg",
+    "content/evrim/feed/23/03.jpg",
+    "content/evrim/feed/23/04.jpg",
+    "content/evrim/feed/23/05.jpg",
+    "content/evrim/feed/23/06.jpg",
+    "content/evrim/feed/23/07.jpg",
+    "content/evrim/feed/23/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-24",
+   "account": "evrim",
+   "type": "feed",
+   "order": 24,
+   "title": "ANTİKYTHERA DÜZENEĞİ",
+   "subtitle": "2000 yıllık bilgisayar",
+   "caption": "Süngerciler denizin dibinde 2000 yıllık bir \"bilgisayar\" buldu. ⚙️\n\n📂 ANTİKYTHERA DÜZENEĞİ — 2000 yıllık bilgisayar\n👉 Dosyayı kaydırarak inceleyin.\n\n🌊 1901'de bir antik gemi batığında bulundu.\n⏳ MÖ 2. ya da 1. yüzyıla tarihleniyor.\n⚙️ En az 30 dişli çark içeriyor.\n🌒 Tutulmaları ve Ay evrelerini hesaplıyordu.\n🏅 Olimpiyat takvimi bile üzerindeydi.\n\nSizce antik dünyanın kaybolan başka hangi icatları vardı? 👇\n\n#antikythera #arkeoloji #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/24/01.jpg",
+   "media": [
+    "content/evrim/feed/24/01.jpg",
+    "content/evrim/feed/24/02.jpg",
+    "content/evrim/feed/24/03.jpg",
+    "content/evrim/feed/24/04.jpg",
+    "content/evrim/feed/24/05.jpg",
+    "content/evrim/feed/24/06.jpg",
+    "content/evrim/feed/24/07.jpg",
+    "content/evrim/feed/24/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-25",
+   "account": "evrim",
+   "type": "feed",
+   "order": 25,
+   "title": "PİRİ REİS HARİTASI",
+   "subtitle": "Bir ceylan derisinde dünya",
+   "caption": "1513'te ceylan derisine çizilen harita, Amerika'yı gösteriyor. 🗺️\n\n📂 PİRİ REİS HARİTASI — Bir ceylan derisinde dünya\n👉 Dosyayı kaydırarak inceleyin.\n\n⚓ Piri Reis, Gelibolulu bir denizciydi.\n🦌 Harita 1513'te ceylan derisine çizildi.\n🗺️ Yaklaşık 20 kaynak haritadan yararlandı.\n🌎 Amerika'yı gösteren en eski haritalardan.\n🏰 1929'da Topkapı Sarayı'nda yeniden keşfedildi.\n\nPiri Reis haritasını daha önce duymuş muydunuz? 👇\n\n#pirireis #harita #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/25/01.jpg",
+   "media": [
+    "content/evrim/feed/25/01.jpg",
+    "content/evrim/feed/25/02.jpg",
+    "content/evrim/feed/25/03.jpg",
+    "content/evrim/feed/25/04.jpg",
+    "content/evrim/feed/25/05.jpg",
+    "content/evrim/feed/25/06.jpg",
+    "content/evrim/feed/25/07.jpg",
+    "content/evrim/feed/25/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-26",
+   "account": "evrim",
+   "type": "feed",
+   "order": 26,
+   "title": "MATBAA",
+   "subtitle": "Gutenberg devrimi",
+   "caption": "Bir kuyumcu, bilgiyi herkesin ulaşabileceği hale getirdi. 📖\n\n📂 MATBAA — Gutenberg devrimi\n👉 Dosyayı kaydırarak inceleyin.\n\n🔠 Metal hareketli harflerle baskı sistemi geliştirdi.\n🌏 Hareketli harf daha önce Çin ve Kore'de vardı.\n📕 Gutenberg İncili 1455 civarında basıldı.\n📚 1500'e kadar milyonlarca kitap basıldı.\n🖨️ İbrahim Müteferrika matbaası 1727'de kuruldu.\n\nEn son basılı bir kitabı ne zaman okudunuz? 👇\n\n#matbaa #gutenberg #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/26/01.jpg",
+   "media": [
+    "content/evrim/feed/26/01.jpg",
+    "content/evrim/feed/26/02.jpg",
+    "content/evrim/feed/26/03.jpg",
+    "content/evrim/feed/26/04.jpg",
+    "content/evrim/feed/26/05.jpg",
+    "content/evrim/feed/26/06.jpg",
+    "content/evrim/feed/26/07.jpg",
+    "content/evrim/feed/26/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-27",
+   "account": "evrim",
+   "type": "feed",
+   "order": 27,
+   "title": "TELEFONUN İCADI",
+   "subtitle": "\"Bay Watson, buraya gel\"",
+   "caption": "İlk telefon konuşması: \"Bay Watson, buraya gel.\" ☎️\n\n📂 TELEFONUN İCADI — \"Bay Watson, buraya gel\"\n👉 Dosyayı kaydırarak inceleyin.\n\n📜 Bell, patentini 1876'da aldı.\n⏱️ Elisha Gray aynı gün başvurmuştu.\n🗣️ İlk sözler: \"Bay Watson, buraya gel.\"\n🇮🇹 Meucci'nin katkısı 2002'de tanındı.\n👂 Bell, işitme engellilerin eğitimiyle uğraştı.\n\nTelefonsuz bir gün geçirebilir misiniz? 👇\n\n#telefon #icatlar #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/27/01.jpg",
+   "media": [
+    "content/evrim/feed/27/01.jpg",
+    "content/evrim/feed/27/02.jpg",
+    "content/evrim/feed/27/03.jpg",
+    "content/evrim/feed/27/04.jpg",
+    "content/evrim/feed/27/05.jpg",
+    "content/evrim/feed/27/06.jpg",
+    "content/evrim/feed/27/07.jpg",
+    "content/evrim/feed/27/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-28",
+   "account": "evrim",
+   "type": "feed",
+   "order": 28,
+   "title": "TAKVİMİN TARİHİ",
+   "subtitle": "Kaybolan 10 gün",
+   "caption": "1582'de 4 Ekim'in ertesi günü 15 Ekim oldu! 📅\n\n📂 TAKVİMİN TARİHİ — Kaybolan 10 gün\n👉 Dosyayı kaydırarak inceleyin.\n\n🏛️ Jülyen takvimi MÖ 46'da başladı.\n⏱️ Yılı yaklaşık 11 dakika uzundu.\n📜 Papa XIII. Gregorius 1582'de takvimi düzeltti.\n📅 4 Ekim'in ertesi günü 15 Ekim oldu.\n🇹🇷 Türkiye 1926'da Gregoryen takvimine geçti.\n\nTakvimden 10 gün silinse hangi günleri silerdiniz? 👇\n\n#takvim #tarih #bilgi #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/28/01.jpg",
+   "media": [
+    "content/evrim/feed/28/01.jpg",
+    "content/evrim/feed/28/02.jpg",
+    "content/evrim/feed/28/03.jpg",
+    "content/evrim/feed/28/04.jpg",
+    "content/evrim/feed/28/05.jpg",
+    "content/evrim/feed/28/06.jpg",
+    "content/evrim/feed/28/07.jpg",
+    "content/evrim/feed/28/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-29",
+   "account": "evrim",
+   "type": "feed",
+   "order": 29,
+   "title": "AY'A İLK ADIM",
+   "subtitle": "Apollo 11",
+   "caption": "Ay'daki en ünlü fotoğrafta Armstrong'u Aldrin'in vizöründe görebilirsiniz. 🌕\n\n📂 AY'A İLK ADIM — Apollo 11\n👉 Dosyayı kaydırarak inceleyin.\n\n🚀 16 Temmuz 1969'da fırlatıldı.\n🦅 \"Eagle\" 20 Temmuz'da Ay'a indi.\n👣 Armstrong, Ay'a ayak basan ilk insan oldu.\n📸 Ünlü fotoğrafta Armstrong vizörde yansıyor.\n🛰️ Collins yörüngede tek başına bekledi.\n\nFırsatınız olsa Ay'a gider miydiniz? 👇\n\n#apollo11 #uzay #nasa #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/29/01.jpg",
+   "media": [
+    "content/evrim/feed/29/01.jpg",
+    "content/evrim/feed/29/02.jpg",
+    "content/evrim/feed/29/03.jpg",
+    "content/evrim/feed/29/04.jpg",
+    "content/evrim/feed/29/05.jpg",
+    "content/evrim/feed/29/06.jpg",
+    "content/evrim/feed/29/07.jpg",
+    "content/evrim/feed/29/08.jpg"
+   ]
+  },
+  {
+   "id": "evrim-feed-30",
+   "account": "evrim",
+   "type": "feed",
+   "order": 30,
+   "title": "İNTERNETİN DOĞUŞU",
+   "subtitle": "İlk mesaj: \"LO\"",
+   "caption": "İnternetteki ilk mesaj \"LOGIN\" olacaktı, ama sadece \"LO\" gidebildi. 💻\n\n📂 İNTERNETİN DOĞUŞU — İlk mesaj: \"LO\"\n👉 Dosyayı kaydırarak inceleyin.\n\n🖧 İnternetin atası ARPANET 1969'da kuruldu.\n💥 İlk mesaj \"LO\"da kesildi.\n📡 1983'te TCP/IP'ye geçildi.\n🌐 Web, 1989'da CERN'de önerildi.\n🇹🇷 Türkiye 1993'te ODTÜ'den bağlandı.\n\nİnternete ilk ne zaman bağlandınız? 👇\n\n#internet #teknoloji #tarih #genelkültür #evrimarşivi",
+   "cover": "content/evrim/feed/30/01.jpg",
+   "media": [
+    "content/evrim/feed/30/01.jpg",
+    "content/evrim/feed/30/02.jpg",
+    "content/evrim/feed/30/03.jpg",
+    "content/evrim/feed/30/04.jpg",
+    "content/evrim/feed/30/05.jpg",
+    "content/evrim/feed/30/06.jpg",
+    "content/evrim/feed/30/07.jpg",
+    "content/evrim/feed/30/08.jpg"
+   ]
+  },
+  {
+   "id": "klinik-reel-originals-01",
+   "account": "klinik",
+   "type": "reel",
+   "order": 1,
+   "title": "ZOOTOPIA ORIGINALS · Bölüm 01",
+   "subtitle": "Kediler acıyı neden gizler?",
+   "caption": "ZOOTOPIA ORIGINALS · Bölüm 01\nKediler acıyı neden gizler? 🐾\n\nKediniz acı çekiyor olabilir ve bunu fark etmeyebilirsiniz. Kediler, ağrılarını çoğu zaman açıkça göstermez; bazen tek işaret davranışlarındaki küçük bir değişikliktir.\n\nDikkat etmeniz gereken değişiklikler:\n• Saklanma, her zamankinden daha çok yalnız kalma isteği\n• İştahsızlık ya da yeme alışkanlığında değişiklik\n• Hareketlerde azalma, zıplamaktan kaçınma\n• Tımar (temizlenme) alışkanlıklarında değişiklik\n\nBu belirtiler her zaman ağrı anlamına gelmez, ama önemli olabilir. Kedinizde bir değişiklik fark ederseniz veteriner hekiminize danışın.\n\n📍 Zootopia Veteriner Kliniği · Çekmeköy\n\nBu videoyu kedi sahibi bir arkadaşınızla paylaşın, kaydedin ve bir sonraki bölümü kaçırmamak için takip edin.\n\nTemsili canlandırma, yapay zekâ ile üretilmiştir.\n\n#kedi #kedisağlığı #veteriner #çekmeköyveteriner #zootopiaoriginals",
+   "cover": "content/klinik/reel/originals-01/cover.jpg",
+   "media": [
+    "content/klinik/reel/originals-01/video.mp4"
+   ]
+  },
+  {
+   "id": "almanya-reel-immuno-potion",
+   "account": "almanya",
+   "type": "reel",
+   "order": 1,
+   "title": "Zootopia Immuno Potion",
+   "subtitle": "Starke Abwehrkräfte beginnen von innen",
+   "caption": "Starke Abwehrkräfte beginnen von innen. 🐾\n\nZootopia Immuno Potion ist ein flüssiges Ergänzungsfuttermittel für Hunde und Katzen – mit Beta-Glucan, Vitamin E, Echinacea und Kurkuma.\n\n✔️ Zur Unterstützung des Immunsystems – Tag für Tag\n✔️ Flüssig und einfach zu dosieren: mit der beiliegenden Dosierspritze direkt ins Futter\n✔️ Für Hunde und Katzen\n\nErgänzungsfuttermittel – kein Arzneimittel. Bitte die Fütterungsempfehlung auf der Verpackung beachten. Bei gesundheitlichen Fragen wende dich an deine Tierärztin oder deinen Tierarzt.\n\nSymbolbilder, KI-generiert.\n\nZootopia. Für ein starkes Tierleben.\n\n#Zootopia #ZootopiaDeutschland #Hund #Katze #Hundeliebe #Katzenliebe #Ergänzungsfuttermittel #Tiergesundheit #Haustier",
+   "cover": "content/almanya/reel/immuno-potion/cover.jpg",
+   "media": [
+    "content/almanya/reel/immuno-potion/video.mp4"
+   ]
   }
  ]
 }
