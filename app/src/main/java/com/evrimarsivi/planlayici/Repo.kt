@@ -21,8 +21,9 @@ val DEFAULT_ACCOUNTS = listOf(
     Account("global", "Zootopia Global"),
     Account("almanya", "Zootopia Almanya"),
 )
-val TYPES = listOf("reel", "feed", "story")
-fun typeName(t: String) = when (t) { "reel" -> "Reels"; "story" -> "Hikâye"; else -> "Gönderi" }
+val TYPES = listOf("reel", "feed", "story", "phone")
+fun typeName(t: String) = when (t) { "reel" -> "Reels"; "story" -> "Hikâye"; "phone" -> "Telefon"; else -> "Gönderi" }
+fun isVideoPath(p: String) = p.endsWith(".mp4", true) || p.endsWith(".mov", true)
 
 data class Item(
     val id: String,
@@ -36,7 +37,7 @@ data class Item(
     val media: List<String>,
     val date: String = "", // YYYY-MM-DD: yalnızca o gün önerilir
 ) {
-    val isVideo get() = media.firstOrNull()?.endsWith(".mp4") == true
+    val isVideo get() = media.firstOrNull()?.let { isVideoPath(it) } == true
     val isReel get() = type == "reel"
 }
 
@@ -142,11 +143,12 @@ object Repo {
                 return u
             } catch (_: Exception) { }
         }
-        val isVideo = file.name.endsWith(".mp4")
-        val name = "evrim_${item.id}_${index + 1}" + if (isVideo) ".mp4" else ".jpg"
+        val isVideo = isVideoPath(file.name)
+        val isMov = file.name.endsWith(".mov", true)
+        val name = "evrim_${item.id}_${index + 1}" + if (isMov) ".mov" else if (isVideo) ".mp4" else ".jpg"
         val values = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
-            put(MediaStore.MediaColumns.MIME_TYPE, if (isVideo) "video/mp4" else "image/jpeg")
+            put(MediaStore.MediaColumns.MIME_TYPE, if (isMov) "video/quicktime" else if (isVideo) "video/mp4" else "image/jpeg")
             put(MediaStore.MediaColumns.RELATIVE_PATH, (if (isVideo) Environment.DIRECTORY_MOVIES else Environment.DIRECTORY_PICTURES) + "/EvrimArsivi")
             put(MediaStore.MediaColumns.IS_PENDING, 1)
         }
@@ -175,7 +177,7 @@ object Repo {
 
     // Saatler: dakika cinsinden (gün başından), hesap + tür başına
     fun time(c: Context, account: String, type: String): Int =
-        prefs(c).getInt("time_${account}_$type", when (type) { "reel" -> 13 * 60; "story" -> 10 * 60; else -> 20 * 60 })
+        prefs(c).getInt("time_${account}_$type", when (type) { "reel" -> 13 * 60; "story" -> 10 * 60; "phone" -> 18 * 60; else -> 20 * 60 })
 
     fun setTime(c: Context, account: String, type: String, minutes: Int) =
         prefs(c).edit().putInt("time_${account}_$type", minutes).apply()

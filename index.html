@@ -29,7 +29,7 @@ button{font:inherit;font-weight:600;border-radius:22px;border:1px solid var(--li
 button.primary{background:var(--gold);color:var(--bg);border-color:var(--gold)}
 button:disabled{opacity:.5}
 button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px}
 .tabs button{padding:9px 6px;font-size:14px}
 .tabs button.on{background:var(--gold);color:var(--bg);border-color:var(--gold)}
 .acc{text-align:left;width:100%;border-radius:12px;padding:14px}
@@ -44,15 +44,25 @@ pre{white-space:pre-wrap;word-break:break-word;font:inherit;margin:0}
 .back{padding:8px 14px}
 label.sw{display:flex;align-items:center;gap:8px}
 input[type=time]{font:inherit;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:6px 8px}
+.in{width:100%;font:inherit;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+textarea.in{min-height:96px;resize:vertical}
+.accs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.accs button.on{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.ok{color:var(--green)}.warn{color:var(--gold)}
 </style>
 </head>
 <body>
 <main id="app"><p class="muted">Yükleniyor…</p></main>
 <script>
 const ACCOUNTS_DEFAULT=[{id:'evrim',name:'Evrim Arşivi'},{id:'klinik',name:'Zootopia Veteriner Kliniği'},{id:'global',name:'Zootopia Global'},{id:'almanya',name:'Zootopia Almanya'}];
-const TYPES=['reel','feed','story'];
-const TNAME={reel:'Reels',feed:'Gönderi',story:'Hikâye'};
-const DEF_TIME={reel:'13:00',feed:'20:00',story:'10:00'};
+const TYPES=['reel','feed','story','phone'];
+const TNAME={reel:'Reels',feed:'Gönderi',story:'Hikâye',phone:'Telefon'};
+const DEF_TIME={reel:'13:00',feed:'20:00',story:'10:00',phone:'18:00'};
+// İçerikler doğrudan depodan okunur (GitHub Pages yalnızca bu sayfayı barındırır)
+const RAW='https://raw.githubusercontent.com/olcaydunder/evrim-arsivi/main/';
+const API='https://api.github.com/repos/olcaydunder/evrim-arsivi';
+const U=p=>/^https?:/.test(p)?p:RAW+p;
+const isVid=p=>/\.(mp4|mov)$/i.test(p);
 const $=s=>document.querySelector(s);
 const app=$('#app');
 let M=null, view={name:'home'}, showShared=false;
@@ -69,7 +79,7 @@ function items(acc,type){return (M?M.items:[]).filter(i=>i.account===acc&&(i.typ
 function nextOf(acc,type){const open=items(acc,type).filter(i=>!isShared(i.id));const t=today();return open.find(i=>i.date===t)||open.filter(i=>!i.date||i.date<t)[0]||null}
 
 async function load(){
-  try{const r=await fetch('content/manifest.json?t='+Math.floor(Date.now()/60000),{cache:'no-store'});if(!r.ok)throw 0;M=await r.json();lsSet('m',M)}
+  try{const r=await fetch(RAW+'content/manifest.json?t='+Math.floor(Date.now()/60000),{cache:'no-store'});if(!r.ok)throw 0;M=await r.json();lsSet('m',M)}
   catch(e){M=ls('m',null)}
   render();
 }
@@ -77,6 +87,7 @@ async function load(){
 function render(){
   window.scrollTo(0,0);
   if(view.name==='item') return renderItem();
+  if(view.name==='upload') return renderUpload();
   const acc=ls('account',null);
   if(!acc||view.name==='picker') return renderPicker(!acc);
   renderHome(acc);
@@ -104,13 +115,14 @@ function renderHome(acc){
   const time=ls(`time_${acc}_${tab}`,DEF_TIME[tab]);
   app.innerHTML=`<div class="row"><div class="grow"><h1>${esc(accName(acc))}</h1><div class="muted small">Paylaşım planlayıcı</div></div><button id="sw">Hesap değiştir</button></div>
   <div class="tabs">${TYPES.map(t=>{const n=items(acc,t).filter(i=>!isShared(i.id)).length;return `<button data-tab="${t}" class="${t===tab?'on':''}">${TNAME[t]}${n?' ('+n+')':''}</button>`}).join('')}</div>
+  ${tab==='phone'?'<button class="primary" id="up" style="margin-top:12px;width:100%">+ Telefondan video ekle</button>':''}
   <div class="card" style="margin-top:12px"><b>${TNAME[tab]} planı</b>
    <div class="muted small" style="margin:4px 0 10px">${nx?'Sıradaki: '+esc(nx.title):'Sırada içerik yok'}</div>
    <div class="row" style="flex-wrap:wrap"><label class="sw">Saat <input type="time" id="tm" value="${time}"></label><span class="grow"></span>${nx?'<button class="primary" id="now">Şimdi paylaş</button>':''}</div>
    ${waiting.length?'<button id="cal" style="margin-top:10px;width:100%">Takvime hatırlatma ekle</button><p class="muted small" style="margin:6px 0 0">Bekleyen her içerik için seçtiğiniz saatte, günde bir hatırlatma takviminize eklenir.</p>':''}
   </div>
   <h2>Paylaşılmayı bekleyenler</h2>
-  <div class="stack">${waiting.length?waiting.map(rowHtml).join(''):`<p class="muted">${M?'Bu bölümde bekleyen '+TNAME[tab].toLowerCase()+' yok. Yeni içerik eklendiğinde burada görünecek.':'İçerikler yüklenemedi.'}</p>`}</div>
+  <div class="stack">${waiting.length?waiting.map(rowHtml).join(''):`<p class="muted">${M?'Bu bölümde bekleyen '+(tab==='phone'?'telefon videosu':TNAME[tab].toLowerCase())+' yok. Yeni içerik eklendiğinde burada görünecek.':'İçerikler yüklenemedi.'}</p>`}</div>
   ${shared.length?`<button id="tog" style="margin-top:16px;width:100%">${showShared?'Paylaşılanları gizle':'Paylaşılanları göster ('+shared.length+')'}</button><div class="stack" style="margin-top:10px">${showShared?shared.map(rowHtml).join(''):''}</div>`:''}
   <button id="rf" style="margin-top:16px;width:100%">İçerikleri yenile</button>
   ${installHint()}`;
@@ -122,12 +134,13 @@ function renderHome(acc){
   if($('#tog')) $('#tog').onclick=()=>{showShared=!showShared;render()};
   if($('#cal')) $('#cal').onclick=()=>calendar(acc,tab,waiting,$('#tm').value);
   $('#rf').onclick=load;
+  if($('#up')) $('#up').onclick=()=>{view={name:'upload'};render()};
 }
 
 function rowHtml(i){
   const sh=isShared(i.id);const tall=(i.type!=='feed'&&i.type!=='carousel');
   const d=i.date?` · ${i.date.slice(8,10)}.${i.date.slice(5,7)} tarihinde önerilir`:'';
-  return `<button class="item" data-id="${i.id}"><img class="thumb" loading="lazy" alt="" src="${i.cover}" style="height:${tall?100:70}px">
+  return `<button class="item" data-id="${i.id}"><img class="thumb" loading="lazy" alt="" src="${isVid(i.cover)?'':U(i.cover)}" style="height:${tall?100:70}px">
   <span class="grow"><b>${esc(i.title)}</b><br><span class="muted small">${esc(i.subtitle||'')}</span><br><span class="${sh?'done':'wait'}">${sh?'✓ Paylaşıldı':'Bekliyor'}${d}</span></span></button>`;
 }
 
@@ -137,17 +150,17 @@ function openItem(id){view={name:'item',id};files=[];render();prepare()}
 function renderItem(){
   const it=(M?M.items:[]).find(i=>i.id===view.id);
   if(!it){view={name:'home'};return render()}
-  const video=it.media[0].endsWith('.mp4');
+  const video=isVid(it.media[0]);
   const kind=(it.type==='feed'||it.type==='carousel')&&it.media.length>1?`Kaydırmalı gönderi · ${it.media.length} sayfa`:TNAME[it.type==='carousel'?'feed':it.type];
   const sh=isShared(it.id);
   app.innerHTML=`<button class="back" id="bk">‹ Geri</button>
   <p class="wait" style="margin:14px 0 2px;font-weight:600">${esc(accName(it.account).toUpperCase())} · ${esc(kind.toUpperCase())}</p>
   <h1>${esc(it.title)}</h1><div class="muted">${esc(it.subtitle||'')}</div>
-  <div class="strip">${video?`<video src="${it.media[0]}" poster="${it.cover}" controls playsinline preload="none"></video>`:it.media.map(p=>`<img src="${p}" alt="" loading="lazy">`).join('')}</div>
+  <div class="strip">${video?`<video id="vid" poster="${isVid(it.cover)?'':U(it.cover)}" controls playsinline preload="none"></video>`:it.media.map(p=>`<img src="${U(p)}" alt="" loading="lazy">`).join('')}</div>
   <p class="status" id="st">${sh?'✓ Bu içerik paylaşıldı olarak işaretli.':''}</p>
   <div class="stack">
    <button class="primary" id="share" disabled>Hazırlanıyor…</button>
-   <p class="muted small" style="margin:0">Açıklama otomatik kopyalanır. Paylaşım menüsünde Instagram'ı seçin; açıklama alanına basılı tutup Yapıştır deyin. Görselleri kaydetmek için aynı menüde "Görüntüleri Kaydet"i seçebilirsiniz.</p>
+   <p class="muted small" style="margin:0">Açıklama otomatik kopyalanır. Paylaşım menüsünde Instagram'ı ya da YouTube'u (Shorts) seçin; açıklama alanına basılı tutup Yapıştır deyin. Görselleri kaydetmek için aynı menüde "Görüntüleri Kaydet"i seçebilirsiniz.</p>
    <button id="cp">Açıklamayı kopyala</button>
    <button id="mk">${sh?'Paylaşılmadı olarak geri al':'Paylaşıldı olarak işaretle'}</button>
   </div>
@@ -165,11 +178,13 @@ async function prepare(){
     files=[];
     for(let k=0;k<it.media.length;k++){
       if(btn) btn.textContent=`Hazırlanıyor… ${k+1} / ${it.media.length}`;
-      const r=await fetch(it.media[k]); if(!r.ok) throw 0;
-      const b=await r.blob(); const ext=it.media[k].endsWith('.mp4')?'mp4':'jpg';
-      files.push(new File([b],`${it.id}_${k+1}.${ext}`,{type:ext==='mp4'?'video/mp4':'image/jpeg'}));
+      const r=await fetch(U(it.media[k])); if(!r.ok) throw 0;
+      const b=await r.blob(); const ext=(it.media[k].match(/\.(mp4|mov)$/i)||[0,'jpg'])[1].toLowerCase();
+      const type=ext==='mp4'?'video/mp4':ext==='mov'?'video/quicktime':'image/jpeg';
+      const f=new File([b],`${it.id}_${k+1}.${ext}`,{type}); files.push(f);
+      if(type.startsWith('video')&&$('#vid')) $('#vid').src=URL.createObjectURL(f);
     }
-    if(view.name==='item'&&view.id===it.id&&$('#share')){$('#share').disabled=false;$('#share').textContent="Instagram'da paylaş"}
+    if(view.name==='item'&&view.id===it.id&&$('#share')){$('#share').disabled=false;$('#share').textContent=files.some(f=>f.type.startsWith('video'))?'Paylaş (Instagram / YouTube Shorts)':"Instagram'da paylaş"}
   }catch(e){ if(st) st.textContent='İndirilemedi. İnternet bağlantınızı kontrol edip sayfayı yeniden açın.'; if(btn) btn.textContent='Hazırlanamadı'}
 }
 
@@ -210,6 +225,108 @@ function calendar(acc,tab,waiting,time){
   const f=new File([blob],`${acc}-${tab}.ics`,{type:'text/calendar'});
   if(navigator.canShare&&navigator.canShare({files:[f]})) navigator.share({files:[f]}).catch(()=>{});
   else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=f.name;document.body.appendChild(a);a.click();a.remove()}
+}
+
+
+// ---------- Telefondan video ekleme ----------
+const tok=()=>ls('gh_token','');
+let upFiles=[], upAcc=null, upBusy=false;
+function renderUpload(){
+  if(!upAcc) upAcc=ls('account','klinik');
+  app.innerHTML=`<button class="back" id="bk">‹ Geri</button>
+  <h1 style="margin-top:14px">Telefondan video ekle</h1>
+  <p class="muted small">Eklenen videolar seçtiğiniz hesabın "Telefon" bölümünde görünür; uygulamanın açık olduğu diğer telefonlar da görür. Oradan Instagram ve YouTube Shorts'ta paylaşırsınız.</p>
+  <label class="primary" style="display:block;text-align:center;font-weight:600;border-radius:22px;padding:12px;background:var(--gold);color:var(--bg);margin-top:8px">Video seç<input type="file" id="pick" accept="video/*" multiple hidden></label>
+  <p id="cnt" class="wait" style="font-size:15px;margin:8px 0 0">${upFiles.length?upFiles.length+' video seçildi':'Henüz video seçilmedi'}</p>
+  <h2>Hangi hesap?</h2>
+  <div class="accs">${accounts().map(a=>`<button data-a="${a.id}" class="${a.id===upAcc?'on':''}">${esc(a.name)}</button>`).join('')}</div>
+  <h2>Başlık (isteğe bağlı)</h2><input class="in" id="ti" placeholder="Örn. Muayene sonrası Pamuk">
+  <h2>Açıklama / etiketler (isteğe bağlı)</h2><textarea class="in" id="ca" placeholder="Paylaşırken kopyalanacak metin"></textarea>
+  ${tok()?'':tokenHtml()}
+  <button class="primary" id="go" style="width:100%;margin-top:18px">Yükle</button>
+  <p class="status" id="ust" style="white-space:pre-line"></p>
+  ${tok()?'<button id="chg" style="width:100%;margin-top:20px">Yükleme anahtarını değiştir</button><div id="tk"></div>':''}`;
+  $('#bk').onclick=()=>{if(!upBusy){view={name:'home'};render()}};
+  $('#pick').onchange=e=>{upFiles=[...upFiles,...e.target.files];$('#cnt').textContent=upFiles.length+' video seçildi'};
+  app.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{if(upBusy)return;upAcc=b.dataset.a;app.querySelectorAll('[data-a]').forEach(x=>x.classList.toggle('on',x===b))});
+  $('#go').onclick=doUpload;
+  if($('#chg')) $('#chg').onclick=()=>{$('#tk').innerHTML=tokenHtml();bindToken()};
+  bindToken();
+}
+function tokenHtml(){return `<div class="card" style="margin-top:18px"><b>Yükleme anahtarı</b>
+  <p class="muted small" style="margin:4px 0 8px">Bu telefondan video eklemek için bir kez gerekli. Anahtarı Olcay'dan alıp buraya yapıştırın (github_pat_ ile başlar).</p>
+  <input class="in" id="tki" type="password" autocomplete="off" placeholder="github_pat_…"><button id="tks" style="width:100%;margin-top:8px">Anahtarı kaydet</button><p class="small" id="tkm"></p></div>`}
+function bindToken(){
+  const b=$('#tks'); if(!b) return;
+  b.onclick=async()=>{const t=$('#tki').value.trim(); if(!t) return; $('#tkm').textContent='Denetleniyor…';
+    try{const r=await fetch(API,{headers:{Authorization:'Bearer '+t,Accept:'application/vnd.github+json'}});const j=await r.json();
+      if(r.ok&&j.permissions&&j.permissions.push){lsSet('gh_token',t);$('#tkm').className='small ok';$('#tkm').textContent='✓ Anahtar kaydedildi.';$('#tki').value=''}
+      else throw 0}
+    catch(e){$('#tkm').className='small warn';$('#tkm').textContent='Anahtar çalışmadı. Doğru kopyalandığından ve süresinin dolmadığından emin olun.'}};
+}
+async function gh(path,opt={}){
+  const r=await fetch(API+path,{...opt,cache:'no-store',headers:{Authorization:'Bearer '+tok(),Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(opt.body?{'Content-Type':'application/json'}:{})}});
+  if(!r.ok){const e=new Error('HTTP '+r.status);e.status=r.status;throw e}
+  return r.json();
+}
+const b64=blob=>new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result.slice(fr.result.indexOf(',')+1));fr.onerror=()=>rej(fr.error);fr.readAsDataURL(blob)});
+async function ghBlob(blob){return (await gh('/git/blobs',{method:'POST',body:JSON.stringify({content:await b64(blob),encoding:'base64'})})).sha}
+async function ghCommit(entries,msg){
+  for(let i=0;i<6;i++){
+    const head=(await gh('/git/ref/heads/main')).object.sha;
+    const base=(await gh('/git/commits/'+head)).tree.sha;
+    const t=(await gh('/git/trees',{method:'POST',body:JSON.stringify({base_tree:base,tree:entries.map(e=>({path:e[0],mode:'100644',type:'blob',sha:e[1]}))})})).sha;
+    const c=(await gh('/git/commits',{method:'POST',body:JSON.stringify({message:msg,tree:t,parents:[head]})})).sha;
+    try{await gh('/git/refs/heads/main',{method:'PATCH',body:JSON.stringify({sha:c})});return}
+    catch(e){if(e.status!==422&&e.status!==409)throw e;await new Promise(r=>setTimeout(r,2000))}
+  }
+  throw new Error('Depo meşgul');
+}
+function videoCover(file){
+  return new Promise(res=>{
+    const v=document.createElement('video'); const url=URL.createObjectURL(file); let done=false;
+    const fin=b=>{if(done)return;done=true;URL.revokeObjectURL(url);res(b)};
+    v.muted=true;v.playsInline=true;v.preload='auto';v.src=url;
+    v.onloadeddata=()=>{try{v.currentTime=Math.min(0.5,(v.duration||1)/2)}catch(e){fin(null)}};
+    v.onseeked=()=>{try{const w=540,h=Math.round(w*v.videoHeight/v.videoWidth)||960;const c=document.createElement('canvas');c.width=w;c.height=h;
+      c.getContext('2d').drawImage(v,0,0,w,h);c.toBlob(b=>fin(b),'image/jpeg',0.85)}catch(e){fin(null)}};
+    v.onerror=()=>fin(null); setTimeout(()=>fin(null),15000);
+  });
+}
+async function doUpload(){
+  if(upBusy) return; const st=$('#ust');
+  if(!upFiles.length){st.className='status warn';st.textContent='Önce video seçin.';return}
+  if(!tok()){st.className='status warn';st.textContent='Önce yükleme anahtarını kaydedin.';return}
+  upBusy=true; $('#go').disabled=true; st.className='status muted';
+  const title=$('#ti').value.trim(), caption=$('#ca').value.trim(), acc=upAcc, list=[...upFiles];
+  const pad=n=>String(n).padStart(2,'0'), d=new Date();
+  const stamp=`${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+  const human=d.toLocaleString('tr-TR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+  let ok=0; const fails=[];
+  for(let i=0;i<list.length;i++){
+    const f=list[i], n=`${i+1}/${list.length}`;
+    try{
+      if(f.size>90*1048576) throw new Error('big');
+      const ext=/quicktime|\.mov$/i.test(f.type+' '+f.name)?'mov':'mp4';
+      const base=`content/${acc}/phone/v${stamp}-${pad(i+1)}/`;
+      st.textContent=`Video ${n} yükleniyor… (${Math.round(f.size/1048576)} MB) Ekranı kapatmayın.`;
+      const ent=[[base+'video.'+ext, await ghBlob(f)]];
+      const cv=await videoCover(f); if(cv) ent.push([base+'cover.jpg', await ghBlob(cv)]);
+      const t=!title?`Telefon videosu · ${human}${list.length>1?' ('+n+')':''}`:list.length>1?`${title} (${i+1})`:title;
+      const meta={title:t,subtitle:'Telefondan eklendi · '+human,caption,order:Math.floor(Date.now()/60000)+i};
+      ent.push([base+'meta.json', await ghBlob(new Blob([JSON.stringify(meta,null,1)],{type:'application/json'}))]);
+      st.textContent=`Video ${n} kaydediliyor…`;
+      await ghCommit(ent,'Telefondan video: '+t); ok++;
+    }catch(e){
+      fails.push(`Video ${i+1}: `+(e.message==='big'?`çok büyük (${Math.round(f.size/1048576)} MB). Paylaşırken "Boyut: Daha küçük" seçin ya da videoyu kısaltın.`
+        :e.status===401?'yükleme anahtarı geçersiz veya süresi dolmuş':e.status===403?'anahtarın yazma izni yok':'yüklenemedi, internet bağlantısını kontrol edin'));
+    }
+  }
+  upBusy=false; $('#go').disabled=false;
+  st.className='status '+(fails.length?'warn':'ok');
+  st.textContent=(ok?`✓ ${ok} video eklendi. 1-2 dakika içinde "Telefon" bölümünde görünür.`:'')+(fails.length?(ok?'\n':'')+fails.join('\n'):'');
+  if(ok){upFiles=[];$('#cnt').textContent='Henüz video seçilmedi';$('#ti').value='';$('#ca').value='';lsSet('account',acc);lsSet('tab','phone');
+    setTimeout(load,60000);setTimeout(load,100000)}
 }
 
 if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});

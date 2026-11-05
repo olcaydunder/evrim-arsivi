@@ -26,6 +26,24 @@
             android:name=".ItemActivity"
             android:exported="false" />
 
+        <!-- Telefondan video ekleme: galeriden seçim ya da Google Fotoğraflar'dan "Paylaş" -->
+        <activity
+            android:name=".UploadActivity"
+            android:exported="true"
+            android:label="Paylaşım planlayıcıya ekle"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+        </activity>
+
         <receiver
             android:name=".AlarmReceiver"
             android:exported="false" />

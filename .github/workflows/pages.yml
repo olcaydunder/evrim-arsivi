@@ -1,0 +1,41 @@
+name: iPhone sayfası
+
+# Yalnızca uygulama kabuğunu (index.html, sw.js, simgeler) GitHub Pages'e yayınlar.
+# İçerikler (manifest ve medya) raw.githubusercontent.com'dan okunur; böylece site boyutu küçük kalır.
+on:
+  push:
+    branches: [main]
+    paths: ['index.html', 'sw.js', 'app.webmanifest', 'icons/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            index.html
+            sw.js
+            app.webmanifest
+            icons
+          sparse-checkout-cone-mode: false
+      - run: mkdir site && cp index.html sw.js app.webmanifest site/ && cp -r icons site/ && touch site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: d
+        uses: actions/deploy-pages@v4

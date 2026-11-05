@@ -1,5 +1,5 @@
 // Uygulama kabuğunu önbelleğe alır; içerik listesi her açılışta ağdan tazelenir.
-const SHELL = 'shell-v2';
+const SHELL = 'shell-v3';
 const FILES = ['./', './index.html', './app.webmanifest', './icons/icon-192.png', './icons/apple-touch-icon.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(SHELL).then(c => c.addAll(FILES))); self.skipWaiting(); });
 self.addEventListener('activate', e => {

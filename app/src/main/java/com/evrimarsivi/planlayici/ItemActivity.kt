@@ -15,6 +15,9 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlin.concurrent.thread
 
+private const val INSTAGRAM = "com.instagram.android"
+private const val YOUTUBE = "com.google.android.youtube"
+
 class ItemActivity : Activity() {
     private var item: Item? = null
     private lateinit var status: TextView
@@ -75,6 +78,7 @@ class ItemActivity : Activity() {
         root.addView(status, Ui.lp(this, 12))
 
         root.addView(Ui.button(this, "Instagram'da paylaş") { share(it) }, Ui.lp(this, 10))
+        if (it.isVideo) root.addView(Ui.button(this, "YouTube Shorts'ta paylaş") { share(it, YOUTUBE) }, Ui.lp(this, 10))
         root.addView(Ui.text(this, "Açıklama otomatik kopyalanır. Instagram'da açıklama alanına basılı tutup Yapıştır deyin.", 13f, Ui.MUTED), Ui.lp(this, 6))
         root.addView(Ui.button(this, "Sadece galeriye kaydet", primary = false) { saveOnly(it) }, Ui.lp(this, 10))
         root.addView(Ui.button(this, "Açıklamayı kopyala", primary = false) { copy(it) }, Ui.lp(this, 10))
@@ -127,11 +131,11 @@ class ItemActivity : Activity() {
         status.text = "✓ ${uris.size} dosya galeriye kaydedildi (EvrimArsivi klasörü)."
     }
 
-    private fun share(it: Item) = prepare(it) { uris ->
+    private fun share(it: Item, pkg: String = INSTAGRAM) = prepare(it) { uris ->
         copy(it)
         val intent = if (uris.size == 1) {
             Intent(Intent.ACTION_SEND).apply {
-                type = if (it.isVideo) "video/mp4" else "image/jpeg"
+                type = if (it.isVideo) "video/*" else "image/jpeg"
                 putExtra(Intent.EXTRA_STREAM, uris[0])
             }
         } else {
@@ -142,10 +146,10 @@ class ItemActivity : Activity() {
         }
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         intent.putExtra(Intent.EXTRA_TEXT, it.caption)
-        status.text = "Instagram açılıyor… Açıklama panoda hazır."
+        status.text = (if (pkg == YOUTUBE) "YouTube" else "Instagram") + " açılıyor… Açıklama panoda hazır."
         sharedOnce = true
         try {
-            startActivity(Intent(intent).setPackage("com.instagram.android"))
+            startActivity(Intent(intent).setPackage(pkg))
         } catch (e: ActivityNotFoundException) {
             startActivity(Intent.createChooser(intent, "Paylaş"))
         }

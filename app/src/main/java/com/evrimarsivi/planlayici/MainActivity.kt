@@ -51,6 +51,13 @@ class MainActivity : Activity() {
     override fun onResume() {
         super.onResume()
         if (::root.isInitialized) render()
+        // Telefondan video eklendiyse liste depoda ~1 dakika içinde güncellenir: birkaç kez yenile
+        val up = Repo.prefs(this).getLong("uploaded_at", 0L)
+        if (up > 0 && System.currentTimeMillis() - up < 5 * 60_000 && ::root.isInitialized) {
+            refresh()
+            root.postDelayed({ if (!isFinishing) refresh() }, 45_000)
+            root.postDelayed({ if (!isFinishing) refresh() }, 90_000)
+        }
     }
 
     private fun refresh() {
@@ -124,6 +131,11 @@ class MainActivity : Activity() {
         }
         root.addView(tabs, Ui.lp(this, 14))
 
+        if (tab == "phone") {
+            root.addView(Ui.button(this, "+ Telefondan video ekle") {
+                startActivity(Intent(this, UploadActivity::class.java))
+            }, Ui.lp(this, 12))
+        }
         root.addView(planCard(acc, tab, m), Ui.lp(this, 12))
 
         val all = m?.items?.filter { it.account == acc && it.type == tab } ?: emptyList()
@@ -133,7 +145,7 @@ class MainActivity : Activity() {
         root.addView(Ui.text(this, "Paylaşılmayı bekleyenler", 17f, Ui.FG, true), Ui.lp(this, 20))
         if (waiting.isEmpty()) {
             root.addView(Ui.text(this, if (m == null) "İçerikler yüklenemedi. İnternet bağlantınızı kontrol edin."
-            else "Bu bölümde bekleyen ${typeName(tab).lowercase()} yok. Yeni içerik eklendiğinde burada görünecek.", 14f, Ui.MUTED), Ui.lp(this, 6))
+            else "Bu bölümde bekleyen ${if (tab == "phone") "telefon videosu" else typeName(tab).lowercase()} yok. Yeni içerik eklendiğinde burada görünecek.", 14f, Ui.MUTED), Ui.lp(this, 6))
         }
         for (it in waiting) root.addView(itemRow(it), Ui.lp(this, 8))
 

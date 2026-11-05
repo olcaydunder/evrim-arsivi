@@ -1,0 +1,40 @@
+name: İçerik listesi
+
+# Telefondan (uygulama üzerinden) eklenen içeriklerden sonra content/manifest.json'u yeniden üretir.
+on:
+  push:
+    branches: [main]
+    paths: ['content/**', '!content/manifest.json', 'tools/build_manifest.py']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manifest
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+      - name: Listeyi üret ve kaydet
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q --filter=blob:none origin main
+            git reset -q --hard origin/main
+            python3 tools/build_manifest.py
+            if git diff --quiet content/manifest.json; then echo "Liste güncel"; exit 0; fi
+            git add content/manifest.json
+            git commit -q -m "İçerik listesini güncelle"
+            if git push -q origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1

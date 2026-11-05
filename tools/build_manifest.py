@@ -3,7 +3,7 @@
 
 Yapı:  content/<hesap>/<tür>/<içerik>/meta.json  +  medya dosyaları
   hesap: evrim | klinik | global | almanya
-  tür:   feed (kaydırmalı/tek görsel) | reel | story
+  tür:   feed (kaydırmalı/tek görsel) | reel | story | phone (telefondan eklenen videolar)
   feed:  01.jpg, 02.jpg ... (sırayla)        reel/story: video.mp4 (+ cover.jpg) ya da 01.jpg
   meta.json: {"title", "subtitle", "caption", "order", "date" (isteğe bağlı, YYYY-MM-DD)}
 """
@@ -17,8 +17,8 @@ ACCOUNTS = [
     {"id": "global", "name": "Zootopia Global"},
     {"id": "almanya", "name": "Zootopia Almanya"},
 ]
-TYPES = ["reel", "feed", "story"]
-MEDIA = ('.jpg', '.jpeg', '.png', '.mp4')
+TYPES = ["reel", "feed", "story", "phone"]
+MEDIA = ('.jpg', '.jpeg', '.png', '.mp4', '.mov')
 
 
 def main():
@@ -35,7 +35,7 @@ def main():
                     continue
                 meta = json.load(open(mp, encoding='utf-8'))
                 files = sorted(f for f in os.listdir(d) if f.lower().endswith(MEDIA) and f != 'cover.jpg')
-                videos = [f for f in files if f.endswith('.mp4')]
+                videos = [f for f in files if f.lower().endswith(('.mp4', '.mov'))]
                 media = videos[:1] if videos else files
                 if not media:
                     continue
