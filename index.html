@@ -271,13 +271,20 @@ async function gh(path,opt={}){
 }
 const b64=blob=>new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result.slice(fr.result.indexOf(',')+1));fr.onerror=()=>rej(fr.error);fr.readAsDataURL(blob)});
 async function ghBlob(blob){return (await gh('/git/blobs',{method:'POST',body:JSON.stringify({content:await b64(blob),encoding:'base64'})})).sha}
-async function ghCommit(entries,msg){
+async function ghCommit(entries,msg,newItems=[]){
   for(let i=0;i<6;i++){
     const head=(await gh('/git/ref/heads/main')).object.sha;
     const base=(await gh('/git/commits/'+head)).tree.sha;
-    const t=(await gh('/git/trees',{method:'POST',body:JSON.stringify({base_tree:base,tree:entries.map(e=>({path:e[0],mode:'100644',type:'blob',sha:e[1]}))})})).sha;
+    const tree=entries.map(e=>({path:e[0],mode:'100644',type:'blob',sha:e[1]}));
+    let man=null;
+    if(newItems.length){try{
+      const r=await fetch(API+'/contents/content/manifest.json?ref='+head,{cache:'no-store',headers:{Authorization:'Bearer '+tok(),Accept:'application/vnd.github.raw+json'}});
+      if(r.ok){man=await r.json();const ids=new Set(man.items.map(x=>x.id));newItems.forEach(x=>{if(!ids.has(x.id))man.items.push(x)});
+        tree.push({path:'content/manifest.json',mode:'100644',type:'blob',sha:await ghBlob(new Blob([JSON.stringify(man,null,1)]))})}
+    }catch(e){man=null}}
+    const t=(await gh('/git/trees',{method:'POST',body:JSON.stringify({base_tree:base,tree})})).sha;
     const c=(await gh('/git/commits',{method:'POST',body:JSON.stringify({message:msg,tree:t,parents:[head]})})).sha;
-    try{await gh('/git/refs/heads/main',{method:'PATCH',body:JSON.stringify({sha:c})});return}
+    try{await gh('/git/refs/heads/main',{method:'PATCH',body:JSON.stringify({sha:c})});if(man){M=man;lsSet('m',M)}return}
     catch(e){if(e.status!==422&&e.status!==409)throw e;await new Promise(r=>setTimeout(r,2000))}
   }
   throw new Error('Depo meşgul');
@@ -316,7 +323,8 @@ async function doUpload(){
       const meta={title:t,subtitle:'Telefondan eklendi · '+human,caption,order:Math.floor(Date.now()/60000)+i};
       ent.push([base+'meta.json', await ghBlob(new Blob([JSON.stringify(meta,null,1)],{type:'application/json'}))]);
       st.textContent=`Video ${n} kaydediliyor…`;
-      await ghCommit(ent,'Telefondan video: '+t); ok++;
+      const id=`${acc}-phone-${base.split('/')[3]}`, vid=ent[0][0];
+      await ghCommit(ent,'Telefondan video: '+t,[{id,account:acc,type:'phone',order:meta.order,title:t,subtitle:meta.subtitle,caption,cover:cv?base+'cover.jpg':vid,media:[vid]}]); ok++;
     }catch(e){
       fails.push(`Video ${i+1}: `+(e.message==='big'?`çok büyük (${Math.round(f.size/1048576)} MB). Paylaşırken "Boyut: Daha küçük" seçin ya da videoyu kısaltın.`
         :e.status===401?'yükleme anahtarı geçersiz veya süresi dolmuş':e.status===403?'anahtarın yazma izni yok':'yüklenemedi, internet bağlantısını kontrol edin'));
@@ -326,7 +334,7 @@ async function doUpload(){
   st.className='status '+(fails.length?'warn':'ok');
   st.textContent=(ok?`✓ ${ok} video eklendi. 1-2 dakika içinde "Telefon" bölümünde görünür.`:'')+(fails.length?(ok?'\n':'')+fails.join('\n'):'');
   if(ok){upFiles=[];$('#cnt').textContent='Henüz video seçilmedi';$('#ti').value='';$('#ca').value='';lsSet('account',acc);lsSet('tab','phone');
-    setTimeout(load,60000);setTimeout(load,100000)}
+    setTimeout(load,90000)}
 }
 
 if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});

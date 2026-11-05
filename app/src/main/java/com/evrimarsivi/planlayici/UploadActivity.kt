@@ -221,7 +221,12 @@ class UploadActivity : Activity() {
                         .put("caption", caption).put("order", (System.currentTimeMillis() / 60000).toInt() + i)
                     files.add(base + "meta.json" to GitHub.blobBytes(token, meta.toString(1).toByteArray()))
                     say("Video $n kaydediliyor…")
-                    GitHub.commit(token, files, "Telefondan video: $t")
+                    val item = JSONObject().put("id", "$acc-phone-$slug").put("account", acc).put("type", "phone")
+                        .put("order", meta.getInt("order")).put("title", t).put("subtitle", meta.getString("subtitle"))
+                        .put("caption", caption)
+                        .put("cover", if (files.any { it.first.endsWith("cover.jpg") }) base + "cover.jpg" else base + "video.$ext")
+                        .put("media", org.json.JSONArray().put(base + "video.$ext"))
+                    GitHub.commit(token, files, "Telefondan video: $t", listOf(item))?.let { Repo.saveCache(this, it) }
                     ok++
                 } catch (e: Exception) {
                     fails.add("Video ${i + 1}: " + when {

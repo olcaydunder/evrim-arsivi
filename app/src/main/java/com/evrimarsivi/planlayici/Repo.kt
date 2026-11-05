@@ -83,6 +83,8 @@ object Repo {
         return Manifest(o.optInt("version", 1), o.optInt("app_version", 0), o.optString("apk_url", ""), accounts, items)
     }
 
+    fun saveCache(c: Context, text: String) = try { parse(text); cacheFile(c).writeText(text) } catch (e: Exception) { }
+
     fun cached(c: Context): Manifest? = try {
         val f = cacheFile(c)
         if (f.exists()) parse(f.readText()) else null

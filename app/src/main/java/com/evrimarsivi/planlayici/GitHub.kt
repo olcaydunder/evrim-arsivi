@@ -103,8 +103,21 @@ object GitHub {
     fun blobBytes(token: String, bytes: ByteArray): String =
         blob(token, bytes.size.toLong(), { bytes.inputStream() })
 
-    /** Verilen (yol → blob sha) dosyalarını tek commit ile main'e ekler; dal o arada ilerlediyse yeniden dener. */
-    fun commit(token: String, files: List<Pair<String, String>>, message: String) {
+    private fun rawText(token: String, path: String): String {
+        val con = open(token, "GET", path)
+        con.setRequestProperty("Accept", "application/vnd.github.raw+json")
+        try {
+            if (con.responseCode !in 200..299) throw ApiError(con.responseCode, "HTTP ${con.responseCode}")
+            return con.inputStream.bufferedReader().use { it.readText() }
+        } finally { con.disconnect() }
+    }
+
+    /**
+     * Verilen (yol → blob sha) dosyalarını tek commit ile main'e ekler; dal o arada ilerlediyse yeniden dener.
+     * newItems verilirse content/manifest.json da aynı commit'te güncellenir (liste anında güncel olur);
+     * güncellenmiş liste metni döndürülür.
+     */
+    fun commit(token: String, files: List<Pair<String, String>>, message: String, newItems: List<JSONObject> = emptyList()): String? {
         var last: Exception? = null
         repeat(6) {
             try {
@@ -112,11 +125,22 @@ object GitHub {
                 val baseTree = json(token, "GET", "/git/commits/$head").getJSONObject("tree").getString("sha")
                 val tree = JSONArray()
                 for ((path, sha) in files) tree.put(JSONObject().put("path", path).put("mode", "100644").put("type", "blob").put("sha", sha))
+                var manifestText: String? = null
+                if (newItems.isNotEmpty()) try {
+                    val m = JSONObject(rawText(token, "/contents/content/manifest.json?ref=$head"))
+                    val items = m.getJSONArray("items")
+                    val ids = (0 until items.length()).map { items.getJSONObject(it).optString("id") }.toSet()
+                    for (it in newItems) if (it.optString("id") !in ids) items.put(it)
+                    val txt = m.toString(1)
+                    tree.put(JSONObject().put("path", "content/manifest.json").put("mode", "100644").put("type", "blob")
+                        .put("sha", blobBytes(token, txt.toByteArray())))
+                    manifestText = txt
+                } catch (e: ApiError) { manifestText = null }
                 val t = json(token, "POST", "/git/trees", JSONObject().put("base_tree", baseTree).put("tree", tree)).getString("sha")
                 val nc = json(token, "POST", "/git/commits",
                     JSONObject().put("message", message).put("tree", t).put("parents", JSONArray().put(head))).getString("sha")
                 json(token, "PATCH", "/git/refs/heads/main", JSONObject().put("sha", nc))
-                return
+                return manifestText
             } catch (e: ApiError) {
                 last = e
                 if (e.code != 422 && e.code != 409) throw e
