@@ -39,3 +39,4 @@ jobs:
           path: site
       - id: d
         uses: actions/deploy-pages@v4
+# yayın: 2026-11-05
