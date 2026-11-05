@@ -1312,6 +1312,32 @@
    ]
   },
   {
+   "id": "klinik-phone-v20261106-013613-04",
+   "account": "klinik",
+   "type": "phone",
+   "order": 29898639,
+   "title": "Telefon videosu · 6 Kas 01:36 (4/100)",
+   "subtitle": "Telefondan eklendi · 6 Kas 01:36",
+   "caption": "",
+   "cover": "content/klinik/phone/v20261106-013613-04/cover.jpg",
+   "media": [
+    "content/klinik/phone/v20261106-013613-04/video.mp4"
+   ]
+  },
+  {
+   "id": "klinik-phone-v20261106-013613-05",
+   "account": "klinik",
+   "type": "phone",
+   "order": 29898640,
+   "title": "Telefon videosu · 6 Kas 01:36 (5/100)",
+   "subtitle": "Telefondan eklendi · 6 Kas 01:36",
+   "caption": "",
+   "cover": "content/klinik/phone/v20261106-013613-05/cover.jpg",
+   "media": [
+    "content/klinik/phone/v20261106-013613-05/video.mp4"
+   ]
+  },
+  {
    "id": "almanya-reel-anemia-potion",
    "account": "almanya",
    "type": "reel",
