@@ -1273,6 +1273,19 @@
    ]
   },
   {
+   "id": "klinik-phone-v20261106-012514-01",
+   "account": "klinik",
+   "type": "phone",
+   "order": 29898625,
+   "title": "İlk 100 (1)",
+   "subtitle": "Telefondan eklendi · 6 Kas 01:25",
+   "caption": "",
+   "cover": "content/klinik/phone/v20261106-012514-01/cover.jpg",
+   "media": [
+    "content/klinik/phone/v20261106-012514-01/video.mp4"
+   ]
+  },
+  {
    "id": "almanya-reel-anemia-potion",
    "account": "almanya",
    "type": "reel",
