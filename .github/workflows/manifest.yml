@@ -19,9 +19,15 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
+      # Büyük medya dosyalarını indirmeden: yalnızca meta.json'lar ve araçlar
       - uses: actions/checkout@v4
         with:
           filter: blob:none
+          sparse-checkout: |
+            tools/
+            content/manifest.json
+            content/**/meta.json
+          sparse-checkout-cone-mode: false
       - name: Listeyi üret ve kaydet
         run: |
           set -e
@@ -30,8 +36,12 @@ jobs:
           for i in 1 2 3 4 5; do
             git fetch -q --filter=blob:none origin main
             git reset -q --hard origin/main
+            # Medya dosyalarının yalnızca adları gerekir: boş yer tutucular
+            git ls-tree -r --name-only HEAD content | grep -Ei '\.(jpe?g|png|mp4|mov)$' | while IFS= read -r f; do
+              [ -e "$f" ] || { mkdir -p "$(dirname "$f")"; : > "$f"; }
+            done
             python3 tools/build_manifest.py
-            if git diff --quiet content/manifest.json; then echo "Liste güncel"; exit 0; fi
+            if git diff --quiet -- content/manifest.json; then echo "Liste güncel"; exit 0; fi
             git add content/manifest.json
             git commit -q -m "İçerik listesini güncelle"
             if git push -q origin HEAD:main; then exit 0; fi
