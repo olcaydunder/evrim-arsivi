@@ -15,6 +15,9 @@ const val MANIFEST_URL = BASE_URL + "content/manifest.json"
 
 data class Account(val id: String, val name: String)
 
+/** YouTube kanalı: Shorts ve uzun videolar */
+const val YT_ACCOUNT = "originals"
+
 val DEFAULT_ACCOUNTS = listOf(
     Account("evrim", "Evrim Arşivi"),
     Account("klinik", "Zootopia Veteriner Kliniği"),
@@ -23,8 +26,6 @@ val DEFAULT_ACCOUNTS = listOf(
     Account("boyutla", "Boyutla 3D"),
     Account(YT_ACCOUNT, "Zootopia Originals (YouTube)"),
 )
-/** YouTube kanalı: Shorts ve uzun videolar */
-const val YT_ACCOUNT = "originals"
 val TYPES = listOf("reel", "feed", "story", "phone")
 val YT_TYPES = listOf("short", "video")
 val ALL_TYPES = TYPES + YT_TYPES
