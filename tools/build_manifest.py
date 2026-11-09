@@ -2,7 +2,7 @@
 """content/ klasörünü tarar ve content/manifest.json üretir.
 
 Yapı:  content/<hesap>/<tür>/<içerik>/meta.json  +  medya dosyaları
-  hesap: evrim | klinik | global | almanya
+  hesap: evrim | klinik | global | almanya | boyutla
   tür:   feed (kaydırmalı/tek görsel) | reel | story | phone (telefondan eklenen videolar)
   feed:  01.jpg, 02.jpg ... (sırayla)        reel/story: video.mp4 (+ cover.jpg) ya da 01.jpg
   meta.json: {"title", "subtitle", "caption", "order", "date" (isteğe bağlı, YYYY-MM-DD)}
@@ -16,6 +16,7 @@ ACCOUNTS = [
     {"id": "klinik", "name": "Zootopia Veteriner Kliniği"},
     {"id": "global", "name": "Zootopia Global"},
     {"id": "almanya", "name": "Zootopia Almanya"},
+    {"id": "boyutla", "name": "Boyutla 3D"},
 ]
 TYPES = ["reel", "feed", "story", "phone"]
 MEDIA = ('.jpg', '.jpeg', '.png', '.mp4', '.mov')

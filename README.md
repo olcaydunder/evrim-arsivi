@@ -12,4 +12,4 @@ https://olcaydunder.github.io/evrim-arsivi/ adresini Safari'de açın → Payla�
 ## İçerik eklemek
 
 `content/<hesap>/<tür>/<içerik>/` klasörüne medya dosyalarını ve `meta.json`'u koyun, sonra `python3 tools/build_manifest.py` çalıştırın.
-Hesaplar: `evrim`, `klinik`, `global`, `almanya` · Türler: `reel`, `feed`, `story`.
+Hesaplar: `evrim`, `klinik`, `global`, `almanya`, `boyutla` · Türler: `reel`, `feed`, `story`.

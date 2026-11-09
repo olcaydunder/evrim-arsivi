@@ -18,6 +18,10 @@
   {
    "id": "almanya",
    "name": "Zootopia Almanya"
+  },
+  {
+   "id": "boyutla",
+   "name": "Boyutla 3D"
   }
  ],
  "items": [
@@ -1959,6 +1963,531 @@
    "cover": "content/almanya/reel/urinary-potion/cover.jpg",
    "media": [
     "content/almanya/reel/urinary-potion/video.mp4"
+   ]
+  },
+  {
+   "id": "boyutla-reel-u01-kurbaga-video",
+   "account": "boyutla",
+   "type": "reel",
+   "order": 1,
+   "title": "KURBAĞA TUVALET KAĞIDI TUTUCU",
+   "subtitle": "Kullanımda — 15 sn",
+   "caption": "Gözleri yedek rulo, dili aktif rulo. 🐸🧻 Banyoya karakter katan 3D baskı tuvalet kağıdı tutucu — kullanımı böyle.\n\nRengini sen seç, biz basalım. Sipariş için DM. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #banyodekorasyonu #kurbağa #istanbul #boyutla",
+   "cover": "content/boyutla/reel/u01-kurbaga-video/cover.jpg",
+   "media": [
+    "content/boyutla/reel/u01-kurbaga-video/video.mp4"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g01-tanisma",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 1,
+   "title": "TANIŞMA",
+   "subtitle": "Hayalini boyutla.",
+   "caption": "Merhaba, biz Boyutla! 👋\n\nİstanbul'da, Bambu Lab yazıcılarla çalışan bir 3D baskı atölyesiyiz. Kişiye özel hediyeden kırılan yedek parçaya, fleksi ejderhadan işletme promosyonuna kadar aklına gelen her şeyi katman katman gerçeğe dönüştürüyoruz.\n\nNe yapıyoruz? Kaydır 👉\n✔ Kişiye özel hediyeler\n✔ Figür & hareketli oyuncaklar\n✔ Yedek ve fonksiyonel parçalar\n✔ İşletmeler için promosyon & prototip\n\nFikrini DM'den yaz, ücretsiz fiyat teklifi gönderelim. 📩\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #atölye #3dprint #3dbaskıistanbul",
+   "cover": "content/boyutla/feed/g01-tanisma/01.jpg",
+   "media": [
+    "content/boyutla/feed/g01-tanisma/01.jpg",
+    "content/boyutla/feed/g01-tanisma/02.jpg",
+    "content/boyutla/feed/g01-tanisma/03.jpg",
+    "content/boyutla/feed/g01-tanisma/04.jpg",
+    "content/boyutla/feed/g01-tanisma/05.jpg",
+    "content/boyutla/feed/g01-tanisma/06.jpg",
+    "content/boyutla/feed/g01-tanisma/07.jpg",
+    "content/boyutla/feed/g01-tanisma/08.jpg",
+    "content/boyutla/feed/g01-tanisma/09.jpg",
+    "content/boyutla/feed/g01-tanisma/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g02-3d-baski-nasil-calisir",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 3,
+   "title": "3D BASKI NASIL ÇALIŞIR?",
+   "subtitle": "3D baskı nasıl çalışır?",
+   "caption": "3D baskı aslında nasıl çalışıyor? 🤔\n\nÇoğu insan \"yazıcı\" deyince kâğıt düşünüyor. Oysa 3D yazıcı, eritilmiş plastiği saç teli inceliğinde katmanlar halinde üst üste sererek nesneyi sıfırdan inşa ediyor.\n\nKaydır, 6 adımda anlattık 👉\n1️⃣ Dijital model\n2️⃣ Dilimleme\n3️⃣ Filament ısınır\n4️⃣ Katman katman yazdırma\n5️⃣ Destekler & temizlik\n6️⃣ Son işlem\n\nKüçük bir anahtarlık 20 dakikada, büyük bir figür 10 saatte çıkıyor. Soruların varsa yorumlara yaz, cevaplayalım. 💬\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #fdm #nasılçalışır #teknoloji",
+   "cover": "content/boyutla/feed/g02-3d-baski-nasil-calisir/01.jpg",
+   "media": [
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/01.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/02.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/03.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/04.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/05.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/06.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/07.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/08.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/09.jpg",
+    "content/boyutla/feed/g02-3d-baski-nasil-calisir/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g03-malzeme-rehberi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 5,
+   "title": "MALZEME REHBERI",
+   "subtitle": "Hangi filament ne işe yarar?",
+   "caption": "Hangi filament ne işe yarar? 🧵\n\n\"PLA mı PETG mi?\" en çok aldığımız sorulardan. Kısa cevap: nerede kullanacağına bağlı.\n\nKaydır, rehber hazır 👉\n🟢 PLA – dekor, figür, hediyelik\n🔵 PETG – dayanıklı, dış mekan\n🟣 TPU – esnek, kılıf ve tampon\n🔴 ABS/ASA – ısıya dayanıklı\n⚫ Karbon fiber – teknik, sert, mat\n✨ Silk & Rainbow – gösterişli\n\nHangisini seçeceğinden emin değilsen kullanım amacını yaz, biz önerelim. 📩\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #pla #petg #tpu #filament",
+   "cover": "content/boyutla/feed/g03-malzeme-rehberi/01.jpg",
+   "media": [
+    "content/boyutla/feed/g03-malzeme-rehberi/01.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/02.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/03.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/04.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/05.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/06.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/07.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/08.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/09.jpg",
+    "content/boyutla/feed/g03-malzeme-rehberi/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g04-fiyat-nasil-belirlenir",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 7,
+   "title": "FIYAT NASIL BELIRLENIR?",
+   "subtitle": "3D baskı fiyatı neye göre değişir?",
+   "caption": "3D baskı fiyatı neye göre belirleniyor? 💸\n\n\"Şu kadar tutar mı?\" sorusunun cevabı 7 etkene bağlı. Kaydır, hepsini açıkladık 👉\n\n1️⃣ Malzeme miktarı (gram)\n2️⃣ Baskı süresi (saat)\n3️⃣ Katman inceliği\n4️⃣ Dolgu oranı\n5️⃣ Renk sayısı\n6️⃣ Destek & son işlem\n7️⃣ Adet\n\nHızlı teklif için dosya/fotoğraf, ölçü, renk ve adet bilgisini DM'den gönder; genelde aynı gün dönüyoruz. 📩\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #fiyat #teklif #prototip",
+   "cover": "content/boyutla/feed/g04-fiyat-nasil-belirlenir/01.jpg",
+   "media": [
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/01.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/02.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/03.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/04.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/05.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/06.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/07.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/08.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/09.jpg",
+    "content/boyutla/feed/g04-fiyat-nasil-belirlenir/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g05-siparis-sureci",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 9,
+   "title": "SIPARIŞ SÜRECI",
+   "subtitle": "Fikirden teslimata 6 adım",
+   "caption": "Sipariş vermek nasıl bir şey? 📦\n\nÇok basit: bize yaz, gerisini biz halledelim. Kaydır, 6 adımda süreç 👉\n\n1️⃣ Fikrini gönder (dosya, fotoğraf ya da çizim)\n2️⃣ Ölçü, renk, malzeme, adet netleşsin\n3️⃣ Teklif & onay\n4️⃣ Gerekirse tasarım – onayına sunarız\n5️⃣ Baskı & kalite kontrol\n6️⃣ Teslimat – İstanbul içi elden, Türkiye'ye kargo\n\nSTL, 3MF, OBJ, STEP ya da MakerWorld linki… hepsi olur. Dosyan yoksa da sorun değil; fotoğraftan tasarlıyoruz. 📩\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #sipariş #kargo #makerworld",
+   "cover": "content/boyutla/feed/g05-siparis-sureci/01.jpg",
+   "media": [
+    "content/boyutla/feed/g05-siparis-sureci/01.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/02.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/03.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/04.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/05.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/06.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/07.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/08.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/09.jpg",
+    "content/boyutla/feed/g05-siparis-sureci/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g06-hediye-fikirleri",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 11,
+   "title": "HEDIYE FIKIRLERI",
+   "subtitle": "Kişiye özel 3D hediye fikirleri",
+   "caption": "Hediye almak zor, kişiye özel hediye almak daha zor. 🎁\n\nİyi haber: 3D baskıyla \"sadece ona özel\" bir şey yapmak düşündüğünden kolay. Kaydır, 8 fikir 👉\n\n🔑 İsimli anahtarlık\n🐉 Fleksi ejderha & hayvanlar\n🌙 Fotoğraftan gece lambası (litofan)\n📱 İsimli telefon standı\n🐾 Kedi & köpek isimliği\n🎂 Pasta topper\n🎮 Oyun kumandası standı\n🧩 Çocuklar için eğitici figürler\n\nKime ve ne zaman lazım? DM'den yaz, birlikte tasarlayalım. 📩\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #hediyefikri #doğumgünühediyesi #litofan #fleksi",
+   "cover": "content/boyutla/feed/g06-hediye-fikirleri/01.jpg",
+   "media": [
+    "content/boyutla/feed/g06-hediye-fikirleri/01.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/02.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/03.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/04.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/05.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/06.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/07.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/08.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/09.jpg",
+    "content/boyutla/feed/g06-hediye-fikirleri/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g07-isletmeler-icin",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 13,
+   "title": "İŞLETMELER IÇIN",
+   "subtitle": "İşletmen için 3D baskı",
+   "caption": "İşletmen için 3D baskı: kalıp yok, minimum adet yok. 🏢\n\nEnjeksiyon kalıbına binlerce lira vermeden; 10 adet de 500 adet de üretebiliyoruz. Kaydır, işletmelerin en çok istediği 7 iş 👉\n\n🔑 Logolu promosyon ürünleri\n🔤 Masa isimliği & tabela harfleri\n🧊 Prototip (1–2 günde elinde)\n⚙️ Üretimi bitmiş yedek parçalar\n🛍️ Vitrin & ürün standları\n☕ Kafe için QR stand & menü tutucu\n🗂️ Klinik & ofis düzenleyicileri\n\nNumune ve teklif için DM'den yaz. 📩\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #kurumsal #promosyon #prototipleme #kobi",
+   "cover": "content/boyutla/feed/g07-isletmeler-icin/01.jpg",
+   "media": [
+    "content/boyutla/feed/g07-isletmeler-icin/01.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/02.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/03.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/04.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/05.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/06.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/07.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/08.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/09.jpg",
+    "content/boyutla/feed/g07-isletmeler-icin/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g08-8-yanlis-bilgi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 15,
+   "title": "8 YANLIŞ BILGI",
+   "subtitle": "3D baskı hakkında 8 mit",
+   "caption": "3D baskı hakkında duyduğun 8 yanlış bilgi ❌\n\n\"Pahalı\", \"kırılgan\", \"sadece oyuncak\"… Bunların çoğu 10 yıl öncesinin teknolojisi için geçerliydi. Kaydır, tek tek düzelttik 👉\n\n1️⃣ Çok pahalı → küçük parça kahve fiyatına\n2️⃣ Kırılgan → PETG/ABS ile yıllarca dayanır\n3️⃣ Sadece oyuncak → yedek parça, prototip, aparat\n4️⃣ Dosya şart → fotoğraf yeter\n5️⃣ Haftalar sürer → çoğu iş 1–3 gün\n6️⃣ Tek renk → tek baskıda 4 renk\n7️⃣ Pürüzlü → ince katmanla pürüzsüz\n8️⃣ Sadece küçük → 25 cm'e kadar tek parça\n\nBaşka duyduğun bir şey varsa yorumlara yaz. 💬\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #mit #doğrubilinenyanlışlar #bilgi",
+   "cover": "content/boyutla/feed/g08-8-yanlis-bilgi/01.jpg",
+   "media": [
+    "content/boyutla/feed/g08-8-yanlis-bilgi/01.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/02.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/03.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/04.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/05.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/06.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/07.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/08.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/09.jpg",
+    "content/boyutla/feed/g08-8-yanlis-bilgi/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g09-sss",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 17,
+   "title": "SSS",
+   "subtitle": "Merak edilen her şey",
+   "caption": "Sıkça sorulan sorular ❓\n\nDM'de en çok aldığımız 8 soruyu tek gönderide topladık. Kaydır 👉\n\n⏱️ Ne kadar sürer? → Çoğu iş 1–3 gün\n🔢 Minimum sipariş? → Yok, 1 adet de olur\n📁 Hangi dosyalar? → STL, 3MF, OBJ, STEP\n✏️ Tasarımım yok → Biz hazırlıyoruz\n📦 Kargo? → Türkiye geneli\n🍽️ Gıdayla temas? → Önceden konuşalım\n🔁 Hatalı çıkarsa? → Yeniden basıyoruz\n📏 Boyut sınırı? → ~25 cm tek parça\n\nSorun burada yoksa DM'den yaz. 📩\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #sss #soru #cevap",
+   "cover": "content/boyutla/feed/g09-sss/01.jpg",
+   "media": [
+    "content/boyutla/feed/g09-sss/01.jpg",
+    "content/boyutla/feed/g09-sss/02.jpg",
+    "content/boyutla/feed/g09-sss/03.jpg",
+    "content/boyutla/feed/g09-sss/04.jpg",
+    "content/boyutla/feed/g09-sss/05.jpg",
+    "content/boyutla/feed/g09-sss/06.jpg",
+    "content/boyutla/feed/g09-sss/07.jpg",
+    "content/boyutla/feed/g09-sss/08.jpg",
+    "content/boyutla/feed/g09-sss/09.jpg",
+    "content/boyutla/feed/g09-sss/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-g10-atolyede-neler-var",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 19,
+   "title": "ATÖLYEDE NELER VAR?",
+   "subtitle": "Kaliteyi ne sağlıyor?",
+   "caption": "Atölyede neler var? Perde arkası 🎬\n\nKaliteli baskı tesadüf değil. Kaydır, kaliteyi sağlayan 8 şey 👉\n\n🖨️ Bambu Lab yazıcı altyapısı\n🎨 AMS ile tek baskıda 4 renk\n📐 0,08 mm katman hassasiyeti\n🌡️ Kapalı kabin – ABS/ASA sorunsuz\n📷 Kamera ile canlı takip\n✅ Her parçada elden kalite kontrol\n🌱 Biyobazlı PLA, minimum fire\n⚡ Acil işlerde aynı gün baskı\n\nBaskı videoları için takipte kal. 🔔\n\n#3dbaskı #3dprinting #3dyazıcı #bambulab #kişiyeözel #hediye #istanbul #3dbaskıhizmeti #tasarım #maker #bambulabp1s #ams #atölye #perdearkası",
+   "cover": "content/boyutla/feed/g10-atolyede-neler-var/01.jpg",
+   "media": [
+    "content/boyutla/feed/g10-atolyede-neler-var/01.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/02.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/03.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/04.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/05.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/06.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/07.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/08.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/09.jpg",
+    "content/boyutla/feed/g10-atolyede-neler-var/10.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u01-kurbaga-tuvalet-kagidi-tutucu",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 2,
+   "title": "KURBAĞA TUVALET KAĞIDI TUTUCU",
+   "subtitle": "Ev & Banyo · İki rulo göz, bir rulo dil. Banyonun en çok gülümseten parçası.",
+   "caption": "Banyoya karakter katan bir detay 🐸🧻\n\nGözleri yedek rulo, dili aktif rulo. Misafirlerin ilk sorusu hep aynı oluyor: \"Bunu nereden aldınız?\"\n\n🧻 3 rulo tek parçada (2 yedek + 1 aktif)\n🔩 Duvara vidalanır, sağlam PETG gövde\n🎨 Rengini sen seç — banyonun paletine göre\n\nKaydır, kullanımını videoda gör 👉\nSipariş için DM. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #banyodekorasyonu #tuvaletkağıdı #kurbağa #evdekorasyonu",
+   "cover": "content/boyutla/feed/u01-kurbaga-tuvalet-kagidi-tutucu/01.jpg",
+   "media": [
+    "content/boyutla/feed/u01-kurbaga-tuvalet-kagidi-tutucu/01.jpg",
+    "content/boyutla/feed/u01-kurbaga-tuvalet-kagidi-tutucu/02.jpg",
+    "content/boyutla/feed/u01-kurbaga-tuvalet-kagidi-tutucu/03.jpg",
+    "content/boyutla/feed/u01-kurbaga-tuvalet-kagidi-tutucu/04.jpg",
+    "content/boyutla/feed/u01-kurbaga-tuvalet-kagidi-tutucu/05.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u02-veteriner-agiz-acacagi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 21,
+   "title": "VETERINER AĞIZ AÇACAĞI",
+   "subtitle": "Veteri̇ner Seri̇si̇ · Diş muayenesi ve fırçalamada ağzı güvenle açık tutan ayarlanabilir aparat.",
+   "caption": "Veteriner hekim arkadaşlar için 🐶🦷\n\nDiş muayenesi ve fırçalama sırasında ağzı güvenle açık tutan, vidalı ayarlı ağız açacağı. Küçük ırktan büyük ırka tek parçayla.\n\n✔ Yuvarlatılmış kenarlar\n✔ Vida ile hassas ayar\n✔ Yıkanabilir, dezenfekte edilebilir\n\nKlinik ölçülerinize göre uyarlıyoruz. Numune için DM. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #veteriner #veterinerhekim #vetdental #klinikekipmanı",
+   "cover": "content/boyutla/feed/u02-veteriner-agiz-acacagi/01.jpg",
+   "media": [
+    "content/boyutla/feed/u02-veteriner-agiz-acacagi/01.jpg",
+    "content/boyutla/feed/u02-veteriner-agiz-acacagi/02.jpg",
+    "content/boyutla/feed/u02-veteriner-agiz-acacagi/03.jpg",
+    "content/boyutla/feed/u02-veteriner-agiz-acacagi/04.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u03-asi-sisesi-duzenleyici",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 8,
+   "title": "AŞI ŞIŞESI DÜZENLEYICI",
+   "subtitle": "Veteri̇ner Seri̇si̇ · Etiketli, kademeli, istiflenebilir. Hangi aşı nerede, tek bakışta.",
+   "caption": "Klinikte aşı dolabı düzeni 💉\n\nHer aşı için ayrı modül, kabartma etiket ve kademeli yuvalar: aşı önde, sulandırıcı arkada. Modüller üst üste istiflenir, tezgâhta yer kazandırır.\n\n🏷️ Aşı adı kabartma yazıyla\n📦 İstiflenebilir modüler sistem\n🎨 Renkle kodlama: siyah, beyaz, mavi…\n\nKliniğinizin aşı listesine göre etiketleri özel hazırlıyoruz. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #veterinerkliniği #aşı #klinikdüzeni #vetlife",
+   "cover": "content/boyutla/feed/u03-asi-sisesi-duzenleyici/01.jpg",
+   "media": [
+    "content/boyutla/feed/u03-asi-sisesi-duzenleyici/01.jpg",
+    "content/boyutla/feed/u03-asi-sisesi-duzenleyici/02.jpg",
+    "content/boyutla/feed/u03-asi-sisesi-duzenleyici/03.jpg",
+    "content/boyutla/feed/u03-asi-sisesi-duzenleyici/04.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u04-kedi-termometre-standi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 22,
+   "title": "KEDI TERMOMETRE STANDI",
+   "subtitle": "Veteri̇ner Seri̇si̇ · İki termometre, bir sevimli kedi. Muayene masasında hep el altında.",
+   "caption": "Termometre nerede? Kedinin kulağında. 🐱🌡️\n\nMuayene masasında sürekli kaybolan termometreler için sevimli bir çözüm: iki yuvalı kedi standı. Silk mor-mavi filamentle ışığı yakalıyor.\n\n🌡️ 2 termometre yuvası\n✨ Silk filament, metalik görünüm\n🐾 Klinik, pet shop ya da ev için\n\nİstediğin renkte basıyoruz. DM'den yaz. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #veteriner #kedi #termometre #vetteknisyeni",
+   "cover": "content/boyutla/feed/u04-kedi-termometre-standi/01.jpg",
+   "media": [
+    "content/boyutla/feed/u04-kedi-termometre-standi/01.jpg",
+    "content/boyutla/feed/u04-kedi-termometre-standi/02.jpg",
+    "content/boyutla/feed/u04-kedi-termometre-standi/03.jpg",
+    "content/boyutla/feed/u04-kedi-termometre-standi/04.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u05-enjektor-tup-duzenleyici",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 18,
+   "title": "ENJEKTÖR & TÜP DÜZENLEYICI",
+   "subtitle": "Veteri̇ner Seri̇si̇ · Enjektör, iğne, kan tüpü ve flakon — kademeli bölmelerde, el altında.",
+   "caption": "Muayene masasında düzen = hız ⏱️\n\nEnjektörler üstte, kan tüpleri ortada, iğneler altta. Heparin ve EDTA için ayrı renkler. Flakon yuvalı versiyon acil arabasına birebir.\n\n🧪 3 kademeli bölme\n🎨 Renkle kodlama (mavi/turkuaz…)\n🩺 Klinik, laboratuvar ve pet shop için\n\nKaç istasyon lazım? DM'den konuşalım. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #veterinerkliniği #laboratuvar #enjektör #klinikdüzeni",
+   "cover": "content/boyutla/feed/u05-enjektor-tup-duzenleyici/01.jpg",
+   "media": [
+    "content/boyutla/feed/u05-enjektor-tup-duzenleyici/01.jpg",
+    "content/boyutla/feed/u05-enjektor-tup-duzenleyici/02.jpg",
+    "content/boyutla/feed/u05-enjektor-tup-duzenleyici/03.jpg",
+    "content/boyutla/feed/u05-enjektor-tup-duzenleyici/04.jpg",
+    "content/boyutla/feed/u05-enjektor-tup-duzenleyici/05.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u06-veteriner-kaduse-masa-heykeli",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 23,
+   "title": "VETERINER KADÜSE MASA HEYKELI",
+   "subtitle": "Veteri̇ner Seri̇si̇ · Kanatlı asa, V harfi ve isminiz. Mezuniyet ve açılış hediyesinin en şıkı.",
+   "caption": "Veteriner hekime en anlamlı hediye 🎓🐍\n\nKanatlı asa, yılanlar ve veterinerliğin V harfi — kaidesinde hekimin adıyla. Mezuniyet, klinik açılışı ya da doktorlar günü için.\n\n🏷️ Kaideye isim ve unvan\n🎨 Çok renkli baskı (altın, bakır, yeşil)\n📏 Masaüstü boy\n\nİsim ve renk tercihini DM'den yaz, görselini onayına sunalım. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #veterinerhekim #mezuniyethediyesi #kadüse #hediye",
+   "cover": "content/boyutla/feed/u06-veteriner-kaduse-masa-heykeli/01.jpg",
+   "media": [
+    "content/boyutla/feed/u06-veteriner-kaduse-masa-heykeli/01.jpg",
+    "content/boyutla/feed/u06-veteriner-kaduse-masa-heykeli/02.jpg",
+    "content/boyutla/feed/u06-veteriner-kaduse-masa-heykeli/03.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u07-muhabbet-kusu-dusu",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 16,
+   "title": "MUHABBET KUŞU DUŞU",
+   "subtitle": "Evci̇l Hayvan · Mini duş başlığı, su haznesi ve ızgaralı taban. Kuşlar bayılıyor.",
+   "caption": "Kuşunuz duş sever mi? 🐦🚿\n\nMuhabbet kuşu ve küçük papağanlar için mini duş kabini: üstten ince su perdesi, altta ızgaralı taban, yanda su haznesi.\n\n💧 Nazik su akışı\n🧼 Sökülüp yıkanabilir parçalar\n🟡 Renk seçimi size kalmış\n\nKafes kapısına yanaştır, duş başlasın. Sipariş DM'den. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #muhabbetkuşu #papağan #kuşbakımı #petshop",
+   "cover": "content/boyutla/feed/u07-muhabbet-kusu-dusu/01.jpg",
+   "media": [
+    "content/boyutla/feed/u07-muhabbet-kusu-dusu/01.jpg",
+    "content/boyutla/feed/u07-muhabbet-kusu-dusu/02.jpg",
+    "content/boyutla/feed/u07-muhabbet-kusu-dusu/03.jpg",
+    "content/boyutla/feed/u07-muhabbet-kusu-dusu/04.jpg",
+    "content/boyutla/feed/u07-muhabbet-kusu-dusu/05.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u08-ip-sarma-makinesi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 10,
+   "title": "İP SARMA MAKINESI",
+   "subtitle": "Hobi̇ & Atölye · Masaya kelepçele, kolu çevir: dağınık yumak dakikalar içinde düzgün top.",
+   "caption": "Örgücülerin hayali: düğümsüz yumak 🧶\n\nMasaya kelepçele, ipi kılavuzdan geçir, kolu çevir. Yumak ortadan çekilen düzgün bir top olarak çıkıyor. Dişlisi, kolu, kelepçesi — hepsi 3D baskı.\n\n⚙️ Metal parça yok, tamamen baskı\n🪑 2–4 cm masa tablasına kelepçe\n🎁 Örgü seven herkese hediye\n\nRenk seçimiyle birlikte DM'den sipariş. 📩\n\n🧩 Model: function.3d — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #örgü #yumak #ipsarma #elişi #hobi",
+   "cover": "content/boyutla/feed/u08-ip-sarma-makinesi/01.jpg",
+   "media": [
+    "content/boyutla/feed/u08-ip-sarma-makinesi/01.jpg",
+    "content/boyutla/feed/u08-ip-sarma-makinesi/02.jpg",
+    "content/boyutla/feed/u08-ip-sarma-makinesi/03.jpg",
+    "content/boyutla/feed/u08-ip-sarma-makinesi/04.jpg",
+    "content/boyutla/feed/u08-ip-sarma-makinesi/05.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u09-silikon-derz-ucu",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 6,
+   "title": "SILIKON DERZ UCU",
+   "subtitle": "Tadi̇lat & Atölye · Kartuşa tak, köşeye bas, çek. Derz tek seferde düzgün ve pürüzsüz.",
+   "caption": "Banyo derzini ustaya mı bırakacaksın? 🛠️\n\nBu uçla değil. Silikon kartuşuna tak, köşeye bastır, çek. Derz tek hamlede düzgün, parmakla düzeltme yok, spatula yok.\n\n📐 Numaralı uçlar — derz genişliğine göre\n♻️ Yıkanır, yeniden kullanılır\n🎨 Kaybolmasın diye canlı renklerde\n\nSet halinde de basıyoruz. DM'den yaz. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #tadilat #silikon #derz #kendinyap #diy",
+   "cover": "content/boyutla/feed/u09-silikon-derz-ucu/01.jpg",
+   "media": [
+    "content/boyutla/feed/u09-silikon-derz-ucu/01.jpg",
+    "content/boyutla/feed/u09-silikon-derz-ucu/02.jpg",
+    "content/boyutla/feed/u09-silikon-derz-ucu/03.jpg",
+    "content/boyutla/feed/u09-silikon-derz-ucu/04.jpg",
+    "content/boyutla/feed/u09-silikon-derz-ucu/05.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u10-sprey-boya-tetigi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 24,
+   "title": "SPREY BOYA TETIĞI",
+   "subtitle": "Tadi̇lat & Atölye · Kutuya geçir, tabanca gibi sık. Parmak yorulmaz, boya eşit dağılır.",
+   "caption": "Sprey boya kullananlar bilir: 10 dakikada parmak uyuşur. 🎨\n\nBu tetik kutuya geçiyor, tabanca gibi sıkıyorsun. Boya eşit dağılıyor, parmağın temiz kalıyor.\n\n🔫 Standart sprey kutularına uyumlu\n🧤 Parmak boyaya değmez\n⬡ Kaymaz petek doku\n\nAtölye, oto boya ve hobi için. Sipariş DM'den. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #spreyboya #atölye #boyama #diy #hobi",
+   "cover": "content/boyutla/feed/u10-sprey-boya-tetigi/01.jpg",
+   "media": [
+    "content/boyutla/feed/u10-sprey-boya-tetigi/01.jpg",
+    "content/boyutla/feed/u10-sprey-boya-tetigi/02.jpg",
+    "content/boyutla/feed/u10-sprey-boya-tetigi/03.jpg",
+    "content/boyutla/feed/u10-sprey-boya-tetigi/04.jpg",
+    "content/boyutla/feed/u10-sprey-boya-tetigi/05.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u11-miknatisli-vida-tepsisi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 14,
+   "title": "MIKNATISLI VIDA TEPSISI",
+   "subtitle": "Atölye · Metal yüzeye yapışır, vidalar kaybolmaz. Tamircinin üçüncü eli.",
+   "caption": "Vidayı yere düşürüp aramak… bir daha yok. 🔩🧲\n\nMıknatıslı tepsi metal yüzeye yapışıyor: klima, buzdolabı, araba kaputu, atölye dolabı. Vidalar hep elinin altında.\n\n🧲 3 neodyum mıknatıs\n📦 Derin hazne — bit, somun, pul\n🛡️ Dayanıklı PETG\n\nServis teknisyenlerine toplu sipariş avantajı var. DM. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #tamir #servis #atölye #klimaservisi #mıknatıs",
+   "cover": "content/boyutla/feed/u11-miknatisli-vida-tepsisi/01.jpg",
+   "media": [
+    "content/boyutla/feed/u11-miknatisli-vida-tepsisi/01.jpg",
+    "content/boyutla/feed/u11-miknatisli-vida-tepsisi/02.jpg",
+    "content/boyutla/feed/u11-miknatisli-vida-tepsisi/03.jpg",
+    "content/boyutla/feed/u11-miknatisli-vida-tepsisi/04.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u12-kalem-yukseklik-mastari",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 20,
+   "title": "KALEM YÜKSEKLIK MASTARI",
+   "subtitle": "Marangoz & Tadi̇lat · 5'ten 105 mm'ye sabit yükseklikte çizgi. Süpürgelik, dolap, parke — hep düz.",
+   "caption": "Marangozun cebindeki küçük dev 📏✏️\n\nKalemi istediğin yüksekliğe tak, duvar boyunca kaydır: 5'ten 105 mm'ye kadar kusursuz düz çizgi. Süpürgelik, dolap kapağı, parke kesimi…\n\n📏 11 kademe, 10'ar mm aralık\n🪵 Geniş taban, kaymaz\n🔢 Kabartma rakamlar\n\nUsta setine en çok eklenen parça. Sipariş DM'den. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #marangoz #tadilat #ahşapişleri #usta #kendinyap",
+   "cover": "content/boyutla/feed/u12-kalem-yukseklik-mastari/01.jpg",
+   "media": [
+    "content/boyutla/feed/u12-kalem-yukseklik-mastari/01.jpg",
+    "content/boyutla/feed/u12-kalem-yukseklik-mastari/02.jpg",
+    "content/boyutla/feed/u12-kalem-yukseklik-mastari/03.jpg",
+    "content/boyutla/feed/u12-kalem-yukseklik-mastari/04.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u13-duvar-sapka-askisi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 25,
+   "title": "DUVAR ŞAPKA ASKISI",
+   "subtitle": "Ev & Düzen · Altı şapka tek rayda, dikey ve derli toplu. Koleksiyonunu sergile.",
+   "caption": "Şapkalar sandalye sırtında mı duruyor? 🧢\n\nDikey duvar askısıyla 6 şapka tek rayda, siperler düzgün, koleksiyon sergide. İki vida, beş dakika.\n\n🧢 6 şapka kapasitesi\n🔩 2 vida ile montaj\n🖤 Mat siyah ya da istediğin renk\n\nDaha fazla şapka için uzun versiyon da var. DM. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #şapka #cap #evdüzeni #dekorasyon #duvaraskısı",
+   "cover": "content/boyutla/feed/u13-duvar-sapka-askisi/01.jpg",
+   "media": [
+    "content/boyutla/feed/u13-duvar-sapka-askisi/01.jpg",
+    "content/boyutla/feed/u13-duvar-sapka-askisi/02.jpg",
+    "content/boyutla/feed/u13-duvar-sapka-askisi/03.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u14-kopek-gozluk-tutucu",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 26,
+   "title": "KÖPEK GÖZLÜK TUTUCU",
+   "subtitle": "Masaüstü · Gözlüğünü komodinde kaybetme; burnuna taksın, sabah yerinde bulsun.",
+   "caption": "Gözlük nerede? Köpeğin burnunda. 👓🐶\n\nKomodinin üstünde gözlüğünü koruyan, sabah yerinde bulduran sevimli tutucu. Çok renkli baskıyla detaylar tek parçada.\n\n👓 Burun köprüsüne tam oturur\n🎨 Çok renkli (AMS) baskı\n🎁 Hediyelik boy\n\nSipariş için DM'den yaz. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #gözlük #gözlüktutucu #hediye #masaüstü",
+   "cover": "content/boyutla/feed/u14-kopek-gozluk-tutucu/01.jpg",
+   "media": [
+    "content/boyutla/feed/u14-kopek-gozluk-tutucu/01.jpg",
+    "content/boyutla/feed/u14-kopek-gozluk-tutucu/02.jpg",
+    "content/boyutla/feed/u14-kopek-gozluk-tutucu/03.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u15-kedi-kas-kollari",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 12,
+   "title": "KEDI KAS KOLLARI",
+   "subtitle": "Evci̇l Hayvan · Eğlence · Kedine 5 dakikada vücut geliştirici kolları. Fotoğraf çekimi garantili.",
+   "caption": "Kediniz spora başladı 💪🐱\n\nKaslı kollar 5 dakikada takılıyor, fotoğraf çekimi anında başlıyor. Instagram'ın en çok paylaşılan kedi aksesuarı.\n\n💪 Hafif, kediyi rahatsız etmez\n🎨 Ten rengi ya da istediğin renk\n🎁 Kedi sahiplerine komik hediye\n\nKedinin boyunu yaz, ona göre ölçekleyelim. DM. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #kedi #kediaksesuar #komikkedi #catsofinstagram",
+   "cover": "content/boyutla/feed/u15-kedi-kas-kollari/01.jpg",
+   "media": [
+    "content/boyutla/feed/u15-kedi-kas-kollari/01.jpg",
+    "content/boyutla/feed/u15-kedi-kas-kollari/02.jpg",
+    "content/boyutla/feed/u15-kedi-kas-kollari/03.jpg",
+    "content/boyutla/feed/u15-kedi-kas-kollari/04.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u16-adalet-terazisi-masa-duzenleyici",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 27,
+   "title": "ADALET TERAZISI MASA DÜZENLEYICI",
+   "subtitle": "Masaüstü · Hukuk · Kalemlik, ataş bölmesi ve telefon yuvası — avukat masasının imzası.",
+   "caption": "Avukat masasına yakışan bir imza ⚖️\n\nAdalet terazisi masa düzenleyici: telefon yuvası, kalemlik ve ataş/anahtar bölmesi tek parçada. Ahşap dokulu ya da bakır filamentle.\n\n⚖️ Terazi figürü + 3 bölme\n🪵 Ahşap dokulu veya bakır görünüm\n🎁 Stajyer, avukat ve hukuk fakültesi hediyesi\n\nİsim kabartması ekleyebiliriz. DM. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #avukat #hukuk #adaletterazisi #masadüzenleyici #hediye",
+   "cover": "content/boyutla/feed/u16-adalet-terazisi-masa-duzenleyici/01.jpg",
+   "media": [
+    "content/boyutla/feed/u16-adalet-terazisi-masa-duzenleyici/01.jpg",
+    "content/boyutla/feed/u16-adalet-terazisi-masa-duzenleyici/02.jpg",
+    "content/boyutla/feed/u16-adalet-terazisi-masa-duzenleyici/03.jpg",
+    "content/boyutla/feed/u16-adalet-terazisi-masa-duzenleyici/04.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u17-duvar-kedi-tuneli",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 4,
+   "title": "DUVAR KEDI TÜNELI",
+   "subtitle": "Evci̇l Hayvan · Modüler tünel, kubbe pencereler, köşe parçaları. Tavana yakın kedi otoyolu.",
+   "caption": "Kedi Dağıtım Sistemi — tavandan geçer 🐈🚇\n\nDuvara monte modüler tünel: düz modüller, köşe parçaları, şeffaf kubbe pencereler. İstediğin kadar uzat, odayı kedinin otoyoluna çevir.\n\n🧩 Modüler — düz, köşe, pencereli\n👀 Kubbe pencereler\n🪵 Ahşap dokulu filament, vidalı montaj\n\nOdanın ölçüsünü gönder, modül sayısını planlayalım. 📩\n\n🧩 Model: RIV — Cat Distribution System (MakerWorld)\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #kedi #kedituneli #kedievi #catwall #kedimobilyası",
+   "cover": "content/boyutla/feed/u17-duvar-kedi-tuneli/01.jpg",
+   "media": [
+    "content/boyutla/feed/u17-duvar-kedi-tuneli/01.jpg",
+    "content/boyutla/feed/u17-duvar-kedi-tuneli/02.jpg",
+    "content/boyutla/feed/u17-duvar-kedi-tuneli/03.jpg",
+    "content/boyutla/feed/u17-duvar-kedi-tuneli/04.jpg",
+    "content/boyutla/feed/u17-duvar-kedi-tuneli/05.jpg",
+    "content/boyutla/feed/u17-duvar-kedi-tuneli/06.jpg"
+   ]
+  },
+  {
+   "id": "boyutla-feed-u18-pipet-duvar-askisi",
+   "account": "boyutla",
+   "type": "feed",
+   "order": 28,
+   "title": "PIPET DUVAR ASKISI",
+   "subtitle": "Laboratuvar · Altı otomatik pipet, duvarda sıralı ve temiz. Laboratuvar tezgâhı ferahlar.",
+   "caption": "Laboratuvar tezgâhında yer açın 🧪\n\nAltı otomatik pipet duvarda, sıralı ve askıda. Uçlar hiçbir yüzeye değmiyor, tezgâh ferahlıyor.\n\n🔬 6 pipet, farklı hacimler\n🧫 Uçlar temas etmez\n🔩 Bant ya da vida ile montaj\n\nKlinik laboratuvarı, üniversite ve Ar-Ge için toplu sipariş. 📩\n\n🧩 Model: [tasarımcı adı] — MakerWorld\n#3dbaskı #3dprinting #bambulab #kişiyeözel #istanbul #3dbaskıhizmeti #maker #laboratuvar #pipet #labdüzeni #veterinerlab #biyoloji",
+   "cover": "content/boyutla/feed/u18-pipet-duvar-askisi/01.jpg",
+   "media": [
+    "content/boyutla/feed/u18-pipet-duvar-askisi/01.jpg",
+    "content/boyutla/feed/u18-pipet-duvar-askisi/02.jpg",
+    "content/boyutla/feed/u18-pipet-duvar-askisi/03.jpg"
    ]
   }
  ]

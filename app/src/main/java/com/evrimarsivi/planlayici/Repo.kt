@@ -20,6 +20,7 @@ val DEFAULT_ACCOUNTS = listOf(
     Account("klinik", "Zootopia Veteriner Kliniği"),
     Account("global", "Zootopia Global"),
     Account("almanya", "Zootopia Almanya"),
+    Account("boyutla", "Boyutla 3D"),
 )
 val TYPES = listOf("reel", "feed", "story", "phone")
 fun typeName(t: String) = when (t) { "reel" -> "Reels"; "story" -> "Hikâye"; "phone" -> "Telefon"; else -> "Gönderi" }
