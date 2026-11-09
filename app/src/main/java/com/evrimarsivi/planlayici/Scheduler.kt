@@ -25,7 +25,7 @@ object Scheduler {
 
     private fun code(account: String, type: String): Int {
         val a = DEFAULT_ACCOUNTS.indexOfFirst { it.id == account }.let { if (it < 0) (account.hashCode() and 0xff) + 10 else it }
-        return 100 + a * 10 + TYPES.indexOf(type).coerceAtLeast(0)
+        return 100 + a * 10 + ALL_TYPES.indexOf(type).coerceAtLeast(0)
     }
 
     private fun pending(c: Context, account: String, type: String): PendingIntent {
@@ -46,7 +46,7 @@ object Scheduler {
 
     fun scheduleAll(c: Context) {
         val accs = Repo.cached(c)?.accounts ?: DEFAULT_ACCOUNTS
-        for (a in accs) for (t in TYPES) schedule(c, a.id, t)
+        for (a in accs) for (t in typesFor(a.id)) schedule(c, a.id, t)
     }
 
     fun schedule(c: Context, account: String, type: String) {
@@ -70,7 +70,7 @@ object Scheduler {
             .setSmallIcon(R.drawable.ic_notify)
             .setSubText(accountName)
             .setContentTitle("$kind: ${item.title}")
-            .setContentText("Dokunun: açıklama kopyalanır, Instagram açılır.")
+            .setContentText(if (item.isYouTube) "Dokunun: YouTube'a yükleme ekranı açılır." else "Dokunun: açıklama kopyalanır, Instagram açılır.")
             .setContentIntent(pi)
             .setAutoCancel(true)
             .build()

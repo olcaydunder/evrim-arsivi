@@ -54,10 +54,12 @@ textarea.in{min-height:96px;resize:vertical}
 <body>
 <main id="app"><p class="muted">Yükleniyor…</p></main>
 <script>
-const ACCOUNTS_DEFAULT=[{id:'evrim',name:'Evrim Arşivi'},{id:'klinik',name:'Zootopia Veteriner Kliniği'},{id:'global',name:'Zootopia Global'},{id:'almanya',name:'Zootopia Almanya'},{id:'boyutla',name:'Boyutla 3D'}];
+const ACCOUNTS_DEFAULT=[{id:'evrim',name:'Evrim Arşivi'},{id:'klinik',name:'Zootopia Veteriner Kliniği'},{id:'global',name:'Zootopia Global'},{id:'almanya',name:'Zootopia Almanya'},{id:'boyutla',name:'Boyutla 3D'},{id:'originals',name:'Zootopia Originals (YouTube)'}];
 const TYPES=['reel','feed','story','phone'];
-const TNAME={reel:'Reels',feed:'Gönderi',story:'Hikâye',phone:'Telefon'};
-const DEF_TIME={reel:'13:00',feed:'20:00',story:'10:00',phone:'18:00'};
+const YT='originals', YT_TYPES=['short','video'];
+const typesFor=acc=>acc===YT?YT_TYPES:TYPES;
+const TNAME={reel:'Reels',feed:'Gönderi',story:'Hikâye',phone:'Telefon',short:'Shorts',video:'Videolar'};
+const DEF_TIME={reel:'13:00',feed:'20:00',story:'10:00',phone:'18:00',short:'19:00',video:'19:00'};
 // İçerikler doğrudan depodan okunur (GitHub Pages yalnızca bu sayfayı barındırır)
 const RAW='https://raw.githubusercontent.com/olcaydunder/evrim-arsivi/main/';
 const API='https://api.github.com/repos/olcaydunder/evrim-arsivi';
@@ -71,12 +73,13 @@ function ls(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.pars
 function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 const isShared=id=>!!ls('shared_'+id,false);
 const setShared=(id,v)=>lsSet('shared_'+id,v);
+const isDone=i=>!!i.youtube||isShared(i.id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const accounts=()=> (M&&M.accounts)||ACCOUNTS_DEFAULT;
 const accName=id=>(accounts().find(a=>a.id===id)||{name:id}).name;
 const today=()=>new Date().toISOString().slice(0,10);
 function items(acc,type){return (M?M.items:[]).filter(i=>i.account===acc&&(i.type==='carousel'?'feed':i.type)===type).sort((a,b)=>a.order-b.order)}
-function nextOf(acc,type){const open=items(acc,type).filter(i=>!isShared(i.id));const t=today();return open.find(i=>i.date===t)||open.filter(i=>!i.date||i.date<t)[0]||null}
+function nextOf(acc,type){const open=items(acc,type).filter(i=>!isDone(i));const t=today();return open.find(i=>i.date===t)||open.filter(i=>!i.date||i.date<t)[0]||null}
 
 async function load(){
   try{const r=await fetch(RAW+'content/manifest.json?t='+Math.floor(Date.now()/60000),{cache:'no-store'});if(!r.ok)throw 0;M=await r.json();lsSet('m',M)}
@@ -95,7 +98,7 @@ function render(){
 
 function renderPicker(first){
   app.innerHTML=`<h1>Paylaşım planlayıcı</h1><p class="muted">${first?'Hangi hesap için paylaşım yapacaksınız?':'Hesap seçin'}</p>
-  <div class="stack">${accounts().map(a=>{const n=(M?M.items:[]).filter(i=>i.account===a.id&&!isShared(i.id)).length;
+  <div class="stack">${accounts().map(a=>{const n=(M?M.items:[]).filter(i=>i.account===a.id&&!isDone(i)).length;
     return `<button class="acc" data-acc="${a.id}"><b>${esc(a.name)}</b><span class="${n?'wait':'muted small'}">${n?n+' içerik paylaşılmayı bekliyor':'Bekleyen içerik yok'}</span></button>`}).join('')}</div>
   ${M?'':'<p class="muted small">İçerikler yüklenemedi. İnternet bağlantınızı kontrol edin.</p>'}
   ${installHint()}`;
@@ -109,21 +112,22 @@ function installHint(){
 }
 
 function renderHome(acc){
-  const tab=ls('tab','reel');
-  const all=items(acc,tab), waiting=all.filter(i=>!isShared(i.id)), shared=all.filter(i=>isShared(i.id));
+  const types=typesFor(acc), yt=acc===YT;
+  let tab=ls('tab','reel'); if(!types.includes(tab)) tab=types[0];
+  const all=items(acc,tab), waiting=all.filter(i=>!isDone(i)), shared=all.filter(i=>isDone(i));
   const nx=nextOf(acc,tab);
   const time=ls(`time_${acc}_${tab}`,DEF_TIME[tab]);
   app.innerHTML=`<div class="row"><div class="grow"><h1>${esc(accName(acc))}</h1><div class="muted small">Paylaşım planlayıcı</div></div><button id="sw">Hesap değiştir</button></div>
-  <div class="tabs">${TYPES.map(t=>{const n=items(acc,t).filter(i=>!isShared(i.id)).length;return `<button data-tab="${t}" class="${t===tab?'on':''}">${TNAME[t]}${n?' ('+n+')':''}</button>`}).join('')}</div>
+  <div class="tabs" style="grid-template-columns:repeat(${types.length},1fr)">${types.map(t=>{const n=items(acc,t).filter(i=>!isDone(i)).length;return `<button data-tab="${t}" class="${t===tab?'on':''}">${TNAME[t]}${n?' ('+n+')':''}</button>`}).join('')}</div>
   ${tab==='phone'?'<button class="primary" id="up" style="margin-top:12px;width:100%">+ Telefondan video ekle</button>':''}
   <div class="card" style="margin-top:12px"><b>${TNAME[tab]} planı</b>
    <div class="muted small" style="margin:4px 0 10px">${nx?'Sıradaki: '+esc(nx.title):'Sırada içerik yok'}</div>
-   <div class="row" style="flex-wrap:wrap"><label class="sw">Saat <input type="time" id="tm" value="${time}"></label><span class="grow"></span>${nx?'<button class="primary" id="now">Şimdi paylaş</button>':''}</div>
+   <div class="row" style="flex-wrap:wrap"><label class="sw">Saat <input type="time" id="tm" value="${time}"></label><span class="grow"></span>${nx?`<button class="primary" id="now">${yt?'Şimdi yükle':'Şimdi paylaş'}</button>`:''}</div>
    ${waiting.length?'<button id="cal" style="margin-top:10px;width:100%">Takvime hatırlatma ekle</button><p class="muted small" style="margin:6px 0 0">Bekleyen her içerik için seçtiğiniz saatte, günde bir hatırlatma takviminize eklenir.</p>':''}
   </div>
-  <h2>Paylaşılmayı bekleyenler</h2>
-  <div class="stack">${waiting.length?waiting.map(rowHtml).join(''):`<p class="muted">${M?'Bu bölümde bekleyen '+(tab==='phone'?'telefon videosu':TNAME[tab].toLowerCase())+' yok. Yeni içerik eklendiğinde burada görünecek.':'İçerikler yüklenemedi.'}</p>`}</div>
-  ${shared.length?`<button id="tog" style="margin-top:16px;width:100%">${showShared?'Paylaşılanları gizle':'Paylaşılanları göster ('+shared.length+')'}</button><div class="stack" style="margin-top:10px">${showShared?shared.map(rowHtml).join(''):''}</div>`:''}
+  <h2>${yt?'Yüklenmeyi bekleyenler':'Paylaşılmayı bekleyenler'}</h2>
+  <div class="stack">${waiting.length?waiting.map(rowHtml).join(''):`<p class="muted">${M?(yt?'Yüklenmeyi bekleyen '+TNAME[tab].toLowerCase()+' yok. Yeni içerik hazırlandığında burada görünecek.':'Bu bölümde bekleyen '+(tab==='phone'?'telefon videosu':TNAME[tab].toLowerCase())+' yok. Yeni içerik eklendiğinde burada görünecek.'):'İçerikler yüklenemedi.'}</p>`}</div>
+  ${yt&&shared.length?`<h2>Kanalda yayında (${shared.length})</h2><div class="stack">${shared.map(rowHtml).join('')}</div>`:shared.length?`<button id="tog" style="margin-top:16px;width:100%">${showShared?'Paylaşılanları gizle':'Paylaşılanları göster ('+shared.length+')'}</button><div class="stack" style="margin-top:10px">${showShared?shared.map(rowHtml).join(''):''}</div>`:''}
   <button id="rf" style="margin-top:16px;width:100%">İçerikleri yenile</button>
   ${installHint()}`;
   $('#sw').onclick=()=>{view={name:'picker'};render()};
@@ -138,18 +142,19 @@ function renderHome(acc){
 }
 
 function rowHtml(i){
-  const sh=isShared(i.id);const tall=(i.type!=='feed'&&i.type!=='carousel');
+  const sh=isDone(i);const tall=(i.type!=='feed'&&i.type!=='carousel'&&i.type!=='video');
   const d=i.date?` · ${i.date.slice(8,10)}.${i.date.slice(5,7)} tarihinde önerilir`:'';
-  return `<button class="item" data-id="${i.id}"><img class="thumb" loading="lazy" alt="" src="${isVid(i.cover)?'':U(i.cover)}" style="height:${tall?100:70}px">
-  <span class="grow"><b>${esc(i.title)}</b><br><span class="muted small">${esc(i.subtitle||'')}</span><br><span class="${sh?'done':'wait'}">${sh?'✓ Paylaşıldı':'Bekliyor'}${d}</span></span></button>`;
+  return `<button class="item" data-id="${i.id}"><img class="thumb" loading="lazy" alt="" src="${isVid(i.cover)?'':U(i.cover)}" style="height:${tall?100:i.type==='video'?32:70}px">
+  <span class="grow"><b>${esc(i.title)}</b><br><span class="muted small">${esc(i.subtitle||'')}</span><br><span class="${sh?'done':'wait'}">${i.youtube?'✓ Kanalda yayında':sh?(i.account===YT?'✓ Yüklendi':'✓ Paylaşıldı'):(i.account===YT?'Yüklenmeyi bekliyor':'Bekliyor')}${d}</span></span></button>`;
 }
 
 let files=[];
-function openItem(id){view={name:'item',id};files=[];render();prepare()}
+function openItem(id){view={name:'item',id};files=[];render();const it=(M?M.items:[]).find(i=>i.id===id);if(!(it&&it.account===YT&&(it.youtube||it.type==='video')))prepare()}
 
 function renderItem(){
   const it=(M?M.items:[]).find(i=>i.id===view.id);
   if(!it){view={name:'home'};return render()}
+  if(it.account===YT) return renderYT(it);
   const video=isVid(it.media[0]);
   const kind=(it.type==='feed'||it.type==='carousel')&&it.media.length>1?`Kaydırmalı gönderi · ${it.media.length} sayfa`:TNAME[it.type==='carousel'?'feed':it.type];
   const sh=isShared(it.id);
@@ -184,23 +189,55 @@ async function prepare(){
       const f=new File([b],`${it.id}_${k+1}.${ext}`,{type}); files.push(f);
       if(type.startsWith('video')&&$('#vid')) $('#vid').src=URL.createObjectURL(f);
     }
-    if(view.name==='item'&&view.id===it.id&&$('#share')){$('#share').disabled=false;$('#share').textContent=files.some(f=>f.type.startsWith('video'))?'Paylaş (Instagram / YouTube Shorts)':"Instagram'da paylaş"}
+    if(view.name==='item'&&view.id===it.id&&$('#share')){$('#share').disabled=false;$('#share').textContent=it.account===YT?"YouTube'a yükle":files.some(f=>f.type.startsWith('video'))?'Paylaş (Instagram / YouTube Shorts)':"Instagram'da paylaş"}
   }catch(e){ if(st) st.textContent='İndirilemedi. İnternet bağlantınızı kontrol edip sayfayı yeniden açın.'; if(btn) btn.textContent='Hazırlanamadı'}
 }
 
-function copy(t){
-  const done=()=>{const s=$('#st');if(s)s.textContent='Açıklama kopyalandı.'};
+function copy(t,label='Açıklama'){
+  const done=()=>{const s=$('#st');if(s)s.textContent=label+' kopyalandı.'};
   try{navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t,done))}catch(e){fallbackCopy(t,done)}
 }
 function fallbackCopy(t,done){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}ta.remove()}
 
 function share(it){
-  copy(it.caption);
+  if(it.account===YT) copy(it.title,'Başlık'); else copy(it.caption);
   if(navigator.canShare&&navigator.canShare({files})){
     navigator.share({files}).then(()=>{const s=$('#st');if(s)s.textContent='Paylaştıysanız "Paylaşıldı olarak işaretle"ye basın.'}).catch(()=>{});
   }else{
     const s=$('#st'); if(s) s.textContent='Bu tarayıcı dosya paylaşımını desteklemiyor. iPhone\'da Safari, Android\'de Chrome kullanın.';
   }
+}
+
+// ---------- Zootopia Originals (YouTube) ----------
+function renderYT(it){
+  const sh=isShared(it.id), pub=!!it.youtube, long=it.type==='video';
+  const cover=isVid(it.cover)?'':U(it.cover);
+  app.innerHTML=`<button class="back" id="bk">‹ Geri</button>
+  <p class="wait" style="margin:14px 0 2px;font-weight:600">ZOOTOPIA ORIGINALS · ${long?'VİDEO':'SHORTS'}</p>
+  <h1>${esc(it.title)}</h1><div class="muted">${esc(it.subtitle||'')}</div>
+  <div class="strip">${pub||long?`<img src="${cover}" alt="" style="width:100%;max-width:560px">`:`<video id="vid" poster="${cover}" controls playsinline preload="none"></video>`}</div>
+  <p class="status" id="st">${pub?'✓ Bu video kanalda yayında.':sh?'✓ Bu video yüklendi olarak işaretli.':''}</p>
+  <div class="stack">
+   ${pub?`<a href="${esc(it.youtube)}" target="_blank" rel="noopener"><button class="primary" style="width:100%">YouTube'da aç</button></a>`
+    :long?`<a href="${esc(U(it.media[0]))}" download><button class="primary" style="width:100%">Videoyu indir</button></a>
+      <p class="muted small" style="margin:0">Uzun video büyük bir dosyadır; Wi-Fi'de indirin. Sonra YouTube uygulamasında + → Video yükle ile seçin.</p>`
+    :`<button class="primary" id="share" disabled>Hazırlanıyor…</button>
+      <p class="muted small" style="margin:0">Paylaşım menüsünde YouTube'u seçin. Başlık panoya kopyalanır; başlık alanına yapıştırın. Sonra buraya dönüp açıklamayı ve etiketleri kopyalayın.</p>`}
+   <button id="ct">Başlığı kopyala</button>
+   <button id="cp">Açıklamayı kopyala</button>
+   ${it.tags?'<button id="cg">Etiketleri kopyala</button>':''}
+   ${cover?`<a href="${cover}" download><button style="width:100%">Kapak görselini indir</button></a>`:''}
+   ${pub?'':`<button id="mk">${sh?'Yüklenmedi olarak geri al':'Yüklendi olarak işaretle'}</button>`}
+  </div>
+  <h2>Başlık</h2><div class="card"><pre>${esc(it.title)}</pre></div>
+  <h2>Açıklama</h2><div class="card"><pre>${esc(it.caption)}</pre></div>
+  ${it.tags?`<h2>Etiketler</h2><div class="card"><pre>${esc(it.tags)}</pre></div>`:''}`;
+  $('#bk').onclick=()=>{view={name:'home'};render()};
+  $('#ct').onclick=()=>copy(it.title,'Başlık');
+  $('#cp').onclick=()=>copy(it.caption,'Açıklama');
+  if($('#cg')) $('#cg').onclick=()=>copy(it.tags,'Etiketler');
+  if($('#share')) $('#share').onclick=()=>share(it);
+  if($('#mk')) $('#mk').onclick=()=>{const v=!isShared(it.id);setShared(it.id,v);if(v){$('#st').textContent='✓ Yüklendi olarak işaretlendi.';setTimeout(()=>{view={name:'home'};render()},1100)}else render()};
 }
 
 function calendar(acc,tab,waiting,time){
@@ -232,14 +269,14 @@ function calendar(acc,tab,waiting,time){
 const tok=()=>ls('gh_token','');
 let upFiles=[], upAcc=null, upBusy=false;
 function renderUpload(){
-  if(!upAcc) upAcc=ls('account','klinik');
+  if(!upAcc) upAcc=ls('account','klinik'); if(upAcc===YT) upAcc='klinik';
   app.innerHTML=`<button class="back" id="bk">‹ Geri</button>
   <h1 style="margin-top:14px">Telefondan video ekle</h1>
   <p class="muted small">Eklenen videolar seçtiğiniz hesabın "Telefon" bölümünde görünür; uygulamanın açık olduğu diğer telefonlar da görür. Oradan Instagram ve YouTube Shorts'ta paylaşırsınız.</p>
   <label class="primary" style="display:block;text-align:center;font-weight:600;border-radius:22px;padding:12px;background:var(--gold);color:var(--bg);margin-top:8px">Video seç<input type="file" id="pick" accept="video/*" multiple hidden></label>
   <p id="cnt" class="wait" style="font-size:15px;margin:8px 0 0">${upFiles.length?upFiles.length+' video seçildi':'Henüz video seçilmedi'}</p>
   <h2>Hangi hesap?</h2>
-  <div class="accs">${accounts().map(a=>`<button data-a="${a.id}" class="${a.id===upAcc?'on':''}">${esc(a.name)}</button>`).join('')}</div>
+  <div class="accs">${accounts().filter(a=>a.id!==YT).map(a=>`<button data-a="${a.id}" class="${a.id===upAcc?'on':''}">${esc(a.name)}</button>`).join('')}</div>
   <h2>Başlık (isteğe bağlı)</h2><input class="in" id="ti" placeholder="Örn. Muayene sonrası Pamuk">
   <h2>Açıklama / etiketler (isteğe bağlı)</h2><textarea class="in" id="ca" placeholder="Paylaşırken kopyalanacak metin"></textarea>
   ${tok()?'':tokenHtml()}

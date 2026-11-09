@@ -40,7 +40,7 @@ class UploadActivity : Activity() {
         super.onCreate(savedInstanceState)
         window.statusBarColor = Ui.BG
         window.navigationBarColor = Ui.BG
-        account = Repo.account(this) ?: "klinik"
+        account = Repo.account(this)?.takeIf { it != YT_ACCOUNT } ?: "klinik"
         readIntent(intent)
         build()
         if (uris.isEmpty() && intent.action != Intent.ACTION_SEND && intent.action != Intent.ACTION_SEND_MULTIPLE) pick()
@@ -79,7 +79,7 @@ class UploadActivity : Activity() {
         root.addView(Ui.text(this, "İpucu: Google Fotoğraflar'da videoları seçip Paylaş → \"Paylaşım planlayıcı\" diyerek de toplu ekleyebilirsiniz.", 13f, Ui.MUTED), Ui.lp(this, 6))
 
         root.addView(Ui.text(this, "Hangi hesap?", 16f, Ui.FG, true), Ui.lp(this, 18))
-        val accs = (Repo.cached(this)?.accounts ?: DEFAULT_ACCOUNTS)
+        val accs = (Repo.cached(this)?.accounts ?: DEFAULT_ACCOUNTS).filter { it.id != YT_ACCOUNT }
         val accBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         fun drawAccs() {
             accBox.removeAllViews()

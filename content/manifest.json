@@ -1,6 +1,6 @@
 {
  "version": 2,
- "app_version": 8,
+ "app_version": 10,
  "apk_url": "https://github.com/olcaydunder/evrim-arsivi/releases/download/app/EvrimArsivi.apk",
  "accounts": [
   {
@@ -22,6 +22,10 @@
   {
    "id": "boyutla",
    "name": "Boyutla 3D"
+  },
+  {
+   "id": "originals",
+   "name": "Zootopia Originals (YouTube)"
   }
  ],
  "items": [
@@ -2489,6 +2493,115 @@
     "content/boyutla/feed/u18-pipet-duvar-askisi/02.jpg",
     "content/boyutla/feed/u18-pipet-duvar-askisi/03.jpg"
    ]
+  },
+  {
+   "id": "originals-short-dead-mountain-1",
+   "account": "originals",
+   "type": "short",
+   "order": 1,
+   "title": "Their tent was cut open from the INSIDE #DyatlovPass #shorts",
+   "subtitle": "Dead Mountain · Short 1/6",
+   "caption": "February 1959, northern Ural Mountains. Searchers find the hikers' tent half buried in snow – cut open from the inside. Nine sets of footprints lead down the slope, some in socks, some barefoot.\n\nWhat made nine experienced hikers walk away into -30°C?\n\n▶ Full documentary on the channel: Dead Mountain – The Dyatlov Pass Incident\n\nAll images are AI-generated reconstructions; narration voice is AI-generated.\n\n#DyatlovPass #Mystery #History #Documentary #ZootopiaOriginals",
+   "cover": "content/originals/short/dead-mountain-1/cover.jpg",
+   "media": [
+    "content/originals/short/dead-mountain-1/video.mp4"
+   ],
+   "tags": "Dyatlov Pass, Dyatlov Pass incident, mystery, history, documentary, shorts, Ural Mountains, 1959, unsolved mysteries"
+  },
+  {
+   "id": "originals-short-dead-mountain-2",
+   "account": "originals",
+   "type": "short",
+   "order": 2,
+   "title": "-30°C. No shoes. Why did they walk away? #DyatlovPass #shorts",
+   "subtitle": "Dead Mountain · Short 2/6",
+   "caption": "Most of the Dyatlov group were dressed for sleep. Some wore only socks. Yet their footprints show no panic – they walked downhill together for more than a kilometre and a half toward the forest.\n\n▶ Full documentary on the channel: Dead Mountain – The Dyatlov Pass Incident\n\nAll images are AI-generated reconstructions; narration voice is AI-generated.\n\n#DyatlovPass #Mystery #History #Documentary #ZootopiaOriginals",
+   "cover": "content/originals/short/dead-mountain-2/cover.jpg",
+   "media": [
+    "content/originals/short/dead-mountain-2/video.mp4"
+   ],
+   "tags": "Dyatlov Pass, Dyatlov Pass incident, mystery, history, documentary, shorts, Ural Mountains, 1959, unsolved mysteries"
+  },
+  {
+   "id": "originals-short-dead-mountain-3",
+   "account": "originals",
+   "type": "short",
+   "order": 3,
+   "title": "What happened under the cedar tree? #DyatlovPass #shorts",
+   "subtitle": "Dead Mountain · Short 3/6",
+   "caption": "At the edge of the forest stood a tall Siberian pine. Branches were broken as high as five metres, as if someone had climbed it to look back toward the tent. Then the group split.\n\n▶ Full documentary on the channel: Dead Mountain – The Dyatlov Pass Incident\n\nAll images are AI-generated reconstructions; narration voice is AI-generated.\n\n#DyatlovPass #Mystery #History #Documentary #ZootopiaOriginals",
+   "cover": "content/originals/short/dead-mountain-3/cover.jpg",
+   "media": [
+    "content/originals/short/dead-mountain-3/video.mp4"
+   ],
+   "tags": "Dyatlov Pass, Dyatlov Pass incident, mystery, history, documentary, shorts, Ural Mountains, 1959, unsolved mysteries"
+  },
+  {
+   "id": "originals-short-dead-mountain-4",
+   "account": "originals",
+   "type": "short",
+   "order": 4,
+   "title": "The last four were found in May #DyatlovPass #shorts",
+   "subtitle": "Dead Mountain · Short 4/6",
+   "caption": "On 4 May 1959, as the snow melted, searchers found the last four hikers in a ravine beyond the pine – some wearing clothing taken from friends who had died earlier, as if they had tried to keep each other alive.\n\n▶ Full documentary on the channel: Dead Mountain – The Dyatlov Pass Incident\n\nAll images are AI-generated reconstructions; narration voice is AI-generated.\n\n#DyatlovPass #Mystery #History #Documentary #ZootopiaOriginals",
+   "cover": "content/originals/short/dead-mountain-4/cover.jpg",
+   "media": [
+    "content/originals/short/dead-mountain-4/video.mp4"
+   ],
+   "tags": "Dyatlov Pass, Dyatlov Pass incident, mystery, history, documentary, shorts, Ural Mountains, 1959, unsolved mysteries"
+  },
+  {
+   "id": "originals-short-dead-mountain-5",
+   "account": "originals",
+   "type": "short",
+   "order": 5,
+   "title": "\"A compelling natural force\" – the 1959 verdict #DyatlovPass #shorts",
+   "subtitle": "Dead Mountain · Short 5/6",
+   "caption": "In May 1959 the investigation was closed with no guilty party. The official conclusion: the hikers died because of \"a compelling natural force\" they could not overcome. The files went to a secret archive.\n\n▶ Full documentary on the channel: Dead Mountain – The Dyatlov Pass Incident\n\nAll images are AI-generated reconstructions; narration voice is AI-generated.\n\n#DyatlovPass #Mystery #History #Documentary #ZootopiaOriginals",
+   "cover": "content/originals/short/dead-mountain-5/cover.jpg",
+   "media": [
+    "content/originals/short/dead-mountain-5/video.mp4"
+   ],
+   "tags": "Dyatlov Pass, Dyatlov Pass incident, mystery, history, documentary, shorts, Ural Mountains, 1959, unsolved mysteries"
+  },
+  {
+   "id": "originals-short-dead-mountain-6",
+   "account": "originals",
+   "type": "short",
+   "order": 6,
+   "title": "Was the Dyatlov Pass mystery solved in 2021? #shorts",
+   "subtitle": "Dead Mountain · Short 6/6",
+   "caption": "In January 2021, Johan Gaume and Alexander Puzrin published a study in Communications Earth & Environment proposing a small slab avalanche, triggered hours after the hikers cut into the slope to pitch their tent.\n\n▶ Full documentary on the channel: Dead Mountain – The Dyatlov Pass Incident\n\nAll images are AI-generated reconstructions; narration voice is AI-generated.\n\n#DyatlovPass #Mystery #History #Documentary #ZootopiaOriginals",
+   "cover": "content/originals/short/dead-mountain-6/cover.jpg",
+   "media": [
+    "content/originals/short/dead-mountain-6/video.mp4"
+   ],
+   "tags": "Dyatlov Pass, Dyatlov Pass incident, mystery, history, documentary, shorts, Ural Mountains, 1959, unsolved mysteries"
+  },
+  {
+   "id": "originals-video-dead-mountain",
+   "account": "originals",
+   "type": "video",
+   "order": 1,
+   "title": "Dead Mountain: The Dyatlov Pass Incident | Full Documentary",
+   "subtitle": "Belgesel · 29 dk · Yayında",
+   "caption": "",
+   "cover": "content/originals/video/dead-mountain/cover.jpg",
+   "media": [],
+   "youtube": "https://www.youtube.com/watch?v=9a5DMWqiY2E"
+  },
+  {
+   "id": "originals-video-frozen-passage",
+   "account": "originals",
+   "type": "video",
+   "order": 2,
+   "title": "Frozen Passage: The Lost Franklin Expedition | Full Documentary",
+   "subtitle": "Belgesel · 27 dk · Yayında",
+   "caption": "In May 1845, two of the most advanced ships in the Royal Navy – HMS Erebus and HMS Terror – sailed from England to find the Northwest Passage. 129 men. Three years of supplies. They were last seen by Europeans in Baffin Bay that summer. None of them came home.\n\nThis documentary follows what happened next: the winter on Beechey Island, the ships trapped in the ice off King William Island, the desperate march south, the decades of searching, the handwritten note left in a stone cairn, the Inuit testimony that was ignored for more than a century – and the discovery of the wrecks in 2014 and 2016.\n\n⏱ Chapters\n0:00 Cold open\n1:51 The Passage\n3:39 The Ships\n5:43 Departure\n7:41 Beechey Island\n9:34 Into the Ice\n11:55 The March\n14:17 The Search\n16:38 The Record\n18:37 The Inuit Memory\n20:35 Found\n22:34 The Science\n24:55 Epilogue\n\n📚 Sources\n• The Victory Point record (1848)\n• Reports of the Franklin search expeditions (1848–1859)\n• Inuit oral history and testimony\n• Parks Canada – Wrecks of HMS Erebus and HMS Terror National Historic Site\n• Owen Beattie & John Geiger, Frozen in Time\n• Christensen et al. (2016) and Stenton et al. (2021, 2024)\n\n⚠️ This film is a dramatization. All images are AI-generated reconstructions, not archival footage. The narration voice is AI-generated. Narration is based on expedition records, search reports, Inuit testimony and published research.\n\nIn memory of the 129 officers and men of HMS Erebus and HMS Terror (1845–1848), and with respect to the Inuit, whose knowledge helped bring them home.\n\n#FranklinExpedition #HMSErebus #HMSTerror #Documentary #History #ArcticExploration #NorthwestPassage #Mystery #ZootopiaOriginals",
+   "cover": "content/originals/video/frozen-passage/cover.jpg",
+   "media": [],
+   "youtube": "https://www.youtube.com/watch?v=sL8U4HfDeJM",
+   "tags": "Franklin Expedition, Lost Franklin Expedition, HMS Erebus, HMS Terror, Northwest Passage, Arctic exploration, John Franklin, King William Island, Beechey Island, Victory Point, Inuit, Parks Canada, shipwreck discovery, history documentary, full documentary, unsolved mysteries, polar exploration, Royal Navy, 19th century history, documentary"
   }
  ]
 }

@@ -87,7 +87,7 @@ class MainActivity : Activity() {
         root.addView(Ui.text(this, if (first) "Hangi hesap için paylaşım yapacaksınız?" else "Hesap seçin", 16f, Ui.MUTED), Ui.lp(this, 6))
         val accounts = manifest?.accounts ?: DEFAULT_ACCOUNTS
         for (a in accounts) {
-            val waiting = manifest?.items?.count { it.account == a.id && !Repo.isShared(this, it.id) } ?: 0
+            val waiting = manifest?.items?.count { it.account == a.id && !Repo.isDone(this, it) } ?: 0
             val card = Ui.card(this)
             card.addView(Ui.text(this, a.name, 18f, Ui.FG, true))
             card.addView(Ui.text(this, if (waiting == 0) "Bekleyen içerik yok" else "$waiting içerik paylaşılmayı bekliyor", 13f, if (waiting == 0) Ui.MUTED else Ui.GOLD), Ui.lp(this, 2))
@@ -119,14 +119,16 @@ class MainActivity : Activity() {
             root.addView(card, Ui.lp(this, 10))
         }
 
-        // Sekmeler: Reels · Gönderi · Hikâye
-        val tab = Repo.tab(this)
+        // Sekmeler: Reels · Gönderi · Hikâye · Telefon  (YouTube: Shorts · Videolar)
+        val yt = acc == YT_ACCOUNT
+        val tab = Repo.tabFor(this, acc)
         val tabs = Ui.row(this)
-        for (t in TYPES) {
-            val n = m?.items?.count { it.account == acc && it.type == t && !Repo.isShared(this, it.id) } ?: 0
+        val types = typesFor(acc)
+        for (t in types) {
+            val n = m?.items?.count { it.account == acc && it.type == t && !Repo.isDone(this, it) } ?: 0
             val b = tabButton("${typeName(t)}${if (n > 0) " ($n)" else ""}", t == tab) { Repo.setTab(this, t); showShared = false; render() }
             tabs.addView(b, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f).apply {
-                if (t != TYPES.first()) leftMargin = Ui.dp(this@MainActivity, 6)
+                if (t != types.first()) leftMargin = Ui.dp(this@MainActivity, 6)
             })
         }
         root.addView(tabs, Ui.lp(this, 14))
@@ -139,17 +141,22 @@ class MainActivity : Activity() {
         root.addView(planCard(acc, tab, m), Ui.lp(this, 12))
 
         val all = m?.items?.filter { it.account == acc && it.type == tab } ?: emptyList()
-        val waiting = all.filter { !Repo.isShared(this, it.id) }
-        val shared = all.filter { Repo.isShared(this, it.id) }
+        val waiting = all.filter { !Repo.isDone(this, it) }
+        val shared = all.filter { Repo.isDone(this, it) }
 
-        root.addView(Ui.text(this, "Paylaşılmayı bekleyenler", 17f, Ui.FG, true), Ui.lp(this, 20))
+        root.addView(Ui.text(this, if (yt) "Yüklenmeyi bekleyenler" else "Paylaşılmayı bekleyenler", 17f, Ui.FG, true), Ui.lp(this, 20))
         if (waiting.isEmpty()) {
             root.addView(Ui.text(this, if (m == null) "İçerikler yüklenemedi. İnternet bağlantınızı kontrol edin."
+            else if (yt) "Yüklenmeyi bekleyen ${typeName(tab).lowercase()} yok. Yeni içerik hazırlandığında burada görünecek."
             else "Bu bölümde bekleyen ${if (tab == "phone") "telefon videosu" else typeName(tab).lowercase()} yok. Yeni içerik eklendiğinde burada görünecek.", 14f, Ui.MUTED), Ui.lp(this, 6))
         }
         for (it in waiting) root.addView(itemRow(it), Ui.lp(this, 8))
 
-        if (shared.isNotEmpty()) {
+        if (yt && shared.isNotEmpty()) {
+            // Kanalda yayında olanlar her zaman görünür
+            root.addView(Ui.text(this, "Kanalda yayında (${shared.size})", 17f, Ui.FG, true), Ui.lp(this, 22))
+            for (it in shared) root.addView(itemRow(it), Ui.lp(this, 8))
+        } else if (shared.isNotEmpty()) {
             root.addView(Ui.button(this, if (showShared) "Paylaşılanları gizle" else "Paylaşılanları göster (${shared.size})", primary = false) {
                 showShared = !showShared; render()
             }, Ui.lp(this, 16))
@@ -200,7 +207,7 @@ class MainActivity : Activity() {
         })
         if (next != null) {
             r.addView(Ui.spacer(this))
-            r.addView(Ui.button(this, "Şimdi paylaş") { open(next) })
+            r.addView(Ui.button(this, if (acc == YT_ACCOUNT) "Şimdi yükle" else "Şimdi paylaş") { open(next) })
         }
         card.addView(r, Ui.lp(this, 10))
         return card
@@ -211,14 +218,15 @@ class MainActivity : Activity() {
         val r = Ui.row(this)
         val img = ImageView(this).apply { scaleType = ImageView.ScaleType.CENTER_CROP; setBackgroundColor(Ui.LINE) }
         val w = Ui.dp(this, 56)
-        val h = if (it.type == "feed") w * 5 / 4 else w * 16 / 9
+        val h = when (it.type) { "feed" -> w * 5 / 4; "video" -> w * 9 / 16; else -> w * 16 / 9 }
         r.addView(img, LinearLayout.LayoutParams(w, h))
         val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(Ui.dp(this@MainActivity, 12), 0, 0, 0) }
         col.addView(Ui.text(this, it.title, 15f, Ui.FG, true))
         if (it.subtitle.isNotBlank()) col.addView(Ui.text(this, it.subtitle, 13f, Ui.MUTED))
-        val shared = Repo.isShared(this, it.id)
+        val shared = Repo.isDone(this, it)
         val extra = if (it.date.isNotEmpty()) " · ${it.date.substring(8, 10)}.${it.date.substring(5, 7)} tarihinde önerilir" else ""
-        col.addView(Ui.text(this, (if (shared) "✓ Paylaşıldı" else "Bekliyor") + extra, 12f, if (shared) Ui.GREEN else Ui.GOLD))
+        val state = when { it.published -> "✓ Kanalda yayında"; shared && it.isYouTube -> "✓ Yüklendi"; shared -> "✓ Paylaşıldı"; it.isYouTube -> "Yüklenmeyi bekliyor"; else -> "Bekliyor" }
+        col.addView(Ui.text(this, state + extra, 12f, if (shared) Ui.GREEN else Ui.GOLD))
         r.addView(col, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f))
         card.addView(r)
         card.setOnClickListener { _ -> open(it) }

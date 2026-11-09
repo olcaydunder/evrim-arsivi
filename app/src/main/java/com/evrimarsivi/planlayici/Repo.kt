@@ -21,9 +21,17 @@ val DEFAULT_ACCOUNTS = listOf(
     Account("global", "Zootopia Global"),
     Account("almanya", "Zootopia Almanya"),
     Account("boyutla", "Boyutla 3D"),
+    Account(YT_ACCOUNT, "Zootopia Originals (YouTube)"),
 )
+/** YouTube kanalı: Shorts ve uzun videolar */
+const val YT_ACCOUNT = "originals"
 val TYPES = listOf("reel", "feed", "story", "phone")
-fun typeName(t: String) = when (t) { "reel" -> "Reels"; "story" -> "Hikâye"; "phone" -> "Telefon"; else -> "Gönderi" }
+val YT_TYPES = listOf("short", "video")
+val ALL_TYPES = TYPES + YT_TYPES
+fun typesFor(account: String) = if (account == YT_ACCOUNT) YT_TYPES else TYPES
+fun typeName(t: String) = when (t) {
+    "reel" -> "Reels"; "story" -> "Hikâye"; "phone" -> "Telefon"; "short" -> "Shorts"; "video" -> "Videolar"; else -> "Gönderi"
+}
 fun isVideoPath(p: String) = p.endsWith(".mp4", true) || p.endsWith(".mov", true)
 
 data class Item(
@@ -37,7 +45,11 @@ data class Item(
     val cover: String,
     val media: List<String>,
     val date: String = "", // YYYY-MM-DD: yalnızca o gün önerilir
+    val youtube: String = "", // kanalda yayındaysa video adresi
+    val tags: String = "", // YouTube etiketleri (virgülle)
 ) {
+    val isYouTube get() = account == YT_ACCOUNT
+    val published get() = youtube.isNotBlank()
     val isVideo get() = media.firstOrNull()?.let { isVideoPath(it) } == true
     val isReel get() = type == "reel"
 }
@@ -75,6 +87,8 @@ object Repo {
                 cover = it.optString("cover", m.optString(0, "")),
                 media = (0 until m.length()).map { k -> m.getString(k) },
                 date = it.optString("date", ""),
+                youtube = it.optString("youtube", ""),
+                tags = it.optString("tags", ""),
             )
         }.sortedWith(compareBy({ it.account }, { it.type }, { it.order }))
         val accArr = o.optJSONArray("accounts")
@@ -126,8 +140,9 @@ object Repo {
         val f = localFile(c, path)
         if (f.exists() && f.length() > 0) return f
         val tmp = File(f.path + ".part")
-        val con = URL(BASE_URL + path).openConnection() as HttpURLConnection
+        val con = URL(if (path.startsWith("http")) path else BASE_URL + path).openConnection() as HttpURLConnection
         con.connectTimeout = 15000; con.readTimeout = 60000
+        con.instanceFollowRedirects = true
         try {
             if (con.responseCode != 200) throw RuntimeException("HTTP ${con.responseCode}")
             con.inputStream.use { inp -> tmp.outputStream().use { out -> inp.copyTo(out) } }
@@ -166,13 +181,15 @@ object Repo {
 
     // ---- durum ----
     fun isShared(c: Context, id: String) = prefs(c).getBoolean("shared_$id", false)
+    /** Paylaşıldı işaretli ya da (YouTube) kanalda yayında */
+    fun isDone(c: Context, it: Item) = it.published || isShared(c, it.id)
     fun setShared(c: Context, id: String, v: Boolean) = prefs(c).edit().putBoolean("shared_$id", v).apply()
 
     fun today(): String = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
 
     /** Bugüne tarihlenmiş içerik varsa onu, yoksa tarihsiz (veya tarihi geçmiş) sıradaki içeriği verir. */
     fun nextOf(c: Context, m: Manifest?, account: String, type: String): Item? {
-        val open = m?.items?.filter { it.account == account && it.type == type && !isShared(c, it.id) } ?: return null
+        val open = m?.items?.filter { it.account == account && it.type == type && !isDone(c, it) } ?: return null
         val t = today()
         open.firstOrNull { it.date == t }?.let { return it }
         return open.filter { it.date.isEmpty() || it.date < t }.minByOrNull { it.order }
@@ -180,7 +197,7 @@ object Repo {
 
     // Saatler: dakika cinsinden (gün başından), hesap + tür başına
     fun time(c: Context, account: String, type: String): Int =
-        prefs(c).getInt("time_${account}_$type", when (type) { "reel" -> 13 * 60; "story" -> 10 * 60; "phone" -> 18 * 60; else -> 20 * 60 })
+        prefs(c).getInt("time_${account}_$type", when (type) { "reel" -> 13 * 60; "story" -> 10 * 60; "phone" -> 18 * 60; "short", "video" -> 19 * 60; else -> 20 * 60 })
 
     fun setTime(c: Context, account: String, type: String, minutes: Int) =
         prefs(c).edit().putInt("time_${account}_$type", minutes).apply()
@@ -192,6 +209,7 @@ object Repo {
     fun account(c: Context): String? = prefs(c).getString("account", null)
     fun setAccount(c: Context, id: String) = prefs(c).edit().putString("account", id).apply()
     fun tab(c: Context): String = prefs(c).getString("tab", "reel") ?: "reel"
+    fun tabFor(c: Context, account: String): String = tab(c).let { t -> if (t in typesFor(account)) t else typesFor(account).first() }
     fun setTab(c: Context, t: String) = prefs(c).edit().putString("tab", t).apply()
     fun accountName(m: Manifest?, id: String) =
         (m?.accounts ?: DEFAULT_ACCOUNTS).firstOrNull { it.id == id }?.name ?: id

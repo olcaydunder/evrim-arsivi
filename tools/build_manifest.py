@@ -2,8 +2,11 @@
 """content/ klasörünü tarar ve content/manifest.json üretir.
 
 Yapı:  content/<hesap>/<tür>/<içerik>/meta.json  +  medya dosyaları
-  hesap: evrim | klinik | global | almanya | boyutla
+  hesap: evrim | klinik | global | almanya | boyutla | originals (Zootopia Originals YouTube kanalı)
   tür:   feed (kaydırmalı/tek görsel) | reel | story | phone (telefondan eklenen videolar)
+         originals için: short (YouTube Shorts) | video (uzun video)
+  YouTube alanları (meta.json, isteğe bağlı): "youtube" (yayındaysa adres), "tags",
+         "media_url" (büyük videolar için GitHub sürüm dosyası adresi; depoya video konmaz)
   feed:  01.jpg, 02.jpg ... (sırayla)        reel/story: video.mp4 (+ cover.jpg) ya da 01.jpg
   meta.json: {"title", "subtitle", "caption", "order", "date" (isteğe bağlı, YYYY-MM-DD)}
 """
@@ -17,8 +20,9 @@ ACCOUNTS = [
     {"id": "global", "name": "Zootopia Global"},
     {"id": "almanya", "name": "Zootopia Almanya"},
     {"id": "boyutla", "name": "Boyutla 3D"},
+    {"id": "originals", "name": "Zootopia Originals (YouTube)"},
 ]
-TYPES = ["reel", "feed", "story", "phone"]
+TYPES = ["reel", "feed", "story", "phone", "short", "video"]
 MEDIA = ('.jpg', '.jpeg', '.png', '.mp4', '.mov')
 
 
@@ -38,16 +42,21 @@ def main():
                 files = sorted(f for f in os.listdir(d) if f.lower().endswith(MEDIA) and f != 'cover.jpg')
                 videos = [f for f in files if f.lower().endswith(('.mp4', '.mov'))]
                 media = videos[:1] if videos else files
-                if not media:
-                    continue
                 rel = f"content/{a['id']}/{t}/{slug}/"
-                cover = rel + ('cover.jpg' if os.path.isfile(os.path.join(d, 'cover.jpg')) else media[0])
+                ext_media = [meta["media_url"]] if meta.get("media_url") else []
+                if not media and not ext_media and not meta.get("youtube"):
+                    continue
+                has_cover = os.path.isfile(os.path.join(d, 'cover.jpg'))
+                cover = rel + ('cover.jpg' if has_cover else (media[0] if media else ''))
                 it = {
                     "id": f"{a['id']}-{t}-{slug}", "account": a["id"], "type": t,
                     "order": meta.get("order", 999), "title": meta["title"],
                     "subtitle": meta.get("subtitle", ""), "caption": meta.get("caption", ""),
-                    "cover": cover, "media": [rel + f for f in media],
+                    "cover": cover, "media": ext_media or [rel + f for f in media],
                 }
+                for k in ("youtube", "tags"):
+                    if meta.get(k):
+                        it[k] = meta[k]
                 if meta.get("date"):
                     it["date"] = meta["date"]
                 items.append(it)
