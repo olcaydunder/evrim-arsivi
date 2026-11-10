@@ -60,7 +60,7 @@ class ItemActivity : Activity() {
         val tall = it.type != "feed" && !wide
         val w = Ui.dp(this, if (tall) 180 else if (wide) 300 else 220)
         val h = if (tall) w * 16 / 9 else if (wide) w * 9 / 16 else w * 5 / 4
-        val previews = if (it.isVideo) listOf(it.cover) else it.media
+        val previews = if (it.isVideo || it.media.isEmpty()) listOf(it.cover) else it.media
         for ((i, p) in previews.withIndex()) {
             val iv = ImageView(this).apply { scaleType = ImageView.ScaleType.CENTER_CROP; setBackgroundColor(Ui.PANEL) }
             val lp = LinearLayout.LayoutParams(w, h).apply { if (i > 0) leftMargin = Ui.dp(this@ItemActivity, 8) }
