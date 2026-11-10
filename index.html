@@ -219,6 +219,7 @@ function renderYT(it){
   <p class="status" id="st">${pub?'✓ Bu video kanalda yayında.':sh?'✓ Bu video yüklendi olarak işaretli.':''}</p>
   <div class="stack">
    ${pub?`<a href="${esc(it.youtube)}" target="_blank" rel="noopener"><button class="primary" style="width:100%">YouTube'da aç</button></a>`
+    :(!it.media.length&&it.pc_file)?`<p class="muted" style="margin:0">Bu uzun video büyük olduğu için bilgisayarda duruyor:<br><b>${esc(it.pc_file)}</b><br>Bilgisayarda YouTube Studio → Oluştur → Video yükle ile bu dosyayı seçin. Başlık, açıklama, etiket ve kapağı buradan kopyalayın.</p>`
     :long?`<a href="${esc(U(it.media[0]))}" download><button class="primary" style="width:100%">Videoyu indir</button></a>
       <p class="muted small" style="margin:0">Uzun video büyük bir dosyadır; Wi-Fi'de indirin. Sonra YouTube uygulamasında + → Video yükle ile seçin.</p>`
     :`<button class="primary" id="share" disabled>Hazırlanıyor…</button>

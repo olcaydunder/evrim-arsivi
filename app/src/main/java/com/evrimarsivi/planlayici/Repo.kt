@@ -48,6 +48,7 @@ data class Item(
     val date: String = "", // YYYY-MM-DD: yalnızca o gün önerilir
     val youtube: String = "", // kanalda yayındaysa video adresi
     val tags: String = "", // YouTube etiketleri (virgülle)
+    val pcFile: String = "", // video yalnızca bilgisayarda (büyük dosya)
 ) {
     val isYouTube get() = account == YT_ACCOUNT
     val published get() = youtube.isNotBlank()
@@ -90,6 +91,7 @@ object Repo {
                 date = it.optString("date", ""),
                 youtube = it.optString("youtube", ""),
                 tags = it.optString("tags", ""),
+                pcFile = it.optString("pc_file", ""),
             )
         }.sortedWith(compareBy({ it.account }, { it.type }, { it.order }))
         val accArr = o.optJSONArray("accounts")

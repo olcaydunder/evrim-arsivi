@@ -118,6 +118,8 @@ class ItemActivity : Activity() {
                     type = "text/plain"; putExtra(Intent.EXTRA_TEXT, "${it.title}\n${it.youtube}")
                 }, "Bağlantıyı paylaş"))
             }, Ui.lp(this, 10))
+        } else if (it.media.isEmpty() && it.pcFile.isNotBlank()) {
+            root.addView(Ui.text(this, "Bu uzun video büyük olduğu için bilgisayarda duruyor:\n${it.pcFile}\n\nBilgisayarda YouTube Studio'yu açıp \"Oluştur → Video yükle\" ile bu dosyayı seçin. Başlık, açıklama, etiket ve kapak buradan kopyalanabilir.", 14f, Ui.FG), Ui.lp(this, 10))
         } else {
             root.addView(Ui.button(this, "YouTube'a yükle") { share(it, YOUTUBE) }, Ui.lp(this, 10))
             val big = if (it.type == "video") " Uzun video büyük bir dosya; Wi-Fi'de yükleyin." else ""

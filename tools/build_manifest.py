@@ -44,7 +44,7 @@ def main():
                 media = videos[:1] if videos else files
                 rel = f"content/{a['id']}/{t}/{slug}/"
                 ext_media = [meta["media_url"]] if meta.get("media_url") else []
-                if not media and not ext_media and not meta.get("youtube"):
+                if not media and not ext_media and not meta.get("youtube") and not meta.get("pc_file"):
                     continue
                 has_cover = os.path.isfile(os.path.join(d, 'cover.jpg'))
                 cover = rel + ('cover.jpg' if has_cover else (media[0] if media else ''))
@@ -54,7 +54,7 @@ def main():
                     "subtitle": meta.get("subtitle", ""), "caption": meta.get("caption", ""),
                     "cover": cover, "media": ext_media or [rel + f for f in media],
                 }
-                for k in ("youtube", "tags"):
+                for k in ("youtube", "tags", "pc_file"):
                     if meta.get(k):
                         it[k] = meta[k]
                 if meta.get("date"):
