@@ -57,8 +57,8 @@ textarea.in{min-height:96px;resize:vertical}
 const ACCOUNTS_DEFAULT=[{id:'evrim',name:'Evrim Arşivi'},{id:'klinik',name:'Zootopia Veteriner Kliniği'},{id:'global',name:'Zootopia Global'},{id:'almanya',name:'Zootopia Almanya'},{id:'boyutla',name:'Boyutla 3D'},{id:'originals',name:'Zootopia Originals (YouTube)'}];
 const TYPES=['reel','feed','story','phone'];
 const YT='originals', YT_TYPES=['short','video'];
-const typesFor=acc=>acc===YT?YT_TYPES:TYPES;
-const TNAME={reel:'Reels',feed:'Gönderi',story:'Hikâye',phone:'Telefon',short:'Shorts',video:'Videolar'};
+const typesFor=acc=>acc===YT?YT_TYPES:acc==='boyutla'?[...TYPES,'fikir']:TYPES;
+const TNAME={reel:'Reels',feed:'Gönderi',story:'Hikâye',phone:'Telefon',short:'Shorts',video:'Videolar',fikir:'Fikirler'};
 const DEF_TIME={reel:'13:00',feed:'20:00',story:'10:00',phone:'18:00',short:'19:00',video:'19:00'};
 // İçerikler doğrudan depodan okunur (GitHub Pages yalnızca bu sayfayı barındırır)
 const RAW='https://raw.githubusercontent.com/olcaydunder/evrim-arsivi/main/';
@@ -91,6 +91,7 @@ function render(){
   window.scrollTo(0,0);
   if(view.name==='item') return renderItem();
   if(view.name==='upload') return renderUpload();
+  if(view.name==='idea') return renderIdea();
   const acc=ls('account',null);
   if(!acc||view.name==='picker') return renderPicker(!acc);
   renderHome(acc);
@@ -114,6 +115,7 @@ function installHint(){
 function renderHome(acc){
   const types=typesFor(acc), yt=acc===YT;
   let tab=ls('tab','reel'); if(!types.includes(tab)) tab=types[0];
+  if(tab==='fikir') return renderIdeas(acc,types);
   const all=items(acc,tab), waiting=all.filter(i=>!isDone(i)), shared=all.filter(i=>isDone(i));
   const nx=nextOf(acc,tab);
   const time=ls(`time_${acc}_${tab}`,DEF_TIME[tab]);
@@ -139,6 +141,61 @@ function renderHome(acc){
   if($('#cal')) $('#cal').onclick=()=>calendar(acc,tab,waiting,$('#tm').value);
   $('#rf').onclick=load;
   if($('#up')) $('#up').onclick=()=>{view={name:'upload'};render()};
+}
+
+// ── Boyutla 3D · Fikir listesi (content/boyutla/fikirler.json) ──
+let F=ls('fikirler',null), fQ='', fCat='';
+const ideaDone=id=>!!ls('idea_'+id,false);
+async function loadIdeas(){
+  try{const r=await fetch(RAW+'content/boyutla/fikirler.json?t='+Math.floor(Date.now()/3600000),{cache:'no-store'});if(!r.ok)throw 0;F=await r.json();lsSet('fikirler',F)}catch(e){}
+  if(view.name==='home'||view.name==='idea') render();
+}
+function renderIdeas(acc,types){
+  if(!F){loadIdeas()}
+  const all=F?F.fikirler:[], cats=F?F.kategoriler:[];
+  const q=fQ.toLocaleLowerCase('tr');
+  const list=all.filter(i=>(!fCat||i.kategori===fCat)&&(!q||(i.baslik+' '+i.hook+' '+i.arama).toLocaleLowerCase('tr').includes(q)));
+  const open=list.filter(i=>!ideaDone(i.id)), done=list.filter(i=>ideaDone(i.id));
+  app.innerHTML=`<div class="row"><div class="grow"><h1>${esc(accName(acc))}</h1><div class="muted small">Paylaşım planlayıcı</div></div><button id="sw">Hesap değiştir</button></div>
+  <div class="tabs" style="grid-template-columns:repeat(${types.length},1fr)">${types.map(t=>{const n=t==='fikir'?0:items(acc,t).filter(i=>!isDone(i)).length;return `<button data-tab="${t}" class="${t==='fikir'?'on':''}">${TNAME[t]}${n?' ('+n+')':''}</button>`}).join('')}</div>
+  <div class="card" style="margin-top:12px"><b>Ürün fikirleri · ${all.length}</b>
+   <p class="muted small" style="margin:4px 0 10px">Bir fikri seç → MakerWorld'de modeli bul, bas, fotoğrafını çek → açıklamayı kopyala. Fotoğraf her zaman kendi baskın olsun; modelin lisansını (NC = satış yok) kontrol et.</p>
+   <input id="fq" type="search" placeholder="Ara: kedi, mutfak, anahtarlık…" value="${esc(fQ)}" style="width:100%;box-sizing:border-box;font:inherit;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg)">
+   <div class="accs" style="margin-top:10px"><button data-cat="" class="${fCat?'':'on'}">Hepsi</button>${cats.map(c=>`<button data-cat="${esc(c)}" class="${c===fCat?'on':''}">${esc(c)}</button>`).join('')}</div>
+  </div>
+  <h2>Sırada (${open.length})</h2>
+  <div class="stack">${open.length?open.map(ideaRow).join(''):`<p class="muted">${F?'Bu filtrede fikir yok.':'Fikir listesi yükleniyor…'}</p>`}</div>
+  ${done.length?`<h2>Yapıldı (${done.length})</h2><div class="stack">${done.map(ideaRow).join('')}</div>`:''}
+  ${installHint()}`;
+  $('#sw').onclick=()=>{view={name:'picker'};render()};
+  app.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{lsSet('tab',b.dataset.tab);showShared=false;render()});
+  app.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{fCat=b.dataset.cat;render()});
+  app.querySelectorAll('[data-idea]').forEach(b=>b.onclick=()=>{view={name:'idea',id:b.dataset.idea};render()});
+  const inp=$('#fq');inp.oninput=()=>{fQ=inp.value;const pos=inp.selectionStart;render();const n=$('#fq');n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}};
+}
+function ideaRow(i){
+  const d=ideaDone(i.id);
+  return `<button class="item" data-idea="${i.id}"><span class="grow"><b>${esc(i.baslik)}</b><br><span class="muted small">${esc(i.kategori)} · ${esc(i.malzeme)}</span><br><span class="${d?'done':'wait'}">${d?'✓ Yapıldı':esc(i.hook)}</span></span></button>`;
+}
+function renderIdea(){
+  const i=F&&F.fikirler.find(x=>x.id===view.id);
+  if(!i){view={name:'home'};return render()}
+  const d=ideaDone(i.id);
+  app.innerHTML=`<button class="back" id="bk">‹ Geri</button>
+  <p class="wait" style="margin:14px 0 2px;font-weight:600">BOYUTLA 3D · FİKİR ${esc(i.id.slice(1))} · ${esc(i.kategori.toUpperCase())}</p>
+  <h1>${esc(i.baslik)}</h1><div class="muted">${esc(i.hook)}</div>
+  <div class="card" style="margin-top:12px"><b>Öne çıkanlar</b><ul style="margin:6px 0 0;padding-left:18px">${i.maddeler.map(m=>`<li>${esc(m)}</li>`).join('')}</ul>
+   <p class="muted small" style="margin:10px 0 0">🎯 ${esc(i.kime)} · 🧵 ${esc(i.malzeme)}</p></div>
+  <div class="stack" style="margin-top:12px">
+   <a class="primary" href="${esc(i.makerworld)}" target="_blank" rel="noopener" style="display:block;text-align:center;font-weight:600;border-radius:22px;padding:10px 16px;background:var(--gold);color:var(--bg);text-decoration:none">MakerWorld'de ara: “${esc(i.arama)}”</a>
+   <button id="cp">Açıklamayı kopyala</button>
+   <button id="mk">${d?'Yapılmadı olarak geri al':'Yapıldı olarak işaretle'}</button>
+  </div>
+  <h2>Hazır açıklama</h2><div class="card"><pre id="cap">${esc(i.aciklama)}</pre></div>
+  <p class="muted small">“[tasarımcı adı]” kısmını MakerWorld'deki tasarımcıyla değiştir.</p>`;
+  $('#bk').onclick=()=>{view={name:'home'};render()};
+  $('#cp').onclick=()=>copy(i.aciklama);
+  $('#mk').onclick=()=>{lsSet('idea_'+i.id,!d);view={name:'home'};render()};
 }
 
 function rowHtml(i){
