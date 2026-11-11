@@ -1866,6 +1866,19 @@
    ]
   },
   {
+   "id": "klinik-reel-originals-85",
+   "account": "klinik",
+   "type": "reel",
+   "order": 85,
+   "title": "ZOOTOPIA ORIGINALS · Bölüm 85",
+   "subtitle": "Kediler Neden Eşya Düşürür?",
+   "caption": "ZOOTOPIA ORIGINALS · Bölüm 85: Kediler Neden Eşya Düşürür?\n\nKediniz neden masadaki eşyaları düşürüyor? 🖊️\n\nBu davranışın birkaç olası açıklaması var: merak, av içgüdüsü ve ilgi çekme isteği. Kediler yeni nesneleri patileriyle keşfeder; düşürdükleri şey yanlarına koşmanızı sağlıyorsa bunu tekrar deneyebilirler.\n\nBazen de sadece sıkılmışlardır. Günlük oyun saatleri, tırmanma alanları ve zeka oyuncakları enerjilerini güvenli bir yöne aktarır. Kırılabilecek ve yutulabilecek eşyaları kenarlardan uzak tutun.\n\nBu davranış birden çok arttıysa ya da huzursuzlukla birlikte görülüyorsa veteriner hekiminize danışın.\n\n📍 Zootopia Veteriner Kliniği · Çekmeköy\nℹ️ Bu video genel bilgilendirme amaçlıdır; tanı ve tedavi yerine geçmez. Görüntüler yapay zekâ ile üretilmiş temsili canlandırmalardır.\n\n#kedi #kedidavranışı #veteriner #çekmeköyveteriner #zootopiaoriginals",
+   "cover": "content/klinik/reel/originals-85/cover.jpg",
+   "media": [
+    "content/klinik/reel/originals-85/video.mp4"
+   ]
+  },
+  {
    "id": "klinik-phone-v20261106-012514-01",
    "account": "klinik",
    "type": "phone",
