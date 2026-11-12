@@ -917,6 +917,19 @@
    ]
   },
   {
+   "id": "klinik-reel-originals-101",
+   "account": "klinik",
+   "type": "reel",
+   "order": 101,
+   "title": "ZOOTOPIA ORIGINALS · Bölüm 101",
+   "subtitle": "Kedilerde Ağız ve Diş Sağlığı",
+   "caption": "ZOOTOPIA ORIGINALS · Bölüm 101: Kedilerde Ağız ve Diş Sağlığı\n\nKediler ağızlarındaki rahatsızlığı çoğu zaman belli etmez 🦷\n\nDiş yüzeyinde biriken tabaka zamanla diş taşına dönüşebilir ve diş etlerini tahriş edebilir. Belirgin ağız kokusu, tek taraflı çiğneme, mamayı ağızdan düşürme ya da sert mamayı bırakma dikkat edilmesi gereken işaretlerdir.\n\nKedilere özel diş macunu ve parmak fırçasıyla, kısa ve sabırlı seanslarla fırçalamaya alıştırmak mümkündür. İnsan diş macunu kediler için uygun değildir.\n\nAğız kokusu, salya artışı ya da yemek yerken zorlanma fark ederseniz veteriner hekiminize danışın.\n\n📍 Zootopia Veteriner Kliniği · Çekmeköy\nℹ️ Bu video genel bilgilendirme amaçlıdır; tanı ve tedavi yerine geçmez. Görüntüler yapay zekâ ile üretilmiş temsili canlandırmalardır.\n\n#kedidişsağlığı #kedibakımı #veteriner #çekmeköyveteriner #zootopiaoriginals",
+   "cover": "content/klinik/reel/originals-101/cover.jpg",
+   "media": [
+    "content/klinik/reel/originals-101/video.mp4"
+   ]
+  },
+  {
    "id": "klinik-reel-originals-11",
    "account": "klinik",
    "type": "reel",
