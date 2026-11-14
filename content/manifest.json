@@ -1229,6 +1229,19 @@
    ]
   },
   {
+   "id": "klinik-reel-originals-123",
+   "account": "klinik",
+   "type": "reel",
+   "order": 123,
+   "title": "ZOOTOPIA ORIGINALS · Bölüm 123",
+   "subtitle": "Köpekler ve Çocuklar Güvenli Arkadaşlık",
+   "caption": "ZOOTOPIA ORIGINALS · Bölüm 123: Köpekler ve Çocuklar Güvenli Arkadaşlık\n\nÇocuk ve köpek: dünyanın en güzel arkadaşlıklarından biri 🐕👧\n\nGüvenli bir arkadaşlık için çocuklar köpeğe sakin, koşmadan, bağırmadan ve izin isteyerek yaklaşmayı öğrenmeli. Omuz ve göğüs okşamak için daha uygundur; kuyruk-kulak çekmek ve sarılmak rahatsız edebilir. Yemek yerken, uyurken ya da yatağındayken köpeği rahat bırakın.\n\nRahatsızlık işaretlerini (yüz çevirme, dudak yalama, uzaklaşma) çocuklara da öğretin. Köpeğin sakin bir alanı olsun; küçük çocuklar ve köpekler her zaman bir yetişkin gözetiminde bir arada olmalı.\n\nKöpeğinizin davranışında ani değişiklik olursa veteriner hekiminize danışın.\n\n📍 Zootopia Veteriner Kliniği · Çekmeköy\nℹ️ Bu video genel bilgilendirme amaçlıdır; tanı ve tedavi yerine geçmez. Görüntüler yapay zekâ ile üretilmiş temsili canlandırmalardır.\n\n#köpekveçocuk #köpekdavranışı #güvenlik #veteriner #zootopiaoriginals",
+   "cover": "content/klinik/reel/originals-123/cover.jpg",
+   "media": [
+    "content/klinik/reel/originals-123/video.mp4"
+   ]
+  },
+  {
    "id": "klinik-reel-originals-13",
    "account": "klinik",
    "type": "reel",
