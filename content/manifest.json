@@ -3465,6 +3465,19 @@
    ]
   },
   {
+   "id": "almanya-reel-derma-film",
+   "account": "almanya",
+   "type": "reel",
+   "order": 22,
+   "title": "🎬 Zootopia Derma Potion – Film",
+   "subtitle": "Manche Schönheit sieht man auf den ersten Blick.",
+   "caption": "Manche Schönheit sieht man auf den ersten Blick. 🐾\n\nZootopia Derma Potion ist ein flüssiges Ergänzungsfuttermittel für Hunde und Katzen.\n\n🌿 Mit hydrolysiertem Kollagen, Hyaluronsäure, Biotin und Zink\n✔️ Zur Unterstützung von Haut und Fell – Tag für Tag\n🥣 Mit der Dosierspritze abmessen und direkt über das Futter geben\n\nErgänzungsfuttermittel – kein Arzneimittel. Bitte die Fütterungsempfehlung auf der Verpackung beachten. Bei gesundheitlichen Fragen wende dich an deine Tierärztin oder deinen Tierarzt.\n\nTieraufnahmen: Symbolbilder, KI-generiert.\n\nZootopia. Für ein starkes Tierleben.\n\n#Zootopia #ZootopiaDeutschland #Ergänzungsfuttermittel #Hund #Katze #Haustier #Tierliebe #HautUndFell",
+   "cover": "content/almanya/reel/derma-film/cover.jpg",
+   "media": [
+    "content/almanya/reel/derma-film/video.mp4"
+   ]
+  },
+  {
    "id": "almanya-reel-derma-potion",
    "account": "almanya",
    "type": "reel",
