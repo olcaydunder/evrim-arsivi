@@ -3491,6 +3491,19 @@
    ]
   },
   {
+   "id": "almanya-reel-digestro-film",
+   "account": "almanya",
+   "type": "reel",
+   "order": 25,
+   "title": "🎬 Zootopia Digestro Potion – Film",
+   "subtitle": "Dieser Blick, wenn der Napf kommt.",
+   "caption": "Dieser Blick, wenn der Napf kommt. 🐾\n\nZootopia Digestro Potion ist ein flüssiges Ergänzungsfuttermittel für Hunde und Katzen.\n\n🌿 Mit Berberitze, Heidelbeere, Aloe vera und Salbeiöl\n✔️ Zur Unterstützung einer normalen Verdauung\n🥣 Mit der Dosierspritze abmessen und direkt über das Futter geben\n\nErgänzungsfuttermittel – kein Arzneimittel. Bitte die Fütterungsempfehlung auf der Verpackung beachten. Bei gesundheitlichen Fragen wende dich an deine Tierärztin oder deinen Tierarzt.\n\nTieraufnahmen: Symbolbilder, KI-generiert.\n\nZootopia. Für ein starkes Tierleben.\n\n#Zootopia #ZootopiaDeutschland #Ergänzungsfuttermittel #Hund #Katze #Haustier #Tierliebe #Verdauung",
+   "cover": "content/almanya/reel/digestro-film/cover.jpg",
+   "media": [
+    "content/almanya/reel/digestro-film/video.mp4"
+   ]
+  },
+  {
    "id": "almanya-reel-digestro-potion",
    "account": "almanya",
    "type": "reel",
@@ -3501,6 +3514,19 @@
    "cover": "content/almanya/reel/digestro-potion/cover.jpg",
    "media": [
     "content/almanya/reel/digestro-potion/video.mp4"
+   ]
+  },
+  {
+   "id": "almanya-reel-hepabile-film",
+   "account": "almanya",
+   "type": "reel",
+   "order": 24,
+   "title": "🎬 Zootopia Hepabile Potion – Film",
+   "subtitle": "Ein langer Weg, den man gemeinsam geht.",
+   "caption": "Ein langer Weg, den man gemeinsam geht. 🐾\n\nZootopia Hepabile Potion ist ein flüssiges Ergänzungsfuttermittel für Hunde und Katzen.\n\n🌿 Mit Cholinchlorid, Mariendistel, Erdrauch und Löwenzahn\n✔️ Zur Unterstützung der normalen Leberfunktion\n🥣 Mit der Dosierspritze abmessen und direkt über das Futter geben\n\nErgänzungsfuttermittel – kein Arzneimittel. Bitte die Fütterungsempfehlung auf der Verpackung beachten. Bei gesundheitlichen Fragen wende dich an deine Tierärztin oder deinen Tierarzt.\n\nTieraufnahmen: Symbolbilder, KI-generiert.\n\nZootopia. Für ein starkes Tierleben.\n\n#Zootopia #ZootopiaDeutschland #Ergänzungsfuttermittel #Hund #Katze #Haustier #Tierliebe #Wohlbefinden",
+   "cover": "content/almanya/reel/hepabile-film/cover.jpg",
+   "media": [
+    "content/almanya/reel/hepabile-film/video.mp4"
    ]
   },
   {
