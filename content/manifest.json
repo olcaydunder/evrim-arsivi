@@ -3608,6 +3608,19 @@
    ]
   },
   {
+   "id": "almanya-reel-pulmonary-film",
+   "account": "almanya",
+   "type": "reel",
+   "order": 26,
+   "title": "🎬 Zootopia Pulmonary Potion – Film",
+   "subtitle": "Klare Luft. Weite Wege. Tief durchatmen.",
+   "caption": "Klare Luft. Weite Wege. Tief durchatmen. 🐾\n\nZootopia Pulmonary Potion ist ein flüssiges Ergänzungsfuttermittel für Hunde und Katzen.\n\n🌿 Mit Vitamin C, Pfefferminzöl und Eukalyptusöl\n✔️ Zur Unterstützung der normalen Funktion der Atemwege\n🥣 Mit der Dosierspritze abmessen und direkt über das Futter geben\n\nErgänzungsfuttermittel – kein Arzneimittel. Bitte die Fütterungsempfehlung auf der Verpackung beachten. Bei gesundheitlichen Fragen wende dich an deine Tierärztin oder deinen Tierarzt.\n\nTieraufnahmen: Symbolbilder, KI-generiert.\n\nZootopia. Für ein starkes Tierleben.\n\n#Zootopia #ZootopiaDeutschland #Ergänzungsfuttermittel #Hund #Katze #Haustier #Tierliebe #Hundeleben",
+   "cover": "content/almanya/reel/pulmonary-film/cover.jpg",
+   "media": [
+    "content/almanya/reel/pulmonary-film/video.mp4"
+   ]
+  },
+  {
    "id": "almanya-reel-pulmonary-potion",
    "account": "almanya",
    "type": "reel",
@@ -3618,6 +3631,19 @@
    "cover": "content/almanya/reel/pulmonary-potion/cover.jpg",
    "media": [
     "content/almanya/reel/pulmonary-potion/video.mp4"
+   ]
+  },
+  {
+   "id": "almanya-reel-urinary-film",
+   "account": "almanya",
+   "type": "reel",
+   "order": 23,
+   "title": "🎬 Zootopia Urinary Potion – Film",
+   "subtitle": "Frisches Wasser. Ein ruhiger Platz. Kleine Dinge, die zählen.",
+   "caption": "Frisches Wasser. Ein ruhiger Platz. Kleine Dinge, die zählen. 🐾\n\nZootopia Urinary Potion ist ein flüssiges Ergänzungsfuttermittel für Hunde und Katzen.\n\n🌿 Mit Cranberry, Heidelbeere, Schneeball und Methionin\n✔️ Zur Unterstützung der normalen Funktion der Harnwege\n🥣 Mit der Dosierspritze abmessen und direkt über das Futter geben\n\nErgänzungsfuttermittel – kein Arzneimittel. Bitte die Fütterungsempfehlung auf der Verpackung beachten. Bei gesundheitlichen Fragen wende dich an deine Tierärztin oder deinen Tierarzt.\n\nTieraufnahmen: Symbolbilder, KI-generiert.\n\nZootopia. Für ein starkes Tierleben.\n\n#Zootopia #ZootopiaDeutschland #Ergänzungsfuttermittel #Hund #Katze #Haustier #Tierliebe #Katzenliebe",
+   "cover": "content/almanya/reel/urinary-film/cover.jpg",
+   "media": [
+    "content/almanya/reel/urinary-film/video.mp4"
    ]
   },
   {
