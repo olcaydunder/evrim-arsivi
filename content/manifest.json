@@ -82,6 +82,19 @@
    ]
   },
   {
+   "id": "evrim-reel-gb-ucus",
+   "account": "evrim",
+   "type": "reel",
+   "order": 21,
+   "title": "GEÇMİŞTEN BUGÜNE: UÇUŞ",
+   "subtitle": "1632 → 2021",
+   "caption": "Kanat takıp kuleden atlayan bir adamdan Mars’ta uçan helikoptere. 🪽→🚁\n\n⏳ GEÇMİŞTEN BUGÜNE: UÇUŞ\n\n▫️ 1632 — Evliya Çelebi’ye göre Galata Kulesi’nden kanatlarıyla süzüldü.\n▫️ 1783 — Paris’te iki kişi balonla havalandı: ilk insanlı serbest uçuş.\n▫️ 1903 — Wright kardeşler: 12 saniye, 37 metre. Gerisi tarih.\n▫️ 1927 — New York’tan Paris’e tek başına, hiç durmadan: 33,5 saat.\n▫️ 1952 — İlk jet yolcu uçağı tarifeli seferlere başladı.\n▫️ 1969 — Dev gövdeli uçak ilk kez havalandı. Uçmak ucuzlamaya başladı.\n▫️ 1976 — Concorde yolcu taşımaya başladı: sesin iki katı hız.\n▫️ 2021 — Başka bir gezegende ilk motorlu uçuş: küçük bir helikopter.\n\nSizce 100 yıl sonra nasıl uçacağız? 👇\n\nSahneler yapay zekâ ile canlandırılmıştır; arşiv görüntüsü değildir.\n\n#uçuş #havacılık #geçmiştenbugüne #bilgi #evrimarşivi",
+   "cover": "content/evrim/reel/gb-ucus/cover.jpg",
+   "media": [
+    "content/evrim/reel/gb-ucus/video.mp4"
+   ]
+  },
+  {
    "id": "evrim-reel-kaplumbaga",
    "account": "evrim",
    "type": "reel",
