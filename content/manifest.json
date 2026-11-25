@@ -82,6 +82,19 @@
    ]
   },
   {
+   "id": "evrim-reel-gb-muzik",
+   "account": "evrim",
+   "type": "reel",
+   "order": 24,
+   "title": "GEÇMİŞTEN BUGÜNE: MÜZİK",
+   "subtitle": "1877 → Bugün",
+   "caption": "Kalay folyoya kazınan ilk sesten cebimizdeki 100 milyon şarkıya. 🎶\n\n⏳ GEÇMİŞTEN BUGÜNE: MÜZİK\n\n▫️ 1877 · Fonograf — Ses ilk kez kaydedildi ve geri dinlendi.\n▫️ 1920 · Radyo — Düzenli yayınlar başladı; müzik havadan eve geldi.\n▫️ 1948 · Uzunçalar — Tek plak yüzünde 20 dakikadan uzun müzik.\n▫️ 1963 · Kaset — Küçük, taşınabilir, üstelik kayıt da yapıyor.\n▫️ 1979 · Walkman — Müzik sokağa çıktı: kulaklığı tak, yürü.\n▫️ 1982 · CD — Dijital ses: cızırtı yok, başa sarmak yok.\n▫️ 2001 · Cepte 1000 Şarkı — MP3 çalarlar bütün arşivi cebe sığdırdı.\n▫️ BUGÜN · Akış — 100 milyondan fazla şarkı tek uygulamada.\n\nİlk aldığınız kaset ya da CD neydi? 👇\n\nSahneler yapay zekâ ile canlandırılmıştır; arşiv görüntüsü değildir.\n\n#müzik #müziktarihi #geçmiştenbugüne #nostalji #evrimarşivi",
+   "cover": "content/evrim/reel/gb-muzik/cover.jpg",
+   "media": [
+    "content/evrim/reel/gb-muzik/video.mp4"
+   ]
+  },
+  {
    "id": "evrim-reel-gb-para",
    "account": "evrim",
    "type": "reel",
